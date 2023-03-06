@@ -4,7 +4,6 @@ import { MainLayoutModule } from './main-layout/main-layout.module';
 
 const routes: Routes = [
   { path: '', loadChildren: () => MainLayoutModule },
-  { path: 'mainLayout', loadChildren: () => MainLayoutModule },
 ];
 
 @NgModule({
