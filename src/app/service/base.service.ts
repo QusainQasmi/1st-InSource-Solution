@@ -7,6 +7,7 @@ import { catchError, map, Observable, of } from 'rxjs';
 export abstract class BaseService<T extends any> {
 
   private http!: HttpClient;
+  url = '/api/';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -19,8 +20,6 @@ export abstract class BaseService<T extends any> {
   constructor(@Inject(String) public controller: string, inject: Injector) {
     this.http = inject.get(HttpClient);
   }
-
-  url = '/api/'
 
   async Get(methodName: any, params?: any) {
     if (params) {
