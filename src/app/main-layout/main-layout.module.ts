@@ -5,6 +5,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { MainLayoutRoutingModule } from './main-layout-routing.module';
+import { MatModule } from '../material/mat.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MainLayoutRoutingModule } from './main-layout-routing.module';
   ],
   imports: [
     MainLayoutRoutingModule,
-    CommonModule
+    CommonModule,
+    MatModule
   ],
   providers: [],
   bootstrap: []
