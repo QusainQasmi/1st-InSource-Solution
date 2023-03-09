@@ -7,6 +7,7 @@ import { MainLayoutModule } from './main-layout/main-layout.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BasicModule } from './basicComponents/basic.module';
 import { MatModule } from './material/mat.module';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MatModule } from './material/mat.module';
     MatModule,
     MainLayoutModule,
     AppRoutingModule,
+    HttpClientModule,
     BasicModule,
     BrowserAnimationsModule
   ],
