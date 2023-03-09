@@ -1,0 +1,32 @@
+.signupimg{
+    background: url(imgs/sign-up.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.backImgColor{
+    background: rgb( 0 0 0 / 78%);
+}
+
+.font-bold{
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.signUpBtn{
+    color: white !important;
+    background-color: black !important;
+}
+
+.box{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    background-color: white;
+}
