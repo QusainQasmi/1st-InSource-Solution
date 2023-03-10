@@ -1,3 +1,5 @@
+::ng-deep app-sign-up{
+
 .signupimg{
     background: url(imgs/sign-up.jpg);
     background-size: cover;
@@ -10,6 +12,10 @@
 .font-bold{
     font-weight: 600;
     letter-spacing: 2px;
+}
+
+.w-80{
+    width: 80% !important;
 }
 
 .signUpBtn{
@@ -29,4 +35,6 @@
     justify-content: center;
     width: auto;
     background-color: white;
+}
+
 }

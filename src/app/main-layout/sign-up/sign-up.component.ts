@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
@@ -16,8 +17,9 @@ export class SignUpComponent implements OnInit {
   passwordValidator = new FormControl('', [Validators.required]);
   userValidator = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
+  isMobile: boolean = false;
 
-  constructor(public service: SignUpService) {}
+  constructor(public service: SignUpService , private responsive: BreakpointObserver) {}
 
   showPass(){
     this.isShow = true;
@@ -28,7 +30,13 @@ export class SignUpComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.responsive.observe(Breakpoints.HandsetPortrait)
+      .subscribe(result => {
+        this.isMobile = false; 
+        if (result.matches) {
+          this.isMobile = true;
+        }     
+    });
   }
 
   async signUp(){
