@@ -10,7 +10,7 @@
                         placeholder="John Wilson" [(ngModel)]="model.adminNameVal">
                     <mat-error *ngIf="adminValid.hasError('email') && !adminValid.hasError('required')">
                         Please Enter Correct  Name
-                    </mat-error>
+                    </mat-error> 
                     <mat-error *ngIf="adminValid.hasError('required')">
                         Admin Name Is <strong>Required</strong>
                     </mat-error>
