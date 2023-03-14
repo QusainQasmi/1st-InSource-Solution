@@ -22,7 +22,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -33,6 +33,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatAutocompleteModule,
     MatTabsModule,
     MatFormFieldModule,
+    MatProgressSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
@@ -57,6 +58,7 @@ import { MatNativeDateModule } from '@angular/material/core';
   exports: [
     MatInputModule,
     BrowserModule,
+    MatProgressSpinnerModule,
     MatAutocompleteModule,
     MatTabsModule,
     MatFormFieldModule,

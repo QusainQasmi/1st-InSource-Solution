@@ -23,7 +23,7 @@ const routes: Routes = [
   imports: [
     // BrowserModule,
     CommonModule,
-    // MatModule,
+    MatModule,
     RouterModule.forChild(routes),
   ],
 
