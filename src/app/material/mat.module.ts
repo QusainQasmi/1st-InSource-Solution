@@ -29,7 +29,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   ],
 
   imports: [
-    BrowserModule,
+    // BrowserModule,
     MatAutocompleteModule,
     MatTabsModule,
     MatFormFieldModule,
@@ -56,8 +56,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   ],
 
   exports: [
+    // BrowserModule,
     MatInputModule,
-    BrowserModule,
     MatProgressSpinnerModule,
     MatAutocompleteModule,
     MatTabsModule,
