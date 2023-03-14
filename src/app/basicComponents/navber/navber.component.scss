@@ -3,3 +3,27 @@
         font-size: 11px;
     }
 }
+.navbar-dark .nav-item .nav-link {
+    color: #fff;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  ::ng-deep{
+    .matField{
+        .mat-mdc-text-field-wrapper.mdc-text-field.ng-tns-c83-0.mdc-text-field--outlined{
+            height: 47px;
+        }
+        .mat-form-field.mat-mdc-form-field.example-full-width.ng-tns-c83-0.mat-mdc-form-field-type-mat-input.mat-form-field-appearance-outline.mat-primary.ng-star-inserted.mat-form-field-hide-placeholder{
+            height: 50px;
+        }
+    }
+  }
