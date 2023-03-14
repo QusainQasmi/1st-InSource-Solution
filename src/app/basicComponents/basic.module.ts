@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatModule } from '../material/mat.module';
 import { NavberComponent } from './navber/navber.component';
 import { FooterComponent } from './footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -12,16 +13,15 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent,
   ],
   imports: [
-    BrowserModule,
+    // BrowserModule,
     CommonModule,
-    BrowserAnimationsModule,
-    MatModule
+    // BrowserAnimationsModule,
+    MatModule,
+    RouterModule
   ],
   exports: [
     NavberComponent,
     FooterComponent,
   ],
-  providers: [],
-  bootstrap: []
 })
 export class BasicModule { }

@@ -4,9 +4,12 @@ import { CommonModule } from '@angular/common';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
-import { MainLayoutRoutingModule } from './main-layout-routing.module';
+
 import { MatModule } from '../material/mat.module';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { BasicModule } from '../basicComponents/basic.module';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,9 +19,14 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     AdminLoginComponent
   ],
   imports: [
-    MainLayoutRoutingModule,
+    BasicModule,
     CommonModule,
-    MatModule
+    MatModule,
+    FormsModule,
+    RouterModule
+  ],
+  exports: [
+    RouterModule
   ],
   providers: [],
   bootstrap: []

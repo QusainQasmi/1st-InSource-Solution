@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'navber',
+  selector: 'app-navber',
   templateUrl: './navber.component.html',
   styleUrls: ['./navber.component.scss']
 })
 export class NavberComponent {
+
+  url = 'navbarImgs/demoLogo.jpeg';
 
 }
