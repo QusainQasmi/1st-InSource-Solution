@@ -23,6 +23,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatTabsModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
+    MatMenuModule,
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
@@ -52,13 +55,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatTableModule,
     MatPaginatorModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatBadgeModule
   ],
 
   exports: [
     // BrowserModule,
     MatInputModule,
     MatProgressSpinnerModule,
+    MatMenuModule,
     MatAutocompleteModule,
     MatTabsModule,
     MatFormFieldModule,
@@ -81,6 +86,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatPaginatorModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatBadgeModule,
     MatError
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

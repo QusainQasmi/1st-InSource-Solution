@@ -8,6 +8,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'main' , pathMatch: 'full' },
   { path: 'main', component: MainPageComponent },
   { path: 'aboutUs', component: AboutUsComponent },
   { path: 'products', component: ProductsComponent },
