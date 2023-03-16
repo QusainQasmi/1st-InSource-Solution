@@ -10,13 +10,14 @@ import { Router } from '@angular/router';
 })
 
 export class ForgetPasswordComponent implements OnInit {
+
   model: any = {};
   isShow: boolean = false;
   emailValid = new FormControl('', [Validators.required]);
   passValid = new FormControl('', [Validators.required]);
   rePassValid = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
-  service: any;
+  btnLoader: boolean = false;
 
   constructor(private router: Router){
 
@@ -33,9 +34,12 @@ export class ForgetPasswordComponent implements OnInit {
   ngOnInit(): void{
 
   }
+
   async Forget(){
-    console.log(this.model);
-    
+    this.btnLoader = true;
+    setTimeout( () => {
+      this.btnLoader = false;
+    }, 2000)
   }
 }
 

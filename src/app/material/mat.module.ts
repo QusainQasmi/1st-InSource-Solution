@@ -25,9 +25,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatbuttonLoadingDirective } from './mat-button-loading-directive';
 
 @NgModule({
   declarations: [
+    MatbuttonLoadingDirective,
   ],
 
   imports: [
@@ -56,12 +59,14 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatPaginatorModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatBadgeModule
+    MatTreeModule,
+    MatBadgeModule,
+    // MatbuttonLoadingDirective,
   ],
 
   exports: [
     // BrowserModule,
-    MatInputModule,
+    MatInputModule, 
     MatProgressSpinnerModule,
     MatMenuModule,
     MatAutocompleteModule,
@@ -87,6 +92,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatDatepickerModule,
     MatNativeDateModule,
     MatBadgeModule,
+    MatTreeModule,
+    MatbuttonLoadingDirective,
     MatError
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
