@@ -19,6 +19,7 @@ export class SignUpComponent implements OnInit {
   userValidator = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
   isMobile: boolean = false;
+  signupLoader: boolean = false;
 
   constructor(public service: SignUpService , private router: Router , private responsive: BreakpointObserver) {}
 
@@ -41,6 +42,8 @@ export class SignUpComponent implements OnInit {
   }
 
   async signUp(){
+    this.signupLoader = true;
+
     const model = {
       name: this.model.userNameVal,
       email: this.model.emailVal,
@@ -49,11 +52,16 @@ export class SignUpComponent implements OnInit {
     let res = await (await this.service.signUpUser(model)).toPromise();
     if(res.isSuccessFul){
       this.router.navigate(['/login']);
+      this.signupLoader = false;
+
     }
     else{
       console.log(res.Error);
+      this.signupLoader = false;
+
     }
   }
+  
 
 }
 
