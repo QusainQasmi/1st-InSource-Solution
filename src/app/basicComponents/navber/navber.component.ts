@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -14,8 +15,10 @@ export class NavberComponent implements OnInit {
   isMobile: boolean = false;
   forMobileIcon: boolean = false;
   loader: boolean = false;
+  isLogin: boolean = false;
+  loginUserName: string = '';
 
-  constructor(private router: Router , private responsive: BreakpointObserver){
+  constructor(private router: Router , private responsive: BreakpointObserver , public snackbar: MatSnackBar){
 
   }
 
@@ -47,6 +50,16 @@ export class NavberComponent implements OnInit {
     }
   }
 
+  logOutUser(){
+    // await this.route.navigate(['authentication/login'])
+    this.isLogin = false; 
+    localStorage.removeItem('user');
+     localStorage.removeItem('username');
+     this.snackbar.open('Log Out Successfully...!' , 'OK' , {
+      duration: 2500
+     });
+  }
+
   showMobile(){
     this.forMobileIcon = true;
   }
@@ -55,7 +68,16 @@ export class NavberComponent implements OnInit {
     this.forMobileIcon = false;
   }
 
+  loginInfo(){
+    const userName = localStorage.getItem('username');
+    if(userName){
+     this.isLogin = true;
+     this.loginUserName = userName
+    }
+  }
+
   ngOnInit(): void{
+    this.loginInfo();
     this.responsive.observe(Breakpoints.HandsetPortrait)
       .subscribe(result => {
         this.isMobile = false; 

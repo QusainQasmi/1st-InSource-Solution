@@ -2,6 +2,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Router } from '@angular/router';
 import { SignUpService } from './sign-up.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class SignUpComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   isMobile: boolean = false;
 
-  constructor(public service: SignUpService , private responsive: BreakpointObserver) {}
+  constructor(public service: SignUpService , private router: Router , private responsive: BreakpointObserver) {}
 
   showPass(){
     this.isShow = true;
@@ -47,7 +48,7 @@ export class SignUpComponent implements OnInit {
     }
     let res = await (await this.service.signUpUser(model)).toPromise();
     if(res.isSuccessFul){
-       
+      this.router.navigate(['/login']);
     }
     else{
       console.log(res.Error);

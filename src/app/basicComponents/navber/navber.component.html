@@ -3,9 +3,7 @@
     <div class="container mt-2 mb-2">
       <div class="row d-flex align-items-center">
         <div class="col-md-6 d-flex justify-content-md-start justify-content-sm-center justify-content-center">
-          <p class="f-s-25 mb-0 cursorPointer">
-            LOGO
-          </p>
+          <img src="../../../assets/imgs/mainLogo.png" width="70px" heights="60px">
         </div>
 
         <!-- <div class="col-md-4 h-60px">
@@ -18,35 +16,43 @@
         </div> -->
 
         <div class="col-md-6 d-flex justify-content-center justify-content-md-end align-items-center mt-md-0 mt-3">
-          <div class="d-flex">
+          <div class="d-flex" *ngIf="isLogin">
             <div class="mx-2">
-              <button mat-mini-fab class="iconColor" matBadge="1" matBadgeColor="warn">
+              <button matTooltip="Add To Cart" mat-mini-fab class="iconColor" matBadge="1" matBadgeColor="warn">
                 <mat-icon>add_shopping_cart</mat-icon>
               </button>
             </div>
             <div class="mx-2">
-              <button mat-mini-fab class="iconColor" matBadge="2" matBadgeColor="warn">
+              <button matTooltip="See Notifications" mat-mini-fab class="iconColor" matBadge="2" matBadgeColor="warn">
                 <mat-icon>notifications</mat-icon>
               </button>
             </div>
             <div class="mx-2">
-              <button mat-mini-fab class="iconColor" [matMenuTriggerFor]="menu">
+              <button matTooltip="See Profile" mat-mini-fab class="iconColor" [matMenuTriggerFor]="menu">
                 <mat-icon>person</mat-icon>
               </button>
               <mat-menu #menu="matMenu">
                 <button mat-menu-item>
                   <mat-icon>person</mat-icon>
-                  <span>Moin</span>
+                  <span> {{ loginUserName }} </span>
                 </button>
                 <button mat-menu-item>
                   <mat-icon>shopping_cart</mat-icon>
                   <span>See Orders</span>
                 </button>
-                <button mat-menu-item>
+                <button mat-menu-item (click)="logOutUser()">
                   <mat-icon>logout</mat-icon>
                   <span>Log Out</span>
                 </button>
               </mat-menu>
+            </div>
+          </div>
+          <div class="d-flex" *ngIf="!isLogin">
+            <div class="mx-2">
+              <button mat-raised-button class="iconColor" [routerLink]="'/signUp'"> SIGN UP </button>
+            </div>
+            <div class="mx-2">
+              <button mat-raised-button class="iconColor" [routerLink]="'/login'"> LOGIN </button>
             </div>
           </div>
         </div>
@@ -79,7 +85,7 @@
         </div>
         <div *ngIf="isMobile">
           <button *ngIf="!forMobileIcon" mat-mini-fab class="iconColor" (click)="showMobile()">
-            <mat-icon>more_vert</mat-icon>
+            <mat-icon>tune</mat-icon>
           </button>
           <button  *ngIf="forMobileIcon" mat-mini-fab class="iconColor" (click)="showMobileClose()">
             <mat-icon>close</mat-icon>
