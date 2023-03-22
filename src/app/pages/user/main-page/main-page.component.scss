@@ -1,0 +1,60 @@
+.main-banner{
+    background: url(../../../../assets/imgs/main-layout-bannner.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.heading{
+    font-size: 40px;
+    letter-spacing: 2px;
+    
+}
+.main-sus{
+    background: url(../../../../assets/imgs/back.jpg);
+    background-size: cover;    
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 100%;
+}
+
+.btnRoute{
+    width: 153px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 25px;
+    color: white !important;
+    background: linear-gradient(to right, #536274 , #122338);
+}
+.b-r-10px{
+    border-radius: 10px;
+}
+.cardbtn{
+    font-weight: 200;
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: white !important;
+    background: #232f3e !important;
+}
+.btn{
+    letter-spacing: 2px;
+    color: white !important;
+    background: linear-gradient(to right, #536274 , #122338);
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 2px;
+    height: 54px;
+}
+.banner2{
+    background: url(../../../../assets/imgs/banner2.jpg);
+    background-size: cover;    
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+   
+}
+.txt{   
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+}
