@@ -1,0 +1,42 @@
+.backPic{
+    background: url(../../../../assets/imgs/aboutUsImg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+}
+.bg-dark{
+    height: 100vh;
+}
+.aboutHead{
+    font-size: 50px;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+.card{
+    height: 300px;
+    width: 300px;
+    border: none;
+    box-shadow: 2px 2px 40px -5px black;
+}
+.b-r-8px{
+    border-radius: 8px;
+}
+.srvcProvider{
+    font-size: 40px;
+    font-weight: 400;
+}
+ul li{
+    list-style: none;
+    font-weight: 500;
+    margin: 15px;
+}
+.imgInfo{
+    height: 350px;
+}
+.txt{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
