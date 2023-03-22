@@ -18,7 +18,8 @@ const routes: Routes = [
   declarations: [
     UserComponent,
     MainPageComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ProductsComponent
   ],
 
   imports: [

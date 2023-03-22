@@ -27,14 +27,17 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatbuttonLoadingDirective } from './mat-button-loading-directive';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { BrPaginationComponent } from './br-pagination/br-pagination.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     MatbuttonLoadingDirective,
+    BrPaginationComponent
   ],
 
   imports: [
-    // BrowserModule,
     MatAutocompleteModule,
     MatTabsModule,
     MatFormFieldModule,
@@ -61,11 +64,11 @@ import { MatbuttonLoadingDirective } from './mat-button-loading-directive';
     MatNativeDateModule,
     MatTreeModule,
     MatBadgeModule,
-    // MatbuttonLoadingDirective,
+    MatSidenavModule,
+    CommonModule,
   ],
 
   exports: [
-    // BrowserModule,
     MatInputModule, 
     MatProgressSpinnerModule,
     MatMenuModule,
@@ -91,10 +94,13 @@ import { MatbuttonLoadingDirective } from './mat-button-loading-directive';
     MatPaginatorModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    CommonModule,
     MatBadgeModule,
     MatTreeModule,
     MatbuttonLoadingDirective,
-    MatError
+    MatSidenavModule,
+    MatError,
+    BrPaginationComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

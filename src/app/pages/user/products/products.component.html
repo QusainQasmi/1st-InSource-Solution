@@ -1,1 +1,86 @@
-<p>products works!</p>
+<section class="w-100">
+  <div class="container-fluid">
+    <div class="d-flex w-100">
+      <div class="mt-4">
+        <div class=" productsTabs">
+          <p class="heading">Categorys</p>
+          <div class="d-flex w-100 h-50 justify-content-center align-items-center" *ngIf="productsLoader">
+            <mat-spinner diameter="48" color="accent" class="spinnerColor"></mat-spinner>
+          </div>
+          <div class="max-heigthCalc overflow-auto">
+          <div *ngFor="let parentItem of categoryData" class="px-3 pt-2">
+            <div class="d-flex align-items-center justify-content-between" *ngIf="!productsLoader">
+             
+              <div>
+                <p class="productsText mb-1">{{ parentItem.categoryName }}</p>
+              </div>
+              <div [hidden]="parentItem.subCategory && parentItem.subCategory.length<1">
+                
+                <span class="cursorPointer" (click)="openNested(parentItem)"
+                  *ngIf="!parentItem.nestedProducts"><mat-icon>expand_more</mat-icon></span>
+                <span class="cursorPointer" (click)="closeNested(parentItem)"
+                  *ngIf="parentItem.nestedProducts"><mat-icon>expand_less</mat-icon></span>
+              </div>
+            </div>
+            <div *ngIf="parentItem.nestedProducts">
+              <div *ngFor="let childItem of parentItem.subCategory" class="ml-2">
+                <div class="nestedText">
+                  <span class="nestedTextSpan" (click)="selectedProduct(parentItem , childItem)">
+                    {{ childItem.subCategoryName }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="mt-4 w-100 px-4">
+        <div class="d-flex align-items-center justify-content-between">
+          <div>
+            <h2 class="mb-0 nameHeading"> {{ categoryName ? categoryName : 'Dinner Set' }} </h2>
+            <span class="mb-0 text-center subNameHeading"> ( {{ subCategoryName ? subCategoryName : 'Dinner Set ABCD' }} )</span>
+          </div>
+          <div>
+            <div class="h-60px">
+              <mat-form-field appearance="outline" class="matField">
+                <mat-label>Search ...</mat-label>
+                <input matInput [(ngModel)]="model.searchVal" class="">
+                <mat-spinner matSuffix diameter="20" color="accent" *ngIf="searchloader"></mat-spinner>
+                <mat-icon matSuffix class="cursorPointer" (click)="search($event)"
+                  *ngIf="!searchloader">search</mat-icon>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid p-0 mt-3">
+          <div class="row">
+            <div class="col-md-4 mt-3" *ngFor="let items of productsData">
+              <mat-card class="box-shabow">
+                <div class="d-flex">
+                  <div>
+                    <mat-card-title class="p-4 pb-0"> {{ items.name }} </mat-card-title>
+                    <mat-card-subtitle class="p-4 pt-1 pb-0">{{ items.desc }}</mat-card-subtitle>
+                  </div>
+                  <div class="px-3 pt-2">
+                    <img mat-card-sm-image src="../../../../assets/imgs/card3.png" >
+                  </div>
+                </div>
+                <mat-card-content class="w-100 pt-2">
+                  <mat-icon class="px-1 cursorPointer" matTooltip="Add To Cart">add_shopping_cart</mat-icon>
+                  <mat-icon class="mx-2 cursorPointer" matTooltip="About Product">info</mat-icon>
+                </mat-card-content>
+              </mat-card>
+            </div>  <br-pagination [numberOfRowsPerPage]="20" [recordCount]="500" (pageChange)="onPageChange($event)"></br-pagination>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+      
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+<!-- <div>
+    <button *ngFor="let page of visiblePages" (click)="goToPage(page)" [disabled]="page === currentPage">{{ page }}</button>
+  </div> -->
+  <div class="pagination">
+    <div class="f-s-15  select-page">
+        Records per Page
+        ({{numberOfRowsPerPage}})
+        <!-- <mat-select class="ml-2" (selectionChange)="onPageChange(1)"  [(ngModel)]="numberOfRowsPerPage">
+          <mat-option *ngFor="let items of totalRowsSelect" [value]="items">
+            {{items}}
+          </mat-option>
+
+        </mat-select> -->
+    </div>
+  <div class="">
+    <!-- <button [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">
+      Previous
+    </button> -->
+    <button [ngClass]="currentPage === 1 ? 'active' :''" [disabled]="currentPage === 1" (click)="onPageChange(1)">1</button>
+    <button *ngIf="currentPage > 4" disabled>...</button>
+    <button [ngClass]="currentPage === page ? 'active' :''" *ngFor="let page of pagesToShow" (click)="onPageChange(page)">
+      {{ page }}
+    </button>
+    <button *ngIf="currentPage < totalPages - 3" disabled>...</button>
+    <button *ngIf="currentPage <= totalPages" [ngClass]="currentPage === totalPages ? 'active' :''" [disabled]="currentPage === totalPages" (click)="onPageChange(totalPages)">
+      {{ totalPages }}
+    </button>
+    <!-- <button [disabled]="currentPage === totalPages" (click)="onPageChange(currentPage + 1)">
+      Next
+    </button> -->
+ 
+  </div>
+  <div class="pagination-info f-s-15 ">
+    Showing {{ startIndex }} - {{ endIndex }} of {{ recordCount }} entries
+  </div>
+  </div>
