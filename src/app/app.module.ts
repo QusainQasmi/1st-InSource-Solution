@@ -9,11 +9,13 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MainlayoutComponent } from './main-layout/mainlayout/mainlayout.component';
 import { MainLayoutModule } from './main-layout/main-layout.module';
 import { BasicModule } from './basicComponents/basic.module';
+import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainlayoutComponent,
+    AdminLayoutComponent,
   ],
   imports: [
     MatModule,

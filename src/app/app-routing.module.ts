@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { AppComponent } from './app.component';
 import { NavberComponent } from './basicComponents/navber/navber.component';
 import { AdminLoginComponent } from './main-layout/admin-login/admin-login.component';
@@ -15,6 +16,14 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'user', pathMatch: 'full' },
       { path: 'user', loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule) },
+    ]
+  },
+  { 
+    path: '',
+    component: AdminLayoutComponent,
+    children: [
+      { path: '', redirectTo: 'admin', pathMatch: 'full' },
+      { path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule) },
     ]
   },
   { path: 'login', component: LoginComponent},

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AdminLoginService } from './admin-login.service';
 
@@ -16,38 +17,45 @@ export class AdminLoginComponent {
   adminValid = new FormControl('', [Validators.required]);
   passValid = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
+  adminLoader: boolean = false;
 
-  constructor(private router: Router , public service: AdminLoginService){
+  constructor(private router: Router, public service: AdminLoginService , public snackbar: MatSnackBar) { }
 
-  }
-
-  showPass(){
+  showPass() {
     this.isShow = true;
   }
 
-  hidePass(){
+  hidePass() {
     this.isShow = false;
   }
 
-  ngOnInit(): void{
+  ngOnInit(): void { }
+
+  async adminlogin() {
+    this.adminLoader = true;
+    const model = {
+      name: this.model.adminNameVal,
+      password: this.model.passVal
+    }
+    let res = await (await this.service.admin(model)).toPromise();
+    if (res.isSuccessFul) {
+      this.router.navigate(['/admin/home']);
+      localStorage.setItem("admin", JSON.stringify(res))
+      localStorage.setItem("adminName", res.Data && res.Data.data && res.Data.data.username);
+      this.snackbar.open(res.Data.message , 'OK' , {
+        duration: 3000
+      });
+      this.adminLoader = false;
+    }
+    else {
+      this.adminLoader = false;
+      this.snackbar.open(res.Error , 'OK' , {
+        duration: 3000
+       });
+    }
 
   }
 
-  async adminlogin (){
-    const  model = {
-   name : this.model.adminNameVal,
-   password : this.model.passVal
-    }   
-    let res = await(await this.service.admin(model)).toPromise();
-  if(res.isSuccessFul){
-
-  }
-  else{
-    console.log(res.Error);
-  }
-
-  }
-  
 }
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {

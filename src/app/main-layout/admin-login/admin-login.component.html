@@ -32,7 +32,7 @@
                 </mat-form-field>
                 <div class="">
                     <p class="mb-1 text-end"><a href="" [routerLink]="'/forgetPassword'"> Forget Password </a></p>
-                    <button mat-raised-button class="loginBtn mb-3 mt-4" (click)="adminlogin()" >LOGIN</button>
+                    <button mat-raised-button class="loginBtn mb-3 mt-4" (click)="adminlogin()" [loading]="adminLoader">LOGIN</button>
                 </div>
             </div>
     </div>

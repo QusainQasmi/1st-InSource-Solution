@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/user/main']);
       localStorage.setItem("user", JSON.stringify(res))
       localStorage.setItem("username", res.Data && res.Data.data && res.Data.data.username);
-      this.snackbar.open(res.Data.message , 'OK' , {
+      this.snackbar.open('Login SuccessFully...!' , 'OK' , {
         duration: 3000
       });
       this.loginLoader = false;

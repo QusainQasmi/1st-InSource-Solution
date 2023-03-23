@@ -1,0 +1,47 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #leftSidenav fixedInViewport [mode]="'side'" [opened]="opened">
+        <div class="sidenav_container p-10">
+            <div fxLayout="column" fxLayoutGap="10px" class="h-100">
+                <div>
+                    <div class="logo d-flex align-items-center justify-content-center mt-2 pb-2">
+                        <img class="cursorPointer" src="../../assets/imgs/mainLogo.png" width="100px" [routerLink]="'/admin/home'">
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-between mt-2 pb-2 logo">
+                    <div class="d-flex align-items-center">
+                        <span [matTooltip]="userInit" class="ml-2 adminName txt-clr-white ellipsis max-width-100px">{{
+                            userInit }}</span>
+                    </div>
+                    <div class="d-flex">
+                        <mat-icon (click)="logOut()" matTooltip="Log Out"
+                            class="txt-clr-white pointer">logout</mat-icon>
+                    </div>
+                </div>
+                <div class="forms-module mt-3">
+                    <div *ngFor="let items of forms">
+                        <div (click)="navigate(items)" class="txt-clr-white pagesNames pointer ml-2">
+                            <span [matTooltip]="items.pagesName" class="span-ellipsis m-w-100 d-flex align-items-center">
+                                <mat-icon> {{ items.icon }} </mat-icon>
+                                <span class="ml-2"> {{ items.pagesName }} </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row poweredBy">
+                    <div class="d-flex align-items-center justify-content-center f-s-24   ">
+                        <span>Powered By : ShahakTraders</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <mat-nav-list>
+
+        </mat-nav-list>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -30,6 +30,8 @@ import { MatbuttonLoadingDirective } from './mat-button-loading-directive';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrPaginationComponent } from './br-pagination/br-pagination.component';
 import { CommonModule } from '@angular/common';
+import { MatDividerModule } from '@angular/material/divider';
+
 
 @NgModule({
   declarations: [
@@ -64,6 +66,7 @@ import { CommonModule } from '@angular/common';
     MatNativeDateModule,
     MatTreeModule,
     MatBadgeModule,
+    
     MatSidenavModule,
     CommonModule,
   ],
@@ -100,6 +103,7 @@ import { CommonModule } from '@angular/common';
     MatbuttonLoadingDirective,
     MatSidenavModule,
     MatError,
+    MatDividerModule,
     BrPaginationComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
