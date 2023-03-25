@@ -1,11 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+body { margin: 0; font-family: "Poppins", sans-serif; }
 
 .b-r-8px{
     border-radius: 8px;
@@ -13,6 +9,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .box-shabow{
     box-shadow: 2px 2px 40px -5px rgb(63, 62, 62);
+}
+
+.txtUpperCase{
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .cursorPointer{
