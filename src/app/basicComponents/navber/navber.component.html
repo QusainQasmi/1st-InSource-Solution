@@ -18,7 +18,7 @@
         <div class="col-md-6 d-flex justify-content-center justify-content-md-end align-items-center mt-md-0 mt-3">
           <div class="d-flex" *ngIf="isLogin">
             <div class="mx-2">
-              <button matTooltip="Add To Cart" mat-mini-fab class="iconColor" matBadge="1" matBadgeColor="warn">
+              <button matTooltip="Add To Cart" mat-mini-fab class="iconColor" matBadge="1" matBadgeColor="warn" (click)="routeCart()">
                 <mat-icon>add_shopping_cart</mat-icon>
               </button>
             </div>

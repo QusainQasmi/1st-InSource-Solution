@@ -50,6 +50,10 @@ export class NavberComponent implements OnInit {
     }
   }
 
+  routeCart(){
+    this.router.navigate(['/user/cart']);
+  }
+
   logOutUser(){
     // await this.route.navigate(['authentication/login'])
     this.isLogin = false; 
