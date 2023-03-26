@@ -1,0 +1,35 @@
+.faqHead{
+    font-size: 50px;
+    font-family: italic , sans-serif ;
+    font-weight: bold;
+}
+.questHead{
+    font-weight: bold;
+    font-family: italic , sans-serif;
+}
+mat-panel-title{
+    font-weight: bold;
+}
+.faqInp{
+    width: 100%;
+}
+mat-form-field{
+    width: 100%;
+}
+.btncontact{
+    width: 169px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 400;
+    // border-radius: 25px;
+    color: white !important;
+    background: linear-gradient(to right, #536274 , #122338);
+}
+.btncontact:hover{
+    background: white !important;
+    color: #1f3d62 !important;
+    border: 2px solid #1f3d62 !important;
+    transition: 0.7 all;
+    font-weight: 600;
+    width: 175px;
+}
