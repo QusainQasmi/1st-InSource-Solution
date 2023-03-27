@@ -64,7 +64,7 @@ export class CategoryComponent implements AfterViewInit {
     this.tableLoader = true;
     const res = await (await this.service.getConfig()).toPromise();
     if(res.isSuccessFul){
-      this.listData = res.Data && res.Data.Data && res.Data.Data.length > 0 ? [...res.Data.Data] : [{}];
+      this.listData = res.Data && res.Data.length > 0 ? [...res.Data] : [{}];
       this.dataSource = this.listData;
       this.tableLoader = false;
     }

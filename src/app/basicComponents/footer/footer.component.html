@@ -1,111 +1,36 @@
-<!-- Remove the container if you want to extend the Footer to full width. -->
-<div class="container-fluid mt-3 bg-dark">
-
-    <footer class="text-white text-center text-lg-start ">
-        <!-- Grid container -->
-        <div class="container-fluid p-4">
-            <!--Grid row-->
-            <div class="row mt-4">
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-                    <h5 class="f-heading text-uppercase mb-5">About company</h5>
-
-                    <p>
-
-                        At Cera-E-Noor we can help you create a tabletop presentation that enhances the mood of the <br>
-                        occasion and showcases your food to perfection.
-                    </p>
 
 
-                    <div class="mt-4">
-                        <!-- Facebook -->
-                        <mat-icon>facebook</mat-icon>
-                        <!-- Dribbble -->
-                        <mat-icon class="mx-2">facebook</mat-icon>
-                        <!-- Twitter -->
-                        <mat-icon>facebook</mat-icon>
-                        <!-- Google + -->
-                        <mat-icon class="mx-2">facebook</mat-icon>
-                        <!-- Linkedin -->
-                    </div>
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-6 mb-4 mb-md-0 ">
-                    <h5 class="f-heading text-uppercase mb-5 pb-1">Search something</h5>
-
-                    <form class="example-form">
-                        <mat-form-field class="example-full-width">
-                            <mat-label>please Search</mat-label>
-                            <input matInput placeholder="Ex. Mug Set" value="Here">
-                        </mat-form-field>
-                    </form>
-                    <ul class="justify-content-start">
-                        <li class="mb-3 d-block">
-                            <mat-icon>cottage</mat-icon><span class="ms-2">Warsaw, 00-967, Poland </span>
-                        </li>
-                        <li class="mb-3 d-block">
-                            <mat-icon>email</mat-icon><span class="ms-2 "><a href="mailto:info@ceraenoor.com"
-                                    class="text-light text-decoration-none"> mailto:info@ceraenoor.com Poland
-                                </a></span>
-                        </li>
-                        <li class="mb-3 d-block">
-                            <mat-icon>phone</mat-icon><span class="ms-2"><a href="tel:+923028232667"
-                                    class="text-light text-decoration-none"> +923028232667 Poland </a></span>
-                        </li>
-                    </ul>
-
-                </div>
-
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-6 mb-4 mb-md-0 ">
-                    <div class="mx-2">
-                        <h5 class="f-heading text-uppercase mb-5 ">Our Products </h5>
-
-                        <div class="d-flex justify-content-start align-items-center">
-                            <img src="../../../assets/imgs/demoLogo.jpeg" alt="" width="20%" height="20%">
-
-                            <div class="mx-3 mt-1">
-                                <span class="f-heading">Jug Set</span>
-                                <h2 class="">Rs.2200</h2>
-                            </div>
-                        </div>
-
-                        <div class="d-flex justify-content-start align-items-center">
-                            <img src="../../../assets/imgs/demoLogo.jpeg" alt="" width="20%" height="20%">
-
-                            <div class="mx-3 mt-1">
-                                <span class="f-heading">Tea Set</span>
-                                <h2 class="">Rs.1500</h2>
-                            </div>
-                        </div>
-
-                        <div class="d-flex justify-content-start align-items-center">
-                            <img src="../../../assets/imgs/demoLogo.jpeg" alt="" width="20%" height="20%">
-
-                            <div class="mx-3 mt-1">
-                                <span class="f-heading">Dinner Set</span>
-                                <h2 class="">Rs.5000</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Grid column-->
+<div class="container-fluid p-0 mt-3 bg-dark">
+    <div class="container">
+        <div class="row P-5">
+            <div class="col-md-4 text-light p-5 pb-3">
+                <h1 class="heading  mb-4 mx-2">Services</h1>
+                <h3 class="list d-flex align-items-center mb-0 pb-1" *ngFor="let list of listArry"> <mat-icon
+                        class="mx-2">{{list.icon}}</mat-icon> {{list.name}}</h3>
             </div>
-            <!--Grid row-->
-        </div>
-        <!-- Grid container -->
+            <div class="col-md-4 text-light p-5 pb-3">
+                <h1 class="heading mb-4 mx-2">QUICK LINKS</h1>
+                <h3 class="list d-flex align-items-center mb-0 pb-1" *ngFor="let list of listArry1"> <mat-icon
+                        class="mx-2 mb-0">{{list.icon}}</mat-icon> {{list.name}}</h3>
+            </div>
+            <div class="col-md-4 text-light p-5 pb-3">
+                <h1 class="heading  mb-4 mx-2">CONTACT US</h1>
+                <h3 class="list d-flex align-items-center mb-0 pb-2" *ngFor="let list of listArry2"> <mat-icon
+                    class="mx-2 mb-0">{{list.icon}}</mat-icon> {{list.name}}</h3>
 
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2023 Copyright:
-            <a class="text-white" href="https://mdbootstrap.com/">Shakak Traders</a>
+            </div>
         </div>
-        <!-- Copyright -->
-    </footer>
-
+    </div>
+<div class="footerback">
+    <div class="text-light container p-3">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="../../../assets/imgs/mainLogo.png" width="70px" heights="60px">
+            </div>
+            <div class="col-md-8 d-flex align-items-center justify-content-end ">
+                <span class="d-flex   justify-content-center">Shakak Traders @2023 Copyright  <mat-icon>facebook</mat-icon></span>
+            </div>
+        </div>
+    </div>
 </div>
-<!-- End of .container -->
+</div>

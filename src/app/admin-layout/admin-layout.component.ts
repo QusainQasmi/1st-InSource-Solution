@@ -42,7 +42,7 @@ export class AdminLayoutComponent {
     {
       pagesName:'FAQ Settings',
       icon: 'quiz',
-      route:'test' 
+      route:'admin/faqsetting' 
     },
     {
       pagesName:'Notifications Settings',

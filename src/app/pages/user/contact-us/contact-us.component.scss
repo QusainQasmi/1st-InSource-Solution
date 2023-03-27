@@ -1,0 +1,42 @@
+// .formbanner{
+//     background: url(../../../../assets/imgs/contactBanner.jpg);
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     height: 100vh;
+// }
+.contactbanner{
+    background: url(../../../../assets/imgs/contactbannner.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    filter: brightness(40%);
+}
+.heading{
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.contactheading{
+    font-size: 35px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.contact-width{
+    width: auto;
+    min-width: 600px;
+    max-width: 330px;
+    background-color: #fff;
+}
+.coment{
+    height: 150px;
+}
+.btncontact{
+    width: 169px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 400;
+    // border-radius: 25px;
+    color: white !important;
+    background: linear-gradient(to right, #536274 , #122338);
+}
