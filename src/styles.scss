@@ -6,34 +6,30 @@ body { margin: 0; font-family: "Poppins", sans-serif; }
 .b-r-8px{
     border-radius: 8px;
 }
-
 .box-shabow{
-    box-shadow: 2px 2px 40px -5px rgb(63, 62, 62);
+    box-shadow: 2px 2px 40px -5px rgb(63, 62, 62) !important;
 }
-
 .paraTxt{
     line-height: 32px;
     font-size: 20px;
     color: gray;
 }
-
+.f-s-20{
+    font-size: 20px !important;
+}
 .txtUpperCase{
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-
 .cursorPointer{
     cursor: pointer;
 }
-
 .max-heigthCalc{
     max-height: calc(100vh - 290px);
 }
-
 .f-s-25{
     font-size: 25px !important;
 }
-
 .h-60px{
  height: 60px !important;     
 }
@@ -41,26 +37,16 @@ body { margin: 0; font-family: "Poppins", sans-serif; }
 .f-s-11{
     font-size: 11px !important;
 }
-
 .h-100vh{
     height: 100vh;
 }
-
 .mat-loading .mat-button-wrapper{
     visibility: hidden !important;
 }
-
 .mat-loading .mat-progress-spinner{
     position: absolute !important;
     top: calc(50% - 10px);
     left: calc(50% - 10px);
-}
-/* You can add global styles to this file, and also import other style files */
-.h-100vh{
-    height: 100vh;
-}
-.text-right{
-    text-align: right;
 }
 .mr-2{
     margin-right: 0.6rem;
@@ -86,25 +72,19 @@ body { margin: 0; font-family: "Poppins", sans-serif; }
 .p-10{
     padding: 10px;
 }
-.ellipsis
-{
+.ellipsis{
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 }
-.span-ellipsis
-{
+.span-ellipsis{
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     display: block;
 }
-.max-width-100px
-{
+.max-width-100px{
     max-width: 100px;
-}
-.pointer{
-    cursor: pointer;
 }
 .txt-clr-primary{
     color: #0c58a3;
@@ -126,23 +106,12 @@ body { margin: 0; font-family: "Poppins", sans-serif; }
     border-radius: 20px;
     border: 1px solid transparent;
     background-clip: content-box;
-
 }
-
 ::-webkit-scrollbar-thumb :hover {
     background-color: #a8bbbf;
-
-
 }
 .p-20{
     padding: 20px;
-}
-.page-heading{
-    span{
-        font-size: 28px;
-        font-weight: 700;
-        color: #0c58a3;
-    }
 }
 .f-s-15{
     font-size: 15px;
@@ -152,27 +121,4 @@ body { margin: 0; font-family: "Poppins", sans-serif; }
 }
 .txt-clr-danger{
     color: rgba(255, 0, 0, 0.555);
-}
-.bg-white{
-    background-color: white;
-}
-.box-shadow{
-    box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
-
-}
-fieldset {
-    border: 2px solid #0c58a3!important;
-    border-radius: 5px!important;
-}
-
-fieldset legend {
-    float: none !important;
-    background: #1F497D;
-    color: #fff;
-    padding: 5px 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    /* box-shadow: 0 0 0 5px #ddd; */
-    /* margin-left: 20px; */
-    max-width: fit-content;
 }

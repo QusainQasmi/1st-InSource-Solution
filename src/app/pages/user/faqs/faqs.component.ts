@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./faqs.component.scss']
 })
 export class FaqsComponent {
-  panelOpenState = false;
+
+  expansionData = [
+    { qus: 'Is This Address Right?' , ans : 'Yes This Is The Current Address Given.' , panelOpenState: false},
+    { qus: 'Is This Address Right?' , ans : 'Yes This Is The Current Address Given.' , panelOpenState: false},
+    { qus: 'Is This Address Right?' , ans : 'Yes This Is The Current Address Given.' , panelOpenState: false},
+    { qus: 'Is This Address Right?' , ans : 'Yes This Is The Current Address Given.' , panelOpenState: false},
+    { qus: 'Is This Address Right?' , ans : 'Yes This Is The Current Address Given.' , panelOpenState: false},
+    { qus: 'Is This Address Right?' , ans : 'Yes This Is The Current Address Given.' , panelOpenState: false},
+    { qus: 'Is This Address Right?' , ans : 'Yes This Is The Current Address Given.' , panelOpenState: false},
+    { qus: 'Is This Address Right?' , ans : 'Yes This Is The Current Address Given.' , panelOpenState: false},
+  ]
 }

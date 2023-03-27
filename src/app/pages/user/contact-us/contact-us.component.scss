@@ -4,6 +4,9 @@
 //     background-size: cover;
 //     height: 100vh;
 // }
+
+::ng-deep app-contact-us{
+
 .contactbanner{
     background: url(../../../../assets/imgs/contactbannner.jpg);
     background-size: cover;
@@ -31,12 +34,23 @@
 .coment{
     height: 150px;
 }
+
 .btncontact{
     width: 169px;
     height: 40px;
     font-size: 15px;
     font-weight: 400;
-    // border-radius: 25px;
     color: white !important;
     background: linear-gradient(to right, #536274 , #122338);
+}
+
+.btncontact:hover{
+    background: white !important;
+    color: #1c3758 !important;
+    border: 2px solid #1c3758;
+    width: 175px;
+    font-weight: 600;
+}
+
+
 }
