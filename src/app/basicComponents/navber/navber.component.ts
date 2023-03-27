@@ -54,6 +54,14 @@ export class NavberComponent implements OnInit {
     this.router.navigate(['/user/cart']);
   }
 
+  routeOrders(){
+    this.router.navigate(['/user/orders']);
+  }
+
+  routeNoti(){
+    this.router.navigate(['/user/notifications']);
+  }
+
   logOutUser(){
     // await this.route.navigate(['authentication/login'])
     this.isLogin = false; 

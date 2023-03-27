@@ -9,6 +9,8 @@ import { ProductsComponent } from './products/products.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
+import { UserOrderComponent } from './user-order/user-order.component';
+import { UserNotificationsComponent } from './user-notifications/user-notifications.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main' , pathMatch: 'full' },
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'faqs', component: FaqsComponent },
   { path: 'contact', component: ContactUsComponent },
   { path: 'cart', component: AddToCartComponent },
+  { path: 'orders', component: UserOrderComponent },
+  { path: 'notifications', component: UserNotificationsComponent },
 ];
 
 @NgModule({
@@ -28,7 +32,9 @@ const routes: Routes = [
     ProductsComponent,
     FaqsComponent,
     ContactUsComponent,
-    AddToCartComponent
+    AddToCartComponent,
+    UserOrderComponent,
+    UserNotificationsComponent
   ],
 
   imports: [

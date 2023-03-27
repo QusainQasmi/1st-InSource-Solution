@@ -23,7 +23,7 @@
               </button>
             </div>
             <div class="mx-2">
-              <button matTooltip="See Notifications" mat-mini-fab class="iconColor" matBadge="2" matBadgeColor="warn">
+              <button matTooltip="See Notifications" (click)="routeNoti()" mat-mini-fab class="iconColor" matBadge="2" matBadgeColor="warn">
                 <mat-icon>notifications</mat-icon>
               </button>
             </div>
@@ -36,7 +36,7 @@
                   <mat-icon>person</mat-icon>
                   <span> {{ loginUserName }} </span>
                 </button>
-                <button mat-menu-item>
+                <button mat-menu-item (click)="routeOrders()">
                   <mat-icon>shopping_cart</mat-icon>
                   <span>See Orders</span>
                 </button>
