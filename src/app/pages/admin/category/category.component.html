@@ -59,21 +59,23 @@
         </div>
         <ng-container class="container-fluid p-0">
             <div class="row pt-4 d-flex align-items-center">
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <mat-form-field class="w-100" appearance="fill">
                         <mat-label>Category Name</mat-label>
                         <input type="text" matInput [(ngModel)]="model.categoryName">
                       </mat-form-field>
                 </div>
-                <div class="col-md-4" *ngIf="model.id">
-                    <span class="mb-0 formSpan">Created Log</span>
-                    <p class="mb-0" [matTooltip]="'Created Log  :' + model.created_at"> {{ model.created_at ? model.created_at : null }} </p>
+                <div class="d-flex justify-content-between align-items-center" *ngIf="model.id">
+                    <div>
+                        <span class="mb-0 formSpan">Created Log</span>
+                        <p class="mb-0" [matTooltip]="'Created Log  :' + model.created_at"> {{ model.created_at ? model.created_at : null }} </p>
+                    </div>
+                    <div>
+                        <span class="mb-0 formSpan">Updated Log</span>
+                        <p class="mb-0" [matTooltip]="'Updated Log  :' + model.updated_at"> {{ model.updated_at ? model.updated_at : null }} </p>
+                    </div>
                 </div>
-                <div class="col-md-4" *ngIf="model.id">
-                    <span class="mb-0 formSpan">Updated Log</span>
-                    <p class="mb-0" [matTooltip]="'Updated Log  :' + model.updated_at"> {{ model.updated_at ? model.updated_at : null }} </p>
-                </div>
-                <div class="col-md-12 d-flex justify-content-end">
+                <div class="mt-3 d-flex justify-content-end">
                     <button mat-raised-button class="saveBtn" [matTooltip]=" model.id ? 'Edit Category' : 'Save Category'" [loading]="saveLoader" (click)="model.id ? editData(this.model) : saveData()">Save</button>
                 </div>
             </div>

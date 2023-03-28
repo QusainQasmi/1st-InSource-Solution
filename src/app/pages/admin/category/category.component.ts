@@ -33,7 +33,7 @@ export class CategoryComponent implements AfterViewInit {
 
   onEdit(obj?: any){
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.width = '60vw';
+    dialogConfig.width = '35vw';
     dialogConfig.disableClose = true;
     if(obj && obj.id){
      this.model = obj;
