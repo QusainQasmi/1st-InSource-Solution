@@ -17,7 +17,7 @@ export class AdminLayoutComponent {
     {
       pagesName:'Customers',
       icon: 'groups',
-      route:'test' 
+      route:'admin/customer' 
     },
     {
       pagesName:'Category',

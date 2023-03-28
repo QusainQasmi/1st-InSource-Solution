@@ -5,12 +5,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CategoryComponent } from './category/category.component';
 import { FaqsettingComponent } from './faqsetting/faqsetting.component';
+import { CustomerComponent } from './customer/customer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home' , pathMatch: 'full' },
   { path: 'home', component: DashboardComponent },
   { path: 'category', component: CategoryComponent },
-  { path: 'faqsetting', component: FaqsettingComponent }
+  { path: 'faqsetting', component: FaqsettingComponent },
+  { path: 'customer', component: CustomerComponent },
 ];
 
 @NgModule({
@@ -18,7 +20,8 @@ const routes: Routes = [
   declarations: [
     DashboardComponent,
     CategoryComponent,
-    FaqsettingComponent
+    FaqsettingComponent,
+    CustomerComponent
   ],
 
   imports: [
