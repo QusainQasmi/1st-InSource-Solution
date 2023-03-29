@@ -27,17 +27,17 @@ export class AdminLayoutComponent {
     {
       pagesName:'Products',
       icon: 'production_quantity_limits',
-      route:'test' 
+      route:'admin/products' 
     },
     {
       pagesName:'Orders',
       icon: 'list_alt',
-      route:'test' 
+      route:'admin/order' 
     },
     {
       pagesName:'Sub Category',
       icon: 'category',
-      route:'test'
+      route:'admin/subCategory'
     },
     {
       pagesName:'FAQ Settings',
@@ -47,7 +47,7 @@ export class AdminLayoutComponent {
     {
       pagesName:'Notifications Settings',
       icon: 'notifications',
-      route:'test' 
+      route:'admin/notificationSetting' 
     },
     
   ];

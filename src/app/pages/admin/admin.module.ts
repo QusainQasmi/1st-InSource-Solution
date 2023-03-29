@@ -6,6 +6,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CategoryComponent } from './category/category.component';
 import { FaqsettingComponent } from './faqsetting/faqsetting.component';
 import { CustomerComponent } from './customer/customer.component';
+import { ProductsComponent } from './products/products.component';
+import { OrderComponent } from './order/order.component';
+import { SubCategoryComponent } from './sub-category/sub-category.component';
+import { NotificationSettingComponent } from './notification-setting/notification-setting.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home' , pathMatch: 'full' },
@@ -13,6 +17,10 @@ const routes: Routes = [
   { path: 'category', component: CategoryComponent },
   { path: 'faqsetting', component: FaqsettingComponent },
   { path: 'customer', component: CustomerComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'order', component: OrderComponent },
+  { path: 'subCategory', component: SubCategoryComponent },
+  { path: 'notificationSetting', component: NotificationSettingComponent },
 ];
 
 @NgModule({
@@ -21,7 +29,11 @@ const routes: Routes = [
     DashboardComponent,
     CategoryComponent,
     FaqsettingComponent,
-    CustomerComponent
+    CustomerComponent,
+    ProductsComponent,
+    OrderComponent,
+    SubCategoryComponent,
+    NotificationSettingComponent
   ],
 
   imports: [

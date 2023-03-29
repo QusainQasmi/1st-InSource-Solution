@@ -15,8 +15,8 @@ export class FaqsettingComponent {
   loader: boolean = false;
   listData: any = [{}];
   saveLoader: boolean = false;
-  displayedColumns: string[] = ['actions' , 'name'];
-  dataSource = new MatTableDataSource<any>();
+  displayedColumns: string[] = ['actions' , 'qus', 'ans' ];
+  dataSource = new MatTableDataSource<faqElements>(data);
   tableLoader: boolean = false;
   @ViewChild('form') form!: TemplateRef<any>;
 
@@ -31,7 +31,7 @@ export class FaqsettingComponent {
 
   onEdit(obj?: any){
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.width = '60vw';
+    dialogConfig.width = '35vw';
     dialogConfig.disableClose = true;
     if(obj && obj.id){
      this.model = obj;
@@ -43,14 +43,13 @@ export class FaqsettingComponent {
     }
   }
 
-  
   async onRemove(obj: any){
     const res = await (await this.service.deleteCategory(obj.id)).toPromise();
     if(res.isSuccessFul){
       this.snackbar.open('Category Delete SuccessFully...!' , 'OK' , {
         duration: 3000
       });
-      this.getTableData();
+      // this.getTableData();
     }
     else{
       this.snackbar.open(res.Error , 'OK' , {
@@ -59,9 +58,69 @@ export class FaqsettingComponent {
     }
   }
 
-  getTableData() {
-    throw new Error('Method not implemented.');
+  async saveData(){
+    this.saveLoader = true;
+    const obj = {
+      categoryName: this.model.categoryName
+    }
+    const res = await (await this.service.saveCategory(obj)).toPromise();
+    if(res.isSuccessFul){
+      this.saveLoader = false;
+      this.snackbar.open('Category Add SuccessFully...!' , 'OK' , {
+        duration: 3000
+      });
+      this.dialog.closeAll();
+      // this.getTableData();
+    }
+    else{
+      this.saveLoader = false;
+      this.snackbar.open(res.Error , 'OK' , {
+        duration: 3000
+      });
+    }
   }
 
+  async editData(data: any){
+    this.saveLoader = true;
+    const obj = {
+      id: data.id,
+      categoryName: data.categoryName
+    }
+    const res = await (await this.service.editCategory(obj)).toPromise();
+    if(res.isSuccessFul){
+      this.saveLoader = false;
+      this.snackbar.open('Category Edit SuccessFully...!' , 'OK' , {
+        duration: 3000
+      });
+      this.dialog.closeAll();
+      // this.getTableData();
+    }
+    else{
+      this.saveLoader = false;
+      this.snackbar.open(res.Error , 'OK' , {
+        duration: 3000
+      });
+    }
+  }
+
+  ngAfterViewInit() {
+    // this.dataSource.paginator = this.paginator;
+  }
+
+  ngOnInit(){
+    // this.getTableData();
+  }
 
 }
+
+export interface faqElements {
+  id: number;
+  question: string;
+  answer: string;
+}
+
+const data: faqElements[] = [
+  {id: 1, question: 'How are you', answer: "i'm Fine"},
+  {id: 2, question: 'Hey Whatsapp', answer: " Nothing"},
+  {id: 3, question: 'Really Good', answer: "Thanks"}
+]
