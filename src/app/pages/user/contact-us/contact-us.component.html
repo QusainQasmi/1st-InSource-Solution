@@ -1,0 +1,54 @@
+<div class="contactbanner">
+</div>
+
+<div class="text-center mt-5 pt-3">
+    <h1 class="heading">Drop Your Message</h1>
+    <p class="paraTxt my-4">It is a long established fact that a reader will be distracted by the readable <br> content
+        of a page when looking at its layout.</p>
+</div>
+
+<div class="mt-5 d-flex justify-content-center align-items-center w-100 my-5">
+    <div class="text-center contact-width p-5 b-r-8px box-shabow border">
+        <h1 class="mb-5 pt-3 contactheading">Contact us</h1>
+        <mat-form-field class="col-md-12 mb-2" appearance="outline">
+            <mat-icon matSuffix class="text-dark">person</mat-icon>
+            <mat-label>User Name</mat-label>
+            <input type="text" matInput [formControl]="userValid" [errorStateMatcher]="matcher"
+                placeholder="John Wilson" [(ngModel)]="model.userNameVal">
+            <mat-error *ngIf="userValid.hasError('email') && !userValid.hasError('required')">
+                Please Enter Correct User Name
+            </mat-error>
+            <mat-error *ngIf="userValid.hasError('required')">
+                User Name Is <strong>Required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-12" appearance="outline">
+            <mat-icon matSuffix class="text-dark">mail</mat-icon>
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [formControl]="emailValidator" [errorStateMatcher]="matcher"
+                placeholder="Example@gmail.com" [(ngModel)]="model.emailVal">
+            <mat-error *ngIf="emailValidator.hasError('email') && !emailValidator.hasError('required')">
+                Please Enter A Valid Email Address
+            </mat-error>
+            <mat-error *ngIf="emailValidator.hasError('required')">
+                Email Is <strong>Required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-12" appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input type="tel" matInput placeholder="555-555-1234">
+            <mat-icon matSuffix>call</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="col-12 coment" appearance="outline">
+            <mat-label>Leave a Comment</mat-label>
+            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+        </mat-form-field>
+
+        <button matTooltip="Send" mat-raised-button class="btncontact mt-3">
+            <mat-icon>arrow_forward</mat-icon>Send Message
+        </button>
+    </div>
+</div>

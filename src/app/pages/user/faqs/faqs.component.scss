@@ -1,0 +1,67 @@
+::ng-deep app-faqs {
+.faqbanner{
+    background: url(../../../../assets/imgs/PLATE.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    filter: brightness(40%);
+}
+.head{
+    font-size: 48px;
+    font-weight: 600;
+    color: #1f3d62;
+    letter-spacing: 1px;}
+.faqHead{
+    font-size: 50px;
+    font-family: italic , sans-serif ;
+    font-weight: bold;
+}
+.faqpara{
+    line-height: 32px;
+    font-size: 20px;
+    color: #fff;
+}
+.faqcenter{
+    position: absolute;
+        top: 200px;
+        color: white;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 75vh;
+}
+.questHead{
+    font-weight: bold;
+    font-family: italic , sans-serif;
+}
+
+.faqInp{
+    width: 100%;
+}
+mat-form-field{
+    width: 100%;
+}
+.btncontact{
+    width: 169px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 400;
+    color: white !important;
+    background: linear-gradient(to right, #536274 , #122338);
+}
+.miniFab{
+    background: linear-gradient(to right, #536274 , #122338) !important;
+    color: #fff !important;
+}
+.btncontact:hover{
+    background: white !important;
+    color: #1f3d62 !important;
+    border: 2px solid #1f3d62 !important;
+    transition: 0.7 all;
+    font-weight: 600;
+    width: 175px;
+}
+}

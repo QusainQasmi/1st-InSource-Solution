@@ -1,0 +1,40 @@
+::ng-deep app-sign-up{
+
+.signupimg{
+    background: url(../../../../src/assets/imgs/signUpImg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.backImgColor{
+    background: rgb( 0 0 0 / 78%);
+}
+
+.font-bold{
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.w-80{
+    width: 80% !important;
+}
+
+.signUpBtn{
+    color: white !important;
+    background-color: black !important;
+}
+
+.box{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    background-color: white;
+}
+
+}

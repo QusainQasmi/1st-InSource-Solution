@@ -1,0 +1,142 @@
+.sidenav-container {
+    min-height: calc(100vh);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.sidenav_container {
+    background-color: #122338;
+    width: 250px;
+
+}
+
+::ng-deep mat-sidenav {
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #d6dee1;
+        border-radius: 20px;
+        border: 1px solid transparent;
+        background-clip: content-box;
+
+    }
+
+    ::-webkit-scrollbar-thumb :hover {
+        background-color: #a8bbbf;
+
+
+    }
+}
+
+.logo {
+    border-bottom: 1px solid #fff;
+   
+}
+
+
+.profile {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #0c58a3;
+}
+
+.txt-clr-white {
+    color: white;
+}
+
+.f-s-14 {
+    font-size: 14px;
+}
+
+.searchbar {
+    outline: none;
+    border: none;
+    font-size: 14px;
+
+    background-color: transparent;
+}
+
+.search {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.poweredBy {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    color: #122338;
+    background-color: white;
+    font-weight: 500;
+}
+
+.pagesNames {
+    height: 42px;
+    font-size: 17px;
+    font-family: emoji;
+    letter-spacing: 1px;
+}
+
+.adminName{
+    font-size: 17px;
+    font-family: emoji;
+    letter-spacing: 1px;
+}
+
+.border-left {
+    border-left: 2px solid white;
+}
+
+.forms-module {
+    overflow: auto;
+    height: calc(100vh - 217px);
+}
+
+.pl-11px {
+    padding-left: 11px;
+    padding-bottom: 11px;
+}
+
+.forms {
+    height: 22px;
+    display: flex;
+    width: 94%;
+    padding: 17px;
+    align-items: center;
+    border-radius: 4px;
+    padding-left: 10px;
+}
+
+.active-form{
+    background-color: white;
+    color: #0c58a3;
+}
+
+::ng-deep .cdk-overlay-pane {
+      min-width:fit-content
+}
+
+.mat-option 
+{
+    font-size: 14px;
+    font-weight: 600;
+    height: 28px;
+    color: #0c58a3;
+}

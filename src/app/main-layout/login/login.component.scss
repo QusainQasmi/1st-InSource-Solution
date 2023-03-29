@@ -1,0 +1,31 @@
+
+.loginBack{
+    background: url(../../../../src/assets/imgs/UserLoginImg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.backImgColor{
+    background: rgb(0 0 0 / 78%)
+}
+
+.login-width{
+    width: auto;
+    min-width: 250px;
+    max-width: 330px;
+    background-color: #fff;
+}
+
+.border{
+    border: 2px solid white;
+}
+
+.loginBtn{
+    color: white !important;
+    background-color: black !important;
+}
+
+.font-bold{
+    font-weight: 600;
+    letter-spacing: 2px;
+}

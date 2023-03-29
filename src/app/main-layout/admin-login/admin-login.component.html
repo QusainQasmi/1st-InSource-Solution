@@ -1,0 +1,39 @@
+
+<div class="loginBack">
+    <div class="backImgColor h-100vh d-flex justify-content-center align-items-center w-100">
+            <div class="text-center login-width p-4 b-r-8px box-shabow border">
+                <h1 class="mb-5 pt-3 font-bold">ADMIN LOGIN</h1>
+                <mat-form-field class="col-md-12 mb-3" appearance="outline">
+                    <mat-icon matSuffix class="text-dark">person</mat-icon>
+                    <mat-label> Name</mat-label>
+                    <input type="text" matInput [formControl]="adminValid" [errorStateMatcher]="matcher"
+                        placeholder="John Wilson" [(ngModel)]="model.adminNameVal">
+                    <mat-error *ngIf="adminValid.hasError('email') && !adminValid.hasError('required')">
+                        Please Enter Correct  Name
+                    </mat-error> 
+                    <mat-error *ngIf="adminValid.hasError('required')">
+                        Admin Name Is <strong>Required</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-md-12 mb-3" appearance="outline">
+                    <mat-icon matSuffix class="text-dark cursorPointer" *ngIf="!isShow"
+                        (click)="showPass()">visibility</mat-icon>
+                    <mat-icon matSuffix class="text-dark cursorPointer" *ngIf="isShow"
+                        (click)="hidePass()">visibility_off</mat-icon>
+                    <mat-label>Password</mat-label>
+                    <input [type]="isShow ? 'text' : 'password'" matInput [formControl]="passValid"
+                        [errorStateMatcher]="matcher" placeholder="john#123" [(ngModel)]="model.passVal">
+                    <mat-error *ngIf="passValid.hasError('email') && !passValid.hasError('required')">
+                        Please Enter A Strong Password
+                    </mat-error>
+                    <mat-error *ngIf="passValid.hasError('required')">
+                        Password Is <strong>Required</strong>
+                    </mat-error>
+                </mat-form-field>
+                <div class="">
+                    <p class="mb-1 text-end"><a href="" [routerLink]="'/forgetPassword'"> Forget Password </a></p>
+                    <button mat-raised-button class="loginBtn mb-3 mt-4" (click)="adminlogin()" [loading]="adminLoader">LOGIN</button>
+                </div>
+            </div>
+    </div>
+</div>

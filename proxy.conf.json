@@ -1,0 +1,8 @@
+{
+    "/api":{
+        "target":"https://test.creatixtech.com",
+        "secure":false,
+        "changeOrigin":true,
+        "logLevel":"debug"
+    }
+}

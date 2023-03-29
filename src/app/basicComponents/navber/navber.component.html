@@ -1,0 +1,115 @@
+<header class="backColor">
+  <div class="pt-2 text-white">
+    <div class="container mt-2 mb-2">
+      <div class="row d-flex align-items-center">
+        <div class="col-md-6 d-flex justify-content-md-start justify-content-sm-center justify-content-center">
+          <img src="../../../assets/imgs/mainLogo.png" width="70px" heights="60px">
+        </div>
+
+        <!-- <div class="col-md-4 h-60px">
+          <mat-form-field appearance="fill" class="matFieldWidth matField">
+            <mat-label>Search ...</mat-label>
+            <input matInput [(ngModel)]="model.searchVal" class="text-white">
+            <mat-spinner matSuffix diameter="20" color="accent" *ngIf="loader"></mat-spinner>
+            <mat-icon matSuffix class="cursorPointer" (click)="search($event)" *ngIf="!loader">search</mat-icon>
+          </mat-form-field>
+        </div> -->
+
+        <div class="col-md-6 d-flex justify-content-center justify-content-md-end align-items-center mt-md-0 mt-3">
+          <div class="d-flex" *ngIf="isLogin">
+            <div class="mx-2">
+              <button matTooltip="Add To Cart" mat-mini-fab class="iconColor" matBadge="1" matBadgeColor="warn" (click)="routeCart()">
+                <mat-icon>add_shopping_cart</mat-icon>
+              </button>
+            </div>
+            <div class="mx-2">
+              <button matTooltip="See Notifications" (click)="routeNoti()" mat-mini-fab class="iconColor" matBadge="2" matBadgeColor="warn">
+                <mat-icon>notifications</mat-icon>
+              </button>
+            </div>
+            <div class="mx-2">
+              <button matTooltip="See Profile" mat-mini-fab class="iconColor" [matMenuTriggerFor]="menu">
+                <mat-icon>person</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <mat-icon>person</mat-icon>
+                  <span> {{ loginUserName }} </span>
+                </button>
+                <button mat-menu-item (click)="routeOrders()">
+                  <mat-icon>shopping_cart</mat-icon>
+                  <span>See Orders</span>
+                </button>
+                <button mat-menu-item (click)="logOutUser()">
+                  <mat-icon>logout</mat-icon>
+                  <span>Log Out</span>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+          <div class="d-flex" *ngIf="!isLogin">
+            <div class="mx-2">
+              <button mat-raised-button class="iconColor" [routerLink]="'/signUp'"> SIGN UP </button>
+            </div>
+            <div class="mx-2">
+              <button mat-raised-button class="iconColor" [routerLink]="'/login'"> LOGIN </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navBackColor">
+    <div class="container d-flex mr-0 pt-3 pb-3">
+      <div class="w-100 d-flex justify-content-between align-items-center">
+        <div class="d-flex" *ngIf="!isMobile">
+          <div>
+            <a class="text-white navLink" [ngClass]="isMobile ? '' : 'mx-2'" (click)="pagesRoutes('home')">Home</a>
+          </div>
+          <div>
+            <a class="text-white navLink" [ngClass]="isMobile ? '' : 'mx-3'" (click)="pagesRoutes('aboutUs')">About Us</a>
+          </div>
+          <div>
+            <a class="text-white navLink" [ngClass]="isMobile ? '' : 'mx-3'" (click)="pagesRoutes('products')">Products</a>
+          </div>
+          <div>
+            <a class="text-white navLink" [ngClass]="isMobile ? '' : 'mx-3'" (click)="pagesRoutes('faqs')">FAQs</a>
+          </div>
+          <div>
+            <a class="text-white navLink" [ngClass]="isMobile ? '' : 'mx-3'" (click)="pagesRoutes('contact')">Contact</a>
+          </div>
+        </div>
+        <div>
+          <span class="text-white">info@shahakTraders.com</span>
+        </div>
+        <div *ngIf="isMobile">
+          <button *ngIf="!forMobileIcon" mat-mini-fab class="iconColor" (click)="showMobile()">
+            <mat-icon>tune</mat-icon>
+          </button>
+          <button  *ngIf="forMobileIcon" mat-mini-fab class="iconColor" (click)="showMobileClose()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="mt-2 d-flex w-100 align-items-center overflow-auto pt-0 p-3" *ngIf="isMobile && forMobileIcon">
+      <div>
+        <a class="text-white navLink mx-2" (click)="pagesRoutes('home')">Home</a>
+      </div>
+      <div>
+        <a class="text-white navLink mx-3" (click)="pagesRoutes('aboutUs')">AboutUs</a>
+      </div>
+      <div>
+        <a class="text-white navLink mx-3" (click)="pagesRoutes('products')">Products</a>
+      </div>
+      <div>
+        <a class="text-white navLink mx-3" (click)="pagesRoutes('faqs')">FAQs</a>
+      </div>
+      <div>
+        <a class="text-white navLink mx-3" (click)="pagesRoutes('contact')">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+</header>

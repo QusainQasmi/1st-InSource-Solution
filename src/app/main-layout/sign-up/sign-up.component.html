@@ -1,0 +1,74 @@
+
+<div class="signupimg">
+<div class="w-100 box backImgColor">
+    <div class="flex-row p-5 b-r-8px box-shabow" [ngClass]="isMobile ? 'w-80' : 'w-50'">
+        <div class="row d-flex align-items-center">
+            <div class="col-md-7">
+                <form>
+                    <h1 class="text-center font-bold">Sign Up</h1>
+                    <div class="">
+                        <mat-form-field class="col-12" appearance="outline">
+                            <mat-icon matSuffix class="text-dark">person</mat-icon>
+                            <mat-label>User Name</mat-label>
+                            <input type="text" matInput [formControl]="userValidator" [errorStateMatcher]="matcher"
+                                placeholder="John Wilson" [(ngModel)]="model.userNameVal">
+                            <mat-error *ngIf="userValidator.hasError('email') && !userValidator.hasError('required')">
+                                Please Enter Correct User Name
+                            </mat-error>
+                            <mat-error *ngIf="userValidator.hasError('required')">
+                                User Name Is <strong>Required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="">
+                        <mat-form-field class="col-12" appearance="outline">
+                            <mat-icon matSuffix class="text-dark">mail</mat-icon>
+                            <mat-label>Email</mat-label>
+                            <input type="email" matInput [formControl]="emailValidator" [errorStateMatcher]="matcher"
+                                placeholder="Example@gmail.com" [(ngModel)]="model.emailVal">
+                            <mat-error *ngIf="emailValidator.hasError('email') && !emailValidator.hasError('required')">
+                                Please Enter A Valid Email Address
+                            </mat-error>
+                            <mat-error *ngIf="emailValidator.hasError('required')">
+                                Email Is <strong>Required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="">
+                        <mat-form-field class="col-12" appearance="outline">
+                            <mat-icon matSuffix class="text-dark cursorPointer" *ngIf="!isShow"
+                                (click)="showPass()">visibility</mat-icon>
+                            <mat-icon matSuffix class="text-dark cursorPointer" *ngIf="isShow"
+                                (click)="hidePass()">visibility_off</mat-icon>
+                            <mat-label>Password</mat-label>
+                            <input [type]="isShow ? 'text' : 'password'" matInput [formControl]="passwordValidator"
+                                [errorStateMatcher]="matcher" placeholder="john#123" [(ngModel)]="model.passVal">
+                            <mat-error
+                                *ngIf="passwordValidator.hasError('email') && !passwordValidator.hasError('required')">
+                                Please Enter A Strong Password
+                            </mat-error>
+                            <mat-error *ngIf="passwordValidator.hasError('required')">
+                                Password Is <strong>Required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 text-center">
+                        <mat-checkbox [(ngModel)]="model.condition">I Agree Term & Conditions</mat-checkbox>
+                    </div>
+                    <div class="col-12 text-center mb-3">
+                        <button mat-raised-button class="signUpBtn" [loading]="signupLoader" (click)="signUp()">SIGN UP </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-5">
+                <div class="text-center">    
+                    <h1 class="font-bold">Welcome,</h1>
+                    <span>Hope You Enjoy My Store Go Find Your Own Products And Order, Just Sign Up Your Account</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>

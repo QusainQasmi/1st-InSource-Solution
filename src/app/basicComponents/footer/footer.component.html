@@ -1,0 +1,36 @@
+
+
+<div class="container-fluid p-0 mt-3 bg-dark">
+    <div class="container">
+        <div class="row P-5">
+            <div class="col-md-4 text-light p-5 pb-3">
+                <h1 class="heading  mb-4 mx-2">Services</h1>
+                <h3 class="list d-flex align-items-center mb-0 pb-1" *ngFor="let list of listArry"> <mat-icon
+                        class="mx-2">{{list.icon}}</mat-icon> {{list.name}}</h3>
+            </div>
+            <div class="col-md-4 text-light p-5 pb-3">
+                <h1 class="heading mb-4 mx-2">QUICK LINKS</h1>
+                <h3 class="list d-flex align-items-center mb-0 pb-1" *ngFor="let list of listArry1"> <mat-icon
+                        class="mx-2 mb-0">{{list.icon}}</mat-icon> {{list.name}}</h3>
+            </div>
+            <div class="col-md-4 text-light p-5 pb-3">
+                <h1 class="heading  mb-4 mx-2">CONTACT US</h1>
+                <h3 class="list d-flex align-items-center mb-0 pb-2" *ngFor="let list of listArry2"> <mat-icon
+                    class="mx-2 mb-0">{{list.icon}}</mat-icon> {{list.name}}</h3>
+
+            </div>
+        </div>
+    </div>
+<div class="footerback">
+    <div class="text-light container p-3">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="../../../assets/imgs/mainLogo.png" width="70px" heights="60px">
+            </div>
+            <div class="col-md-8 d-flex align-items-center justify-content-end ">
+                <span class="d-flex   justify-content-center">Shakak Traders @2023 Copyright  <mat-icon>facebook</mat-icon></span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

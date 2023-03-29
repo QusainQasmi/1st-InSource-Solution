@@ -1,0 +1,151 @@
+.main-banner{
+    background: url(../../../../assets/imgs/bannar.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.heading{
+    font-size: 48px;
+    font-weight: 600;
+    color: #1f3d62;
+    letter-spacing: 1px;
+}
+
+.txtLIDesc{
+    line-height: 28px;
+    font-size: 20px;
+    color: gray;
+}
+
+.btnEffects{
+    width: 140px;
+    height: 48px;
+    font-size: 17px;
+    text-transform: uppercase;
+    background: #1f3d62 !important;
+    color: white !important;
+    transition: 0.5 all !important;
+    border-radius: 5px;
+}
+
+.btnEffects:hover{
+    transition: 0.5 all !important;
+    border: 2px solid #1f3d62 !important;
+    color: #1f3d62 !important;
+    background: white !important;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.textDisplay{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsLetter{
+    background: url(../../../../assets/imgs/back.jpg);
+    background-size: cover;    
+    background-repeat: no-repeat;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.newsLetterHeading{
+    font-size: 28px;
+    font-weight: 600;
+    color: #1f3d62;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.btnRoute{
+    width: 153px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 25px;
+    color: white !important;
+    background: linear-gradient(to right, #536274 , #122338);
+}
+
+.b-r-10px{
+    border-radius: 10px;
+}
+
+.cardbtn{
+    font-weight: 300;
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: white !important;
+    background: #232f3e !important;
+    transition: 0.5 all !important;
+}
+
+.cardbtn:hover{
+    color: #232f3e !important;
+    background-color: white !important;
+    font-weight: 600;
+    transition: 0.5 all !important;
+}
+
+.cardTxt{
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #1f3d62;
+    text-transform: uppercase
+}
+
+.cardPrice{
+    font-weight: 600;
+    font-size: 16px;
+    color: red;
+}
+
+.sendButton{
+    color: white !important;
+    background: linear-gradient(to right, #536274 , #122338);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    height: 54px;
+    transition: 0.7 all;
+}
+
+.sendButton:hover{
+    background: white !important;
+    color: #1f3d62 !important;
+    border: 2px solid #1f3d62 !important;
+    transition: 0.7 all;
+    font-weight: 600;
+}
+
+.txt{   
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+}
+
+.serviceHeading{
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: red;
+    letter-spacing: 2px;
+}
+
+.infoHeading{
+    font-size: 26px;
+    font-weight: 600;
+    color: #1f3d62;
+    letter-spacing: 2px;
+}
+
