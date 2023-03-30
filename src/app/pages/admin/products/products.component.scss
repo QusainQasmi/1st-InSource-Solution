@@ -1,0 +1,82 @@
+::ng-deep app-products {
+
+    .tableHead {
+        background: #122338 !important;
+        color: #fff;
+        font-size: 15px;
+        letter-spacing: 2px;
+    }
+
+    .tableLoader{
+        height: 65vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .customTable{
+        height: auto;
+        max-height: calc(100vh - 262px);
+        overflow: auto;
+        box-shadow: -4px 5px 15px -3px rgb(63, 62, 62);
+    }
+
+    .editIcon {
+        color: #122338;
+    }
+
+    .deleteIcon {
+        color: red;
+    }
+
+    ::ng-deep.matForm {
+        .mat-mdc-text-field-wrapper.mdc-text-field.ng-tns-c112-1.mdc-text-field--outlined {
+            height: 49px;
+        }
+    }
+
+}
+
+::ng-deep {
+    .pageHeading {
+        font-size: 28px;
+        text-transform: uppercase;
+        font-family: emoji;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    .deleteFormIcon {
+        background: red !important;
+        color: #fff !important;
+    }
+
+    .formSpan{
+        font-weight: 700;
+        letter-spacing: 2px;
+        font-family: emoji;
+    }
+
+    .serialNo{
+        font-weight: 800;
+        color: red;
+        letter-spacing: 2px;
+        font-family: math;
+    }
+
+    .addFormIcon {
+        background: #122338 !important;
+        color: #fff !important;
+    }
+
+    .saveBtn {
+        letter-spacing: 2px;
+        color: white !important;
+        background: linear-gradient(to right, #536274, #122338) !important;
+        font-weight: 500;
+        font-size: 15px;
+        letter-spacing: 2px;
+        border-radius: 40px !important;
+        height: 54px;
+    }
+}

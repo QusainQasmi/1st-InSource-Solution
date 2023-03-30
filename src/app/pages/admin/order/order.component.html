@@ -1,1 +1,100 @@
-<p>order works!</p>
+<div class="p-3">
+    <div class="d-flex w-100 align-items-center justify-content-between">
+        <div class="d-flex align-items-center pb-3">
+            <p class="pageHeading mb-0">Order</p>
+            <button mat-mini-fab color="primary" class="mx-2 addFormIcon" (click)="onEdit()"
+                matTooltip="Add New Record">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="matForm">
+                <mat-label>Search ...</mat-label>
+                <input matInput [(ngModel)]="model.searchVal" class="text-white">
+                <mat-spinner matSuffix diameter="20" color="warn" *ngIf="loader"></mat-spinner>
+                <mat-icon matSuffix class="cursorPointer" (click)="search($event)" *ngIf="!loader">search</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="tableLoader" *ngIf="tableLoader">
+        <mat-spinner matSuffix diameter="70" color="warn"></mat-spinner>
+    </div>
+
+    <div class="customTable" *ngIf="!tableLoader">
+        <table mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef class="tableHead"> Actions </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-icon class="cursorPointer editIcon" matTooltip="Edit" (click)="onEdit(element)">edit</mat-icon>
+                    <mat-icon class="cursorPointer mx-2 deleteIcon" matTooltip="Delete" (click)="onRemove(element)">delete</mat-icon>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef class="tableHead"> Product Name</th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="des">
+                <th mat-header-cell *matHeaderCellDef class="tableHead"> Description </th>
+                <td mat-cell *matCellDef="let element"> {{element.des}} </td>
+            </ng-container>
+            <ng-container matColumnDef="qty">
+                <th mat-header-cell *matHeaderCellDef class="tableHead"> Quantity </th>
+                <td mat-cell *matCellDef="let element"> {{element.qty}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+    </div>
+</div>
+
+<ng-template #form>
+    <div class="p-4">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+                <p class="pageHeading mb-0">Order</p>
+                <span class="mx-2 mb-0 serialNo" *ngIf="model.id"> ( Serial No . {{ model && model.id ? model.id : null
+                    }} ) </span>
+            </div>
+            <div>
+                <button mat-mini-fab class="deleteFormIcon" matTooltip="Close" mat-dialog-close>
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+        </div>
+        <ng-container class="container-fluid p-0">
+            <div class="row pt-4 d-flex align-items-center">
+                <div class="col-md-12">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Product Name</mat-label>
+                        <input type="text" matInput [(ngModel)]="model.name">
+                    </mat-form-field>
+                </div>
+ 
+                <div class="col-md-12">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Description</mat-label>
+                        <input type="text" matInput [(ngModel)]="model.des">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Quantity</mat-label>
+                        <input type="number" matInput [(ngModel)]="model.qty">
+                    </mat-form-field>
+                </div>
+ 
+                <div class="col-md-12 d-flex justify-content-end">
+                    <button mat-raised-button class="saveBtn"
+                        [matTooltip]=" model.id ? 'Edit Category' : 'Save Category'" [loading]="saveLoader"
+                        (click)="model.id ? editData(this.model) : saveData()">Save</button>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</ng-template>

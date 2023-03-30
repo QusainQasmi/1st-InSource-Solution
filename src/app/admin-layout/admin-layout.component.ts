@@ -49,6 +49,11 @@ export class AdminLayoutComponent {
       icon: 'notifications',
       route:'admin/notificationSetting' 
     },
+    {
+      pagesName:'Image Gallery',
+      icon: 'photo_library',
+      route:'admin/imageGallery' 
+    },
     
   ];
 

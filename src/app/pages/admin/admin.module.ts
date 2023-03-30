@@ -10,6 +10,7 @@ import { ProductsComponent } from './products/products.component';
 import { OrderComponent } from './order/order.component';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
 import { NotificationSettingComponent } from './notification-setting/notification-setting.component';
+import { ImageGalleryComponent } from './image-gallery/image-gallery.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home' , pathMatch: 'full' },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'order', component: OrderComponent },
   { path: 'subCategory', component: SubCategoryComponent },
   { path: 'notificationSetting', component: NotificationSettingComponent },
+  { path: 'imageGallery', component: ImageGalleryComponent },
 ];
 
 @NgModule({
@@ -33,7 +35,8 @@ const routes: Routes = [
     ProductsComponent,
     OrderComponent,
     SubCategoryComponent,
-    NotificationSettingComponent
+    NotificationSettingComponent,
+    ImageGalleryComponent
   ],
 
   imports: [
