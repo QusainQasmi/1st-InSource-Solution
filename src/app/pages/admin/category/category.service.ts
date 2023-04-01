@@ -23,6 +23,6 @@ export class CategoryService extends BaseService<any> {
   }
 
   async deleteCategory(id: number){
-    return await this.Get("deleteCategory" , id);
+    return await this.Get("deleteCategory");
   }
 }

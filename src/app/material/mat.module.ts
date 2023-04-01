@@ -31,6 +31,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrPaginationComponent } from './br-pagination/br-pagination.component';
 import { CommonModule } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSliderModule } from '@angular/material/slider';
 
 
 @NgModule({
@@ -66,7 +68,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatNativeDateModule,
     MatTreeModule,
     MatBadgeModule,
-    
+    MatProgressBarModule,
+    MatSliderModule,
     MatSidenavModule,
     CommonModule,
   ],
@@ -104,6 +107,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatSidenavModule,
     MatError,
     MatDividerModule,
+    MatProgressBarModule,
+    MatSliderModule,
     BrPaginationComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

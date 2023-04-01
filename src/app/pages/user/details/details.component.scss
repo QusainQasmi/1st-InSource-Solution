@@ -1,0 +1,90 @@
+
+.heading{
+    font-size: 35px;
+    font-weight: 600;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.txtDisplay{
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img{
+    transform-origin: center center;
+    transform-origin: 20px 20px;
+    object-fit: cover;
+    transform: scale(1);
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.nameLabel{
+    font-size: 15px;
+    color: black;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.productName{
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    color: #1f3d62;
+}
+
+.imgBorder{
+    border: 2px solid lightgray;
+    border-radius: 4px;
+    overflow: hidden;
+    height: auto;
+    max-height: calc(100vh - 278px);
+}
+
+.productButton{
+    background: #1f3d62 !important;
+    color: white !important;
+    font-weight: 500;
+    width: 110px;
+    height: 30px;
+    font-size: 17px;
+}
+
+.cardButton{
+    background: #1f3d62 !important;
+    color: white !important;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.cardButton:hover{
+    background: white !important;
+    color: #1f3d62 !important;
+    font-weight: 700;
+    border: 2px solid #1f3d62;
+    font-size: 17px;
+}
+
+.overFlow500{
+    height: auto;
+    max-height: 500px;
+    overflow: auto;
+}
+
+.productDesc{
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #1f3d62;
+}
+
+.box{
+    border: 2px solid lightgray;
+    border-radius: 4px;
+}

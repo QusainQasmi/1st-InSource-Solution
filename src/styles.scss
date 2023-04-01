@@ -37,6 +37,12 @@ body { margin: 0; font-family: "Poppins", sans-serif; }
 .f-s-11{
     font-size: 11px !important;
 }
+.f-s-18{
+    font-size: 18px !important;
+}
+.letterSpacing{
+    letter-spacing: 2px !important;
+}
 .h-100vh{
     height: 100vh;
 }
@@ -73,9 +79,10 @@ body { margin: 0; font-family: "Poppins", sans-serif; }
     padding: 10px;
 }
 .ellipsis{
-    text-overflow: ellipsis;
     white-space: nowrap;
+    width: 215px;
     overflow: hidden;
+    text-overflow: ellipsis; 
 }
 .span-ellipsis{
     text-overflow: ellipsis;
@@ -120,5 +127,5 @@ body { margin: 0; font-family: "Poppins", sans-serif; }
     font-weight: 700;
 }
 .txt-clr-danger{
-    color: rgba(255, 0, 0, 0.555);
+    color: red !important;
 }

@@ -26,6 +26,37 @@
     border-radius: 8px;
   }
 
+  .productsTabsTwo{
+    height: calc(100vh - 407px);
+    background: #122338;
+    color: #fff;
+    width: 254px;
+    border-radius: 8px;
+  }
+
+  .cardShadow{
+    box-shadow: 1px 2px 8px 0px rgb(63, 62, 62) !important;
+  }
+
+  .cardPrice{
+    font-size: 20px;
+    font-weight: 500;
+    color: #175097;
+  }
+
+  .filters{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .sortLabel{
+    color: #175097 !important;
+    font-weight: 500 !important;
+    letter-spacing: 1px !important;
+  }
+
   .heading{
     font-size: 21px;
     text-transform: uppercase;
@@ -33,6 +64,12 @@
     letter-spacing: 2px;
     font-family: emoji;
     padding: 18px 18px 10px 18px;
+  }
+
+  .containerHeight{
+    height: auto;
+    max-height: calc(100vh - 50px);
+    overflow: auto;
   }
 
   .nameHeading{

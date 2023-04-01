@@ -11,6 +11,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { UserOrderComponent } from './user-order/user-order.component';
 import { UserNotificationsComponent } from './user-notifications/user-notifications.component';
+import { DetailsComponent } from './details/details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main' , pathMatch: 'full' },
@@ -34,7 +35,8 @@ const routes: Routes = [
     ContactUsComponent,
     AddToCartComponent,
     UserOrderComponent,
-    UserNotificationsComponent
+    UserNotificationsComponent,
+    DetailsComponent
   ],
 
   imports: [

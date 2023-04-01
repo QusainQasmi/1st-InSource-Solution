@@ -1,0 +1,46 @@
+<div class="p-4">
+    <div class="d-flex align-items-center justify-content-between">
+        <div class="">
+            <span class="mb-0 heading">Product Details</span>
+        </div>
+        <div>
+            <mat-icon mat-dialog-close class="txt-clr-danger" matTooltip="Close">close</mat-icon>
+        </div>
+    </div>
+    <ng-container class="w-100">
+        <div class="container-fluid mx-2 mt-4 overFlow500">
+            <div class="row">
+                <div class="col-md-8 imgBorder d-flex align-items-center p-0">
+                    <img [src]="'../../../assets/imgs/' + model.src" class="img" id="img"
+                        (mouseover)="onZoom($event , true)" (mousemove)="onZoom($event , true)"
+                        (mouseleave)="onZoom($event , false)">
+                </div>
+                <div class="col-md-4">
+                    <div class="box txtDisplay p-2" *ngIf="model.productName">
+                        <p class="mb-0 nameLabel">Product Name</p>
+                        <span class="mt-2 mb-0 productName"> {{ model.productName }} </span>
+                    </div>
+                    <div class="box txtDisplay p-2 mt-2" *ngIf="model.categoryName">
+                        <p class="mb-0 nameLabel">Category Name</p>
+                        <span class="mt-2 mb-0 productName"> {{ model.categoryName }} </span>
+                    </div>
+                    <div class="box txtDisplay p-2 mt-2" *ngIf="model.desc">
+                        <p class="mb-0 nameLabel">Description</p>
+                        <span class="mt-2 mb-0 productDesc"> {{ model.desc }} </span>
+                    </div>
+                    <div class="box txtDisplay p-2 mt-2" *ngIf="model.price">
+                        <p class="mb-0 nameLabel">Price</p>
+                        <!-- <span class=" productDesc"> {{ model.price }} </span> -->
+                        <button mat-raised-button class="mt-1 mb-0 productButton">{{ model.price }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-end w-100">
+            <div class="">
+                <button mat-raised-button class="mt-1 mb-0 cardButton"> <mat-icon>shopping_cart_checkout</mat-icon> Add
+                    To Cart</button>
+            </div>
+        </div>
+    </ng-container>
+</div>

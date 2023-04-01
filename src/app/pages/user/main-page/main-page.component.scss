@@ -12,6 +12,13 @@
     letter-spacing: 1px;
 }
 
+.productNameEllipsis{
+    white-space: nowrap;
+    width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .txtLIDesc{
     line-height: 28px;
     font-size: 20px;

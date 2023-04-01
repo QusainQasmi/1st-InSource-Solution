@@ -3,40 +3,109 @@
 </div>
 
 <div class="changeDisplay">
-    <p class="cartHeading mb-3">See Your Cart</p>
-    <p class="f-s-20"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur.</p>
+  <p class="cartHeading mb-3">See Your Cart</p>
+  <p class="f-s-20"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur.</p>
 </div>
 
 <div class="container mt-5 pt-3">
-    <p class="heading pb-3">See Your Products</p>
-    <div class="customTable">
-    <table mat-table [dataSource]="dataSource">
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef class="tableHead"> Product Name </th>
-          <td mat-cell *matCellDef="let element" class="tableRow"> {{element.name}} </td>
-        </ng-container>
-        <ng-container matColumnDef="price">
-          <th mat-header-cell *matHeaderCellDef class="tableHead"> Price </th>
-          <td mat-cell *matCellDef="let element" class="tableRow"> {{element.price}} </td>
-        </ng-container>
-        <ng-container matColumnDef="qty">
-          <th mat-header-cell *matHeaderCellDef class="tableHead"> Quantity </th>
-          <td mat-cell *matCellDef="let element" class="tableRow">
-            <button mat-mini-fab class="bg-danger text-white mx-2" (click)="setQty( element , false)">
-                <mat-icon>remove</mat-icon>
-            </button> 
-            {{element.qty}} 
-            <button mat-mini-fab class="bg-success mx-2 text-white" (click)="setQty(element , true)">
-                <mat-icon>add</mat-icon>
-            </button>
-          </td>
-        </ng-container>
-        <ng-container matColumnDef="total">
-          <th mat-header-cell *matHeaderCellDef class="tableHead"> Total Amount </th>
-          <td mat-cell *matCellDef="let element" class="tableRow"> {{element.total}} </td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+  <p class="heading pb-3">See Your Products</p>
+  <div class="row">
+    <div class="col-md-8 colHeight">
+      <mat-card class="cardShadow mb-4 mt-2 w-100" *ngFor="let card of dataSource">
+        <div class="row p-2">
+          <div class="col-md-3 px-2 d-flex align-items-center">
+            <img [src]="'../../../assets/imgs/' + card.src" class="mb-2" width="80px" height="80px">
+            <div class="txtAlign mx-2">
+              <span class="mb-0 pb-0 titleName"> Name </span>
+              <span class="mb-0 pb-0 txtHeading w-100"> {{card.productName}} </span>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex align-items-center">
+            <div class="txtAlign">
+              <span class="mb-0 pb-0 titleName"> Description </span>
+              <span class="mb-0 pb-0 txtHeading w-75" [matTooltip]="card.desc"> {{ card.desc }}</span>
+            </div>
+          </div>
+          <div class="col-md-3 d-flex align-items-center justify-content-center">
+            <div class="txtAlign mx-2">
+              <span class="mb-0 pb-0 titleName"> Price </span>
+              <span class="mb-0 pb-0 txtHeading w-100"> {{card.price}} </span>
+            </div>
+          </div>
+          <div class="col-md-2 d-flex align-items-center justify-content-center">
+            <div class="txtAlign mx-2">
+              <span class="mb-0 pb-0 titleName"> Quantity </span>
+              <span class="mb-0 pb-0 txtHeading d-flex align-items-center w-100"> <mat-icon class="text-danger cursorPointer"
+                  (click)="setQty(card , false)">remove</mat-icon> <span class="mb-0 mx-2">{{ card.qty }}</span>
+                <mat-icon class="cursorPointer text-success" (click)="setQty(card , true)">add</mat-icon></span>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <mat-divider></mat-divider>
+          </div>
+          <div class="col-md-12 d-flex justify-content-end pt-2">
+            <div>
+              <button mat-raised-button class="btn-sm mx-2 checkOut" matTooltip="See Details" (click)="openDetail(card)">Checkout</button>
+              <button mat-raised-button class="btn-sm buyNow" matTooltip="Buy Product" (click)="buyNow(card)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-md-4">
+      <mat-card class="box w-100 p-2">
+        <div class="box-elemets p-2">
+          <div>
+            <p class="mb-0 box-heading"> Sub Total : </p>
+          </div>
+          <div>
+            <p class="mb-0 box-txt"> 0.00 </p>
+          </div>
+        </div>
+        <div class="p-2">
+          <mat-divider></mat-divider>
+        </div>
+        <div class="box-elemets p-2">
+          <div>
+            <p class="mb-0 box-heading"> Delivery Charges : </p>
+          </div>
+          <div>
+            <p class="mb-0 box-txt"> 0.00 </p>
+          </div>
+        </div>
+        <div class="p-2">
+          <mat-divider></mat-divider>
+        </div>
+        <div class="box-elemets p-2">
+          <div>
+            <p class="mb-0 box-heading"> Discount : </p>
+          </div>
+          <div>
+            <p class="mb-0 box-txt"> 0.00 </p>
+          </div>
+        </div>
+        <div class="p-2">
+          <mat-divider></mat-divider>
+        </div>
+        <div class="box-elemets p-2">
+          <div>
+            <p class="mb-0 box-heading"> Total Amount : </p>
+          </div>
+          <div>
+            <p class="mb-0 box-txt"> 0.00 </p>
+          </div>
+        </div>
+      </mat-card>
+    </div>
   </div>
 </div>
+
+<ng-template #orderForm>
+  <div class="p-5">
+    hey order form
+  </div>
+</ng-template>
+
+<ng-template #paymentMethod>
+
+</ng-template>

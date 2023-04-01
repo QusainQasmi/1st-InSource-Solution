@@ -1,8 +1,25 @@
 <section class="w-100">
   <div class="container-fluid">
+    <div class="pb-0 p-4 pt-3 d-flex align-items-center justify-content-between">
+      <div>
+        <h2 class="mb-0 nameHeading"> {{ categoryName ? categoryName : 'Dinner Set' }} </h2>
+        <span class="mb-0 text-center subNameHeading"> ( {{ subCategoryName ? subCategoryName : 'Dinner Set ABCD' }} )</span>
+      </div>
+      <div>
+        <div class="h-60px">
+          <mat-form-field appearance="outline" class="matField">
+            <mat-label>Search ...</mat-label>
+            <input matInput [(ngModel)]="model.searchVal" class="">
+            <mat-spinner matSuffix diameter="20" color="accent" *ngIf="searchloader"></mat-spinner>
+            <mat-icon matSuffix class="cursorPointer" (click)="search($event)"
+              *ngIf="!searchloader">search</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
     <div class="d-flex w-100">
-      <div class="mt-4">
-        <div class=" productsTabs">
+      <div class="mt-2">
+        <div class="productsTabs mt-3">
           <p class="heading">Categorys</p>
           <div class="d-flex w-100 h-50 justify-content-center align-items-center" *ngIf="productsLoader">
             <mat-spinner diameter="48" color="accent" class="spinnerColor"></mat-spinner>
@@ -12,7 +29,7 @@
             <div class="d-flex align-items-center justify-content-between" *ngIf="!productsLoader">
              
               <div>
-                <p class="productsText mb-1">{{ parentItem.categoryName }}</p>
+                <p class="productsText mb-1 cursorPointer">{{ parentItem.categoryName }}</p>
               </div>
               <div [hidden]="parentItem.subCategory && parentItem.subCategory.length<1">
                 
@@ -34,52 +51,58 @@
           </div>
         </div>
         </div>
-      </div>
-
-      <div class="mt-4 w-100 px-4">
-        <div class="d-flex align-items-center justify-content-between">
-          <div>
-            <h2 class="mb-0 nameHeading"> {{ categoryName ? categoryName : 'Dinner Set' }} </h2>
-            <span class="mb-0 text-center subNameHeading"> ( {{ subCategoryName ? subCategoryName : 'Dinner Set ABCD' }} )</span>
-          </div>
-          <div>
-            <div class="h-60px">
-              <mat-form-field appearance="outline" class="matField">
-                <mat-label>Search ...</mat-label>
-                <input matInput [(ngModel)]="model.searchVal" class="">
-                <mat-spinner matSuffix diameter="20" color="accent" *ngIf="searchloader"></mat-spinner>
-                <mat-icon matSuffix class="cursorPointer" (click)="search($event)"
-                  *ngIf="!searchloader">search</mat-icon>
+        <div class="productsTabsTwo mt-3">
+          <p class="heading">Filterations</p>
+          <div class="max-heigthCalc overflow-auto">
+            <div class="text-center">
+              <mat-form-field appearance="fill" color="primary">
+                <mat-label class="sortLabel">Sort By</mat-label>
+                <mat-select>
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let items of sortByData" [value]="items.id">
+                    {{ items.name }}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
             </div>
-          </div>
+            <div class="filters px-4">
+                <label class="f-s-18 letterSpacing">Filter By Price :</label>
+                <mat-slider class="w-75" color="warn">
+                  <input type="range" [(ngModel)]="model.slideValue" matSliderThumb>
+                </mat-slider>
+            </div>
         </div>
-        <div class="container-fluid p-0 mt-3">
-          <div class="row">
-            <div class="col-md-4 mt-3" *ngFor="let items of productsData">
-              <mat-card class="box-shabow">
-                <div class="d-flex">
-                  <div>
-                    <mat-card-title class="p-4 pb-0"> {{ items.name }} </mat-card-title>
-                    <mat-card-subtitle class="p-4 pt-1 pb-0">{{ items.desc }}</mat-card-subtitle>
-                  </div>
-                  <div class="px-3 pt-2">
-                    <img mat-card-sm-image src="../../../../assets/imgs/card3.png" >
-                  </div>
-                </div>
-                <mat-card-content class="w-100 pt-2">
-                  <mat-icon class="px-1 cursorPointer" matTooltip="Add To Cart">add_shopping_cart</mat-icon>
-                  <mat-icon class="mx-2 cursorPointer" matTooltip="About Product">info</mat-icon>
-                </mat-card-content>
-              </mat-card>
-            </div>  <br-pagination [numberOfRowsPerPage]="20" [recordCount]="500" (pageChange)="onPageChange($event)"></br-pagination>
-          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-      
+
+      <div class="w-100 px-2">
+        <div class="container-fluid p-4 pb-0 pt-0 mb-2 mt-3">
+          <div class="row containerHeight">
+            <div class="col-md-4 mt-2 mb-2" *ngFor="let items of productsData">
+              <mat-card class="cardShadow">
+                <div class="d-flex">
+                  <div>
+                    <mat-card-title class="p-4 pb-0"> {{ items.productName }} </mat-card-title>
+                    <mat-card-subtitle class="p-4 pt-1 pb-0 ellipsis" [matTooltip]="items.desc">{{ items.desc }}</mat-card-subtitle>
+                  </div>
+                  <div class="px-3 pt-2">
+                    <img mat-card-sm-image [src]="'../../../../assets/imgs/' + items.src" >
+                  </div>
+                </div>
+                <mat-card-content class="w-100 pt-2 d-flex align-items-center justify-content-between">
+                  <div>
+                    <mat-icon class="px-1 cursorPointer" matTooltip="Add To Cart">add_shopping_cart</mat-icon>
+                    <mat-icon class="mx-2 cursorPointer" matTooltip="About Product" (click)="openDetail(items)">info</mat-icon>
+                  </div>
+                  <div>
+                    <p class="mb-0 cardPrice" [matTooltip]="'Price ' + items.price">{{ items.price }}</p>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </div>  
+          </div>
+          <br-pagination [numberOfRowsPerPage]="20" [recordCount]="500" (pageChange)="onPageChange($event)"></br-pagination>
+        </div>
       </div>
     </div>
   </div>

@@ -1,20 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DetailsComponent } from '../details/details.component';
 
 @Component({
   selector: 'app-add-to-cart',
   templateUrl: './add-to-cart.component.html',
   styleUrls: ['./add-to-cart.component.scss']
 })
-export class AddToCartComponent {
-  displayedColumns: string[] = ['name', 'price', 'qty', 'total'];
-  dataSource = Data;
+export class AddToCartComponent implements OnInit {
 
-  constructor(public snackbar: MatSnackBar){
+  @ViewChild('orderForm') orderForm: TemplateRef<any> | any;
+  dataSource : any[] = [
+    {id: 1, src: 'card3.png', productName: 'Pieces 23', categoryName: 'Dinner Sets', desc: 'Lorem ipsum dolor sit amet. dolor sit amet.', price: '45.76 $', qty:'1'},
+    {id: 2, src: 'card3.png', productName: 'Pieces 13',categoryName: 'Mug Sets', desc: 'Lorem ipsum dolor sit amet. dolor sit amet.', price: '45.76 $', qty:'1'},
+    {id: 3, src: 'card3.png', productName: 'Pieces 18',categoryName: 'Water Sets', desc: 'Lorem ipsum dolor sit amet. dolor sit amet.', price: '45.76 $', qty:'1'},
+    {id: 4, src: 'card3.png', productName: 'Pieces 20',categoryName: 'Bowls', desc: 'Lorem ipsum dolor sit amet. dolor sit amet.', price: '45.76 $', qty:'1'},
+    {id: 5, src: 'card3.png', productName: 'Pieces 9',categoryName: 'Tea Sets', desc: 'Lorem ipsum dolor sit amet. ipsum dolor sit amet.', price: '45.76 $', qty:'1'}
+
+  ];
+
+
+  constructor(public snackbar: MatSnackBar , public dialog: MatDialog){
 
   }
 
-  setQty(obj: any , addBool: boolean){
+  setQty(obj?: any , addBool?: boolean){
     let count = Number(obj.qty) ?? 0;
     let addNum = 1;
     if(addBool){
@@ -37,21 +48,29 @@ export class AddToCartComponent {
     })
   }
 
+  openDetail(obj?: any) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = '65vw';
+    dialogConfig.disableClose = true;
+    dialogConfig.data = obj;
+    if (obj) {
+      const dialogRef = this.dialog.open(DetailsComponent, dialogConfig);
+      dialogRef.afterClosed().subscribe(res => {
+        if (res) {
+          console.log(res);
+        }
+      })
+    }
+  }
+
+  buyNow(obj?: any){
+    this.dialog.open(this.orderForm)
+  }
+
+  ngOnInit() {
+  //  let listData: any = JSON.stringify(localStorage.getItem('products'));
+  //  this.dataSource = listData;
+  //  console.log(this.dataSource)
+  }
+
 }
-
-export interface cartData {
-  id: number,
-  name: string;
-  price: string;
-  qty: number;
-  total: string;
-}
-
-const Data: cartData[] = [
-  { id: 1 , name: "70 Pieces Dinner Set", price: '45.3 $', qty: 1, total: '45.3 $'},
-  { id: 2 , name: "12 Pieces Dinner Set", price: '12.9 $', qty: 1, total: '12.9 $'},
-  { id: 3 , name: "24 Pieces Dinner Set", price: '27.6 $', qty: 1, total: '27.6 $'},
-  { id: 4 , name: "48 Pieces Dinner Set", price: '35 $', qty: 1, total: '35 $'},
-  { id: 5 , name: "30 Pieces Dinner Set", price: '31.7 $', qty: 1, total: '31.7 $'}
-];
-
