@@ -50,7 +50,7 @@ export class AdminLayoutComponent {
       route:'admin/notificationSetting' 
     },
     {
-      pagesName:'Image Gallery',
+      pagesName:'Media Source',
       icon: 'photo_library',
       route:'admin/imageGallery' 
     },

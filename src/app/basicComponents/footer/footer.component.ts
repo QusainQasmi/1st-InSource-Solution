@@ -7,20 +7,18 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   listArry: any[] = [
-    { name: 'Brand Identity' , icon: 'done' },
-    { name: 'Package Design'  , icon: 'done'},
-    { name: 'Pattern Design'  , icon: 'done'},
-    { name: 'T-shirt Print'  , icon: 'done'},
-    { name: 'Book Covers'  , icon: 'done'},
-    { name: 'CD-DVD Covers' , icon: 'done' }
+    { name: 'Dinner Sets' , icon: 'done' },
+    { name: 'Mugs Sets'  , icon: 'done'},
+    { name: 'Plates'  , icon: 'done'},
+    { name: 'Water Sets'  , icon: 'done'},
+    { name: 'Bowls' , icon: 'done' }
   ]
   listArry1: any[] = [
-    { name: 'Home', icon: 'done' },
-    { name: 'About us', icon: 'done' },
-    { name: 'Services', icon: 'done' },
-    { name: 'Products', icon: 'done' },
-    { name: 'Category', icon: 'done' },
-    { name: 'FAQs', icon: 'done' }
+    { name: 'Home', icon: 'done' ,route: '/user/main'},
+    { name: 'About us', icon: 'done' ,route: '/user/aboutUs'},
+    { name: 'Products', icon: 'done' ,route: '/user/products'},
+    { name: 'Contact', icon: 'done' ,route: '/user/contact'},
+    { name: 'FAQs', icon: 'done' ,route: '/user/faqs'}
   ]
   listArry2: any[] = [
     { name: '+ 785 945 568 584', icon: 'phone' },

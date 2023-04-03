@@ -1,3 +1,5 @@
+.container-fluid{
+background: #122338;}
 .f-heading{
     font-size: 25px;
     font-weight: 300;
@@ -16,6 +18,11 @@
     font-size: 30px;
     font-weight: 600;
     letter-spacing: 1px;
+  }
+  
+  .footerdown{
+    border-right: 2px solid #fff;
+    padding-right: 6px;
   }
   .list{
     font-size: 15px;

@@ -1,0 +1,48 @@
+::ng-deep app-image-gallery {
+
+    .pageHeading {
+        font-size: 28px;
+        text-transform: uppercase;
+        font-family: emoji;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    .addFormIcon {
+        background: #122338 !important;
+        color: #fff !important;
+    }
+
+    .lightBorder{
+        border: 2px solid lightgray !important;
+        border-radius: 5px;        
+        transition: 0.5 ease-in !important;
+    }
+
+    .border {
+        border: 2px solid black !important;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: 0.5 ease-in !important;
+    }
+
+    .iconSet {
+        position: absolute !important;
+        border: none;
+        background: red !important;
+        border-radius: 50%;
+        color: white !important;
+        width: 24px;
+        text-align: start;
+        height: 22px;
+        margin-left: 145px;
+        margin-top: -12px;
+    }
+
+    .icon {
+        font-size: 16px;
+        margin-top: 1px;
+        margin-left: -2px !important; 
+    }
+
+}

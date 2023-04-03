@@ -1,1 +1,21 @@
-<p>image-gallery works!</p>
+<div class="container-fluid">
+
+    <div class="d-flex align-items-center pb-1 p-4">
+        <p class="pageHeading mb-0">Media Source</p>
+        <button mat-mini-fab class="mx-2 addFormIcon" matTooltip="Add New Image">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+
+    <div class="row p-3">
+        <div class="col-md-2 p-2" *ngFor="let item of imgsData">
+            <div [ngClass]="item.imgBorder ? 'border' : 'lightBorder'" class="cursorPointer mt-2" [matTooltip]="!item.imgBorder ? 'Click To Select' : ' Double Click To Un-Select'">
+                <button class="iconSet" matTooltip="Delete Image" *ngIf="item.imgBorder">
+                    <mat-icon class="icon">close</mat-icon>
+                </button>
+                <img [src]="'../../../../assets/imgs/' + item.src" (click)="setImg(item , true)" (dblclick)="setImg(item , false)"
+                width="100%">
+            </div>
+        </div>
+    </div>
+</div>
