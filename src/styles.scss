@@ -46,14 +46,7 @@ body { margin: 0; font-family: "Poppins", sans-serif; }
 .h-100vh{
     height: 100vh;
 }
-.mat-loading .mat-button-wrapper{
-    visibility: hidden !important;
-}
-.mat-loading .mat-progress-spinner{
-    position: absolute !important;
-    top: calc(50% - 10px);
-    left: calc(50% - 10px);
-}
+
 .mr-2{
     margin-right: 0.6rem;
 }

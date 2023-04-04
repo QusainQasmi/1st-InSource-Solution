@@ -8,7 +8,8 @@
 </div>
 
 <div class="container mt-5 pt-3">
-  <p class="heading pb-3">See Your Products</p>
+  <p class="heading pb-3">CART</p>
+  <span class="mb-0">{{ dataSource.length }}</span>
   <div class="row">
     <div class="col-md-8 colHeight">
       <mat-card class="cardShadow mb-4 mt-2 w-100" *ngFor="let card of dataSource">
@@ -45,7 +46,7 @@
           </div>
           <div class="col-md-12 d-flex justify-content-end pt-2">
             <div>
-              <button mat-raised-button class="btn-sm mx-2 checkOut" matTooltip="See Details" (click)="openDetail(card)">Checkout</button>
+              <button mat-raised-button class="btn-sm mx-2 checkOut" matTooltip="See Details" (click)="openDetail(card)"></button>
               <button mat-raised-button class="btn-sm buyNow" matTooltip="Buy Product" (click)="buyNow(card)">Buy Now</button>
             </div>
           </div>

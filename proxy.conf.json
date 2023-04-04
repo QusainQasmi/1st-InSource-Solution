@@ -1,6 +1,6 @@
 {
     "/api":{
-        "target":"https://test.creatixtech.com",
+        "target":"https://shakaktrader.000webhostapp.com",
         "secure":false,
         "changeOrigin":true,
         "logLevel":"debug"
