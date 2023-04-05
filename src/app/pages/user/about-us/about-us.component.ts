@@ -18,7 +18,7 @@ export class AboutUsComponent {
   ];
 
   clientsData: any[] = [
-    { src: 'PC Hotel Logo.png' },
+    { src: 'PC_hotel.png' },
     { src: 'Honda Logo.png' },
     { src: 'PIA Logo.png' }
   ];
