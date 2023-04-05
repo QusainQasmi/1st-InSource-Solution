@@ -7,9 +7,16 @@
   <p class="f-s-20"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur.</p>
 </div>
 
-<div class="container mt-5 pt-3">
-  <p class="heading pb-3">CART</p>
-  <span class="mb-0">{{ dataSource.length }}</span>
+<div class="container mt-5 pt-3 mb-5">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <div class="d-flex align-items-center">
+      <p class="heading">See Your Product's</p>
+      <span class="mb-2 mx-2 cartsCount" matTooltip="Products Count's">( {{ dataSource.length }} )</span>
+    </div>
+    <div>
+      <button mat-raised-button class="checkOut" matTooltip="Order Now" (click)="routeToCheckout()">Checkout</button>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-8 colHeight">
       <mat-card class="cardShadow mb-4 mt-2 w-100" *ngFor="let card of dataSource">
@@ -46,8 +53,12 @@
           </div>
           <div class="col-md-12 d-flex justify-content-end pt-2">
             <div>
-              <button mat-raised-button class="btn-sm mx-2 checkOut" matTooltip="See Details" (click)="openDetail(card)"></button>
-              <button mat-raised-button class="btn-sm buyNow" matTooltip="Buy Product" (click)="buyNow(card)">Buy Now</button>
+              <button mat-mini-fab class="btn-sm detailBtn" matTooltip="See Details" (click)="openDetail(card)">
+                <mat-icon>info</mat-icon>
+              </button>
+              <button mat-mini-fab class="btn-sm mx-2 deleteBtn" matTooltip="Delete Products For Cart">
+                <mat-icon>delete</mat-icon>
+              </button>
             </div>
           </div>
         </div>
@@ -97,16 +108,26 @@
           </div>
         </div>
       </mat-card>
+      <div class="row mt-3 px-3">
+        <div class="col-md-6 p-0">
+          <img src="../../../../assets/imgs/PayPalLogo" class="paymentImgs">
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<ng-template #orderForm>
-  <div class="p-5">
-    hey order form
+<div class="container mt-5 newsLetter cardShadow mb-5">
+  <div class="row text-center mt-3">
+    <div class="col-md-12">
+      <p class="newsLetterHeading mb-4">Subscribe Our NewsLetter</p>
+    </div>
+    <div class="col-md-12">
+      <mat-form-field class="w-100" color="primary" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput placeholder="Example@gmail.com" [(ngModel)]="model.emailVal">
+        <button matSuffix mat-raised-button class="sendButton"> Send <mat-icon>forward_to_inbox</mat-icon> </button>
+      </mat-form-field>
+    </div>
   </div>
-</ng-template>
-
-<ng-template #paymentMethod>
-
-</ng-template>
+</div>

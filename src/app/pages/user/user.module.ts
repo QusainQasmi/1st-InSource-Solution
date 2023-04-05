@@ -12,6 +12,7 @@ import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { UserOrderComponent } from './user-order/user-order.component';
 import { UserNotificationsComponent } from './user-notifications/user-notifications.component';
 import { DetailsComponent } from './details/details.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main' , pathMatch: 'full' },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'cart', component: AddToCartComponent },
   { path: 'orders', component: UserOrderComponent },
   { path: 'notifications', component: UserNotificationsComponent },
+  { path: 'checkout', component: CheckoutComponent },
 ];
 
 @NgModule({
@@ -36,7 +38,8 @@ const routes: Routes = [
     AddToCartComponent,
     UserOrderComponent,
     UserNotificationsComponent,
-    DetailsComponent
+    DetailsComponent,
+    CheckoutComponent
   ],
 
   imports: [

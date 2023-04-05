@@ -42,7 +42,7 @@
         cursor: pointer;
     }
 
-    .cardShadow:hover{
+    .cardShadow:hover {
         background-color: #f2f2f3;
     }
 
@@ -99,14 +99,77 @@
         letter-spacing: 1px;
     }
 
-    .buyNow {
-        background: #1f3d62 !important;
+    .newsLetter {
+        background: url(../../../../assets/imgs/back.jpg);
+        background-size: cover;    
+        background-repeat: no-repeat;
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border-radius: 100px;    
+    }
+
+    .newsLetterHeading {
+        font-size: 28px;
+        font-weight: 600;
+        color: #122338;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .sendButton {
         color: white !important;
+        background: linear-gradient(to right, #536274, #122338);
+        font-weight: 600;
+        font-size: 15px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        height: 54px !important;
+        transition: 0.7 all;
+    }
+
+    .labelClr{
+        color: #26558d !important;
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    .sendButton:hover {
+        background: white !important;
+        color: #1f3d62 !important;
+        border: 2px solid #1f3d62 !important;
+        transition: 0.7 all;
+        font-weight: 600;
+    }
+
+
+    .paymentImgs {
+        width: 100%;
+        border-radius: 40px;
+        box-shadow: 1px 2px 8px 0px rgb(63, 62, 62) !important;
+    }
+
+    .cartsCount {
+        font-size: 30px;
+        font-weight: 600;
+        color: #1f3d62 !important;
+    }
+
+    .deleteBtn {
+        color: red !important;
+        background: white !important;
     }
 
     .checkOut {
         background: red !important;
         color: white !important;
+    }
+
+    .detailBtn {
+        background: white !important;
+        color: #1f3d62 !important;
     }
 
 }
