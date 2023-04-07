@@ -18,14 +18,14 @@ export class MainPageComponent {
   emailValidator = new FormControl('', [Validators.required, Validators.email]);
 
   cardsArry: any[] = [
-    { id: 1, productName: 'Pieces 24', categoryName: 'Tea Set', src: 'card1.png', price: '34 $', desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing.' },
-    { id: 2, productName: 'Pieces 20', categoryName: 'Mug Set', src: 'card2.png', price: '60 $', desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing.' },
-    { id: 3, productName: 'Pieces 12', categoryName: 'Dinner Set', src: 'card3.png', price: '90.5 $', desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing.' },
-    { id: 4, productName: 'Pieces 14', categoryName: 'Sets', src: 'card4.jpg', price: '24 $', desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing.' },
-    { id: 5, productName: 'Pieces 16', categoryName: 'Tea Set', src: 'card1.png', price: '44 $', desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing.' },
-    { id: 6, productName: 'Pieces 10', categoryName: 'Mug Set', src: 'card2.png', price: '49 $', desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing.' },
-    { id: 7, productName: 'Pieces 8', categoryName: 'Dinner Set', src: 'card3.png', price: '69.12 $', desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing.' },
-    { id: 8, productName: 'Pieces 11', categoryName: 'Sets', src: 'card4.jpg', price: '55.1 $', desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing.' }
+    { id: 1, productName: 'Pieces 24', categoryName: 'Tea Set', src: 'handfree.png', price: '34 $', desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing.' },
+    { id: 2, productName: 'Pieces 20', categoryName: 'Mug Set', src: 'wipes.jpg', price: '60 $', desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing.' },
+    { id: 3, productName: 'Pieces 12', categoryName: 'Dinner Set', src: 'pads.jpg', price: '90.5 $', desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing.' },
+    { id: 4, productName: 'Pieces 14', categoryName: 'Sets', src: 'oil-cane.png', price: '24 $', desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing.' },
+    { id: 5, productName: 'Pieces 16', categoryName: 'Tea Set', src: 'mouthfresh.jpg', price: '44 $', desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing.' },
+    { id: 6, productName: 'Pieces 10', categoryName: 'Mug Set', src: 'booster cabel.png', price: '49 $', desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing.' },
+    { id: 7, productName: 'Pieces 8', categoryName: 'Dinner Set', src: 'bike-gloves.png', price: '69.12 $', desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing.' },
+    { id: 8, productName: 'Pieces 11', categoryName: 'Sets', src: 'atm roll.jpg', price: '55.1 $', desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing.' }
   ];
 
   openDetail(obj?: any) {

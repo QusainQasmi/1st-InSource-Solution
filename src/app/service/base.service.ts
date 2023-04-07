@@ -60,6 +60,7 @@ export abstract class BaseService<T extends any> {
   Get(MethodName:string , params?:any[]):Observable<any>{
     let obj:any={};
     let url = `${this.url}${this.controller}/${MethodName}`
+    if(params && params.length > 0){
       return this.http.get(this.GetUrl(MethodName,params),this.mergeHeader(this.httpOptions.headers,{})).pipe(map((res:any)=>{
         obj.isSuccessFul=true;
         obj.Data=res;
@@ -69,7 +70,30 @@ export abstract class BaseService<T extends any> {
         obj.Error=error.error.message;
         return of(obj)
       })
-    )
+     )
+    }
+    else{
+      return this.http.get(url,this.mergeHeader(this.httpOptions.headers,{})).pipe(map((res:any)=>{
+        obj.isSuccessFul=true;
+        obj.Data=res;
+        return obj;
+      }),catchError((error:any)=>{
+        obj.isSuccessFul=false;
+        obj.Error=error.error.message;
+        return of(obj)
+      })
+     )
+    }
+    //   return this.http.get(this.GetUrl(MethodName,params),this.mergeHeader(this.httpOptions.headers,{})).pipe(map((res:any)=>{
+    //     obj.isSuccessFul=true;
+    //     obj.Data=res;
+    //     return obj;
+    //   }),catchError((error:any)=>{
+    //     obj.isSuccessFul=false;
+    //     obj.Error=error.error.message;
+    //     return of(obj)
+    //   })
+    // )
   }
 
   Put(MethodName: string, body: any): Observable<any>{
