@@ -29,14 +29,15 @@
     </div>
 </section>
 
-<div class="container mb-5 mt-4 d-flex justify-content-center align-items-center">
+<div class="container mb-5 mt-4">
     <div class="row mt-4">
-        <h1 class="srvcProvider text-center mt-4 pb-3">Our Top Clients</h1>
-        <div class="col-md-4 d-flex justify-content-center" *ngFor="let data of clientsData">
-            <div class="card mt-3 b-r-8px">
-                <img class="d-flex justify-content-center imgHover cursorPointer"
-                    [src]="'../../../../assets/imgs/' + data.src">
-            </div>
+        <h1 class="srvcProvider text-center mt-4 pb-3">Our Top Products</h1>
+        <ng-image-slider [images]="imgsData" [showArrow]="false" [infinite]="false" [autoSlide]="1"
+            [imageSize]="{width: '25%', height: 200}" slideImage="1" #nav>
+        </ng-image-slider>
+        <div class="text-center">
+            <button class="mx-2 Clr" mat-mini-fab (click)="prevImg()"><mat-icon>arrow_back</mat-icon></button>
+            <button class="Clr" mat-mini-fab (click)="nextImg()"><mat-icon>arrow_forward</mat-icon></button>
         </div>
     </div>
 </div>
@@ -50,7 +51,7 @@
                         <mat-icon class="trustedIcons">{{ data.icon }}</mat-icon>
                         <p class="f-w-b">{{ data.text }}</p>
                     </mat-card-content>
-                </mat-card>       
+                </mat-card>
             </div>
         </div>
     </div>
@@ -87,7 +88,8 @@
                 <div class="aboutCard mt-5">
                     <div class="pt-4 text-light">
                         <h1 class="text-center aboutHead">Johnson</h1>
-                        <p class="description d-flex justify-content-center" style="font-size: 17px;">What indication best sick be
+                        <p class="description d-flex justify-content-center" style="font-size: 17px;">What indication
+                            best sick be
                             project proposal in attempt,<br>
                             train of the showed some a forth. That homeless, won't<br> many of goals thoughts volumes
                             felt.</p>
@@ -110,8 +112,8 @@
     <div class="container">
         <div class="row d-flex justify-content-center align-items-center">
 
-            <h1 class="mt-5 text-center aboutHead text-light">LOCATION<mat-icon
-                    class="" style="font-size: 40px; width: 6%; height: 100%;">location_on</mat-icon></h1>
+            <h1 class="mt-5 text-center aboutHead text-light">LOCATION<mat-icon class=""
+                    style="font-size: 40px; width: 6%; height: 100%;">location_on</mat-icon></h1>
             <p class="text-center text-light paraTxt p-2">Here Is An Adderss To Reach Us</p>
             <div class="col-md-8 col-sm-6 text-center mt-5">
                 <iframe

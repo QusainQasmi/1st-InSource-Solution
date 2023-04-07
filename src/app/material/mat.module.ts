@@ -33,6 +33,8 @@ import { CommonModule } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSliderModule } from '@angular/material/slider';
+import { NgImageSliderModule } from 'ng-image-slider';
+
 
 
 @NgModule({
@@ -71,7 +73,9 @@ import { MatSliderModule } from '@angular/material/slider';
     MatProgressBarModule,
     MatSliderModule,
     MatSidenavModule,
-    CommonModule,
+    NgImageSliderModule,
+    CommonModule
+
   ],
 
   exports: [
@@ -109,7 +113,8 @@ import { MatSliderModule } from '@angular/material/slider';
     MatDividerModule,
     MatProgressBarModule,
     MatSliderModule,
-    BrPaginationComponent
+    BrPaginationComponent,
+    NgImageSliderModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
