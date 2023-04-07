@@ -5,14 +5,14 @@
                 <h1 class="mb-5 pt-3 font-bold">LOGIN</h1>
                 <mat-form-field class="col-md-12 mb-3" appearance="outline">
                     <mat-icon matSuffix class="text-dark">person</mat-icon>
-                    <mat-label>User Name</mat-label>
-                    <input type="text" matInput [formControl]="userValid" [errorStateMatcher]="matcher"
-                        placeholder="John Wilson" [(ngModel)]="model.userNameVal">
-                    <mat-error *ngIf="userValid.hasError('email') && !userValid.hasError('required')">
-                        Please Enter Correct User Name
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput [formControl]="emailValid" [errorStateMatcher]="matcher"
+                        placeholder="John Wilson" [(ngModel)]="model.emailVal">
+                    <mat-error *ngIf="emailValid.hasError('email') && !emailValid.hasError('required')">
+                        Please Enter Correct Email
                     </mat-error>
-                    <mat-error *ngIf="userValid.hasError('required')">
-                        User Name Is <strong>Required</strong>
+                    <mat-error *ngIf="emailValid.hasError('required')">
+                        Email Is <strong>Required</strong>
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="col-md-12 mb-3" appearance="outline">

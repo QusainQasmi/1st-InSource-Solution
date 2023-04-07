@@ -13,4 +13,14 @@ export class LoginService extends BaseService<any> {
   async loginUser(body: object) {
     return await this.Post("login" , body);
   }
+
+  async verifyUser(key: any) {
+    const params = [
+      {
+        name: 'key',
+        value: key
+      }
+    ]
+    return await this.Get("verifyUser" , params);
+  }
 }

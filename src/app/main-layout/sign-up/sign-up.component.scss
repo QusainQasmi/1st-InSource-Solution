@@ -18,6 +18,16 @@
     width: 80% !important;
 }
 
+.resendMsg{
+    line-height: 32px;
+    font-size: 16x;
+    color: gray;
+}
+
+.w-30{
+    width: 30% !important;
+}
+
 .signUpBtn{
     color: white !important;
     background-color: black !important;
@@ -29,10 +39,7 @@
     justify-content: center;
     align-items: center;
 }
-.flex-row{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.cardColor{
     width: auto;
     background-color: white;
 }

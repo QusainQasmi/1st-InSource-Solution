@@ -2,24 +2,32 @@ import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
+import { SubCategoryService } from './sub-category.service';
 import { CategoryService } from '../category/category.service';
+
+interface Food {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-sub-category',
   templateUrl: './sub-category.component.html',
   styleUrls: ['./sub-category.component.scss']
 })
+
 export class SubCategoryComponent {
   model: any = {};
   loader: boolean = false;
   listData: any = [{}];
   saveLoader: boolean = false;
   displayedColumns: string[] = ['actions' , 'qus', 'ans' ];
-  dataSource = new MatTableDataSource<faqElements>(data);
+  dataSource = new MatTableDataSource<any>();
+  categoryData: any[] = [] 
   tableLoader: boolean = false;
   @ViewChild('form') form!: TemplateRef<any>;
 
-  constructor(public dialog: MatDialog , public service: CategoryService ,public snackbar: MatSnackBar) {}
+  constructor(public dialog: MatDialog , public service: SubCategoryService ,public snackbar: MatSnackBar , public categoryService: CategoryService) {}
 
   search(ev: any){
     this.loader = true;
@@ -43,12 +51,12 @@ export class SubCategoryComponent {
   }
 
   async onRemove(obj: any){
-    const res = await (await this.service.deleteCategory(obj.id)).toPromise();
+    const res = await (await this.service.deleteSubCategory(obj.id)).toPromise();
     if(res.isSuccessFul){
       this.snackbar.open('Sub-Category Delete SuccessFully...!' , 'OK' , {
         duration: 3000
       });
-      // this.getTableData();
+      this.getTableData();
     }
     else{
       this.snackbar.open(res.Error , 'OK' , {
@@ -57,19 +65,46 @@ export class SubCategoryComponent {
     }
   }
 
+  async getTableData(){
+    this.tableLoader = true;
+    const res = await (await this.service.getConfig()).toPromise();
+    if(res.isSuccessFul){
+      this.listData = res.Data && res.Data.length > 0 ? [...res.Data] : [{}];
+      this.dataSource = this.listData;
+      this.tableLoader = false;
+    }
+    else{
+      this.tableLoader = false;
+    }
+  }
+
+  async getCategory(){
+    this.tableLoader = true;
+    const res = await (await this.categoryService.getConfig()).toPromise();
+    if(res.isSuccessFul){
+      this.categoryData = res.Data && res.Data.length > 0 ? [...res.Data] : [{}];
+      this.tableLoader = false;
+    }
+    else{
+      this.tableLoader = false;
+      // console.log(res.Error);
+    }
+  }
+
   async saveData(){
     this.saveLoader = true;
     const obj = {
-      categoryName: this.model.categoryName
+      subCategoryName: this.model.subCategoryName,
+      categoryId : this.model.categoryId
     }
-    const res = await (await this.service.saveCategory(obj)).toPromise();
+    const res = await (await this.service.saveSubCategory(obj)).toPromise();
     if(res.isSuccessFul){
       this.saveLoader = false;
       this.snackbar.open('Sub-Category Add SuccessFully...!' , 'OK' , {
         duration: 3000
       });
       this.dialog.closeAll();
-      // this.getTableData();
+      this.getTableData();
     }
     else{
       this.saveLoader = false;
@@ -83,9 +118,10 @@ export class SubCategoryComponent {
     this.saveLoader = true;
     const obj = {
       id: data.id,
-      categoryName: data.categoryName
+      categoryId: data.categoryId,
+      subCategoryName: data.subCategoryName
     }
-    const res = await (await this.service.editCategory(obj)).toPromise();
+    const res = await (await this.service.editSubCategory(obj)).toPromise();
     if(res.isSuccessFul){
       this.saveLoader = false;
       this.snackbar.open('Sub-Category Edit SuccessFully...!' , 'OK' , {
@@ -107,19 +143,7 @@ export class SubCategoryComponent {
   }
 
   ngOnInit(){
-    // this.getTableData();
+    this.getTableData();
+    this.getCategory();
   }
-
 }
-
-export interface faqElements {
-  id: number;
-  question: string;
-  answer: string;
-}
-
-const data: faqElements[] = [
-  {id: 1, question: 'How are you', answer: "i'm Fine"},
-  {id: 2, question: 'Hey Whatsapp', answer: " Nothing"},
-  {id: 3, question: 'Really Good', answer: "Thanks"}
-]

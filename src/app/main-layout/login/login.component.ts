@@ -15,11 +15,11 @@ export class LoginComponent implements OnInit {
   model: any = {};
   isShow: boolean = false;
   loginLoader: boolean = false;
-  userValid = new FormControl('', [Validators.required]);
+  emailValid = new FormControl('', [Validators.required , Validators.email]);
   passValid = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
 
-  constructor(private router: Router , private service: LoginService , public snackbar: MatSnackBar){
+  constructor(private router: Router , private service: LoginService , public snackbar: MatSnackBar , public activatedRouter: ActivatedRoute){
 
   }
 
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   async login(){
     this.loginLoader = true;
     const model = {
-      name: this.model.userNameVal,
+      email: this.model.emailVal,
       password: this.model.passVal
     }
     let res = await (await this.service.loginUser(model)).toPromise();
@@ -55,8 +55,24 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void{
+  async verifyUser(key: any){
+   let res = await (await this.service.verifyUser(key)).toPromise();
+   if(res.isSuccessFul){
+    this.snackbar.open(res.Data.message , 'OK' , {
+      duration: 3000
+    });
+   }
+   else{
+    
+   }
+  }
 
+  ngOnInit(): void{
+    this.activatedRouter.queryParams.subscribe((data: any) => {
+      if(data && data.key){
+        this.verifyUser(data.key);
+      }
+    })
   }
 
 }

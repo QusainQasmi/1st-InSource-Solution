@@ -21,14 +21,19 @@ export class CategoryComponent implements AfterViewInit {
   dataSource = new MatTableDataSource<any>();
   tableLoader: boolean = false;
   @ViewChild('form') form!: TemplateRef<any>;
+  recordCount: any;
 
   constructor(public dialog: MatDialog , public service: CategoryService ,public snackbar: MatSnackBar) {}
 
-  search(ev: any){
+  search(searchVal: any){
     this.loader = true;
-    setTimeout( ()=> {
-      this.loader = false;
-    }, 2000 )
+    if(searchVal){
+      this.getTableData(null , null , searchVal)
+    }
+    else{
+      this.getTableData(1 , 20)
+    }
+    this.loader = false;
   }
 
   onEdit(obj?: any){
@@ -51,7 +56,7 @@ export class CategoryComponent implements AfterViewInit {
       this.snackbar.open('Category Delete SuccessFully...!' , 'OK' , {
         duration: 3000
       });
-      this.getTableData();
+      this.getTableData(1,20);
     }
     else{
       this.snackbar.open(res.Error , 'OK' , {
@@ -60,10 +65,18 @@ export class CategoryComponent implements AfterViewInit {
     }
   }
 
-  async getTableData(){
+  // onPageChange(ev: any){
+  //   if(ev){
+  //     this.getTableData(ev.page , ev.pageSize)
+  //   }
+  //   console.log(ev)
+  // }
+
+  async getTableData(page: any , pageSize: any , search?: any){
     this.tableLoader = true;
-    const res = await (await this.service.getConfig()).toPromise();
+    const res = await (await this.service.getConfig(page , pageSize , search)).toPromise();
     if(res.isSuccessFul){
+      this.recordCount = res.Headers.get('recordcount');
       this.listData = res.Data && res.Data.length > 0 ? [...res.Data] : [{}];
       this.dataSource = this.listData;
       this.tableLoader = false;
@@ -86,7 +99,7 @@ export class CategoryComponent implements AfterViewInit {
         duration: 3000
       });
       this.dialog.closeAll();
-      this.getTableData();
+      this.getTableData(1,20);
     }
     else{
       this.saveLoader = false;
@@ -109,7 +122,7 @@ export class CategoryComponent implements AfterViewInit {
         duration: 3000
       });
       this.dialog.closeAll();
-      this.getTableData();
+      this.getTableData(1,20);
     }
     else{
       this.saveLoader = false;
@@ -124,7 +137,7 @@ export class CategoryComponent implements AfterViewInit {
   }
 
   ngOnInit(){
-    this.getTableData();
+    this.getTableData(1 , 20);
   }
 
 }

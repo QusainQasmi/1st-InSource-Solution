@@ -4,6 +4,7 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { SignUpService } from './sign-up.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,55 +14,72 @@ import { SignUpService } from './sign-up.service';
 export class SignUpComponent implements OnInit {
 
   model: any = {};
-  isShow : boolean = false;
+  isShow: boolean = false;
   emailValidator = new FormControl('', [Validators.required, Validators.email]);
   passwordValidator = new FormControl('', [Validators.required]);
   userValidator = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
   isMobile: boolean = false;
   signupLoader: boolean = false;
+  sendMailMessage: boolean = false;
+  resendLoader: boolean = false;
 
-  constructor(public service: SignUpService , private router: Router , private responsive: BreakpointObserver) {}
+  constructor(public service: SignUpService, private router: Router, private responsive: BreakpointObserver, public snackbar: MatSnackBar) { }
 
-  showPass(){
+  showPass() {
     this.isShow = true;
   }
 
-  hidePass(){
+  hidePass() {
     this.isShow = false;
   }
 
   ngOnInit(): void {
     this.responsive.observe(Breakpoints.HandsetPortrait)
       .subscribe(result => {
-        this.isMobile = false; 
+        this.isMobile = false;
         if (result.matches) {
           this.isMobile = true;
-        }     
-    });
+        }
+      });
   }
 
-  async signUp(){
-    this.signupLoader = true;
+  async resend() {
+    this.resendLoader = true;
+    const obj = {
+      email: this.model.emailVal
+    }
+    let res = await (await this.service.resendMail(obj)).toPromise();
+    if (res.isSuccessFul) {
+      this.snackbar.open(res.Data.message, 'Ok', {
+        duration: 3000,
+      });
+     this.resendLoader = false;
+    }
+    else {
+      this.resendLoader = false;
+    }
+  }
 
+  async signUp() {
+    this.signupLoader = true;
     const model = {
       name: this.model.userNameVal,
       email: this.model.emailVal,
       password: this.model.passVal
     }
     let res = await (await this.service.signUpUser(model)).toPromise();
-    if(res.isSuccessFul){
-      this.router.navigate(['/login']);
+    if (res.isSuccessFul) {
+      this.sendMailMessage = res.Data && res.Data.message ? res.Data.message : '';
       this.signupLoader = false;
-
     }
-    else{
-      console.log(res.Error);
+    else {
+      this.snackbar.open(res.Data.message, 'Ok', {
+        duration: 3000,
+      })
       this.signupLoader = false;
-
     }
   }
-  
 
 }
 

@@ -13,4 +13,8 @@ export class SignUpService extends BaseService<any> {
   async signUpUser(body: object) {
     return await this.Post("register" , body);
   }
+
+  async resendMail(body: object) {
+    return await this.Post("resendMail" , body);
+  }
 }

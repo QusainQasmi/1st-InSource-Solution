@@ -10,8 +10,22 @@ export class CategoryService extends BaseService<any> {
     super("products" , inject);
   }
 
-  async getConfig(){
-    return await this.Get("getCategory");
+  async getConfig(page?: number , pageSize?: number , searchValue?: any){
+    const params = [
+      {
+        name: "page",
+        value: page
+      },
+      {
+        name: "pageSize",
+        value: pageSize
+      },
+      {
+        name: "searchValue",
+        value: searchValue
+      },
+    ]
+    return await this.Get("getCategory" , params);
   }
 
   async saveCategory(body: any){
@@ -23,6 +37,12 @@ export class CategoryService extends BaseService<any> {
   }
 
   async deleteCategory(id: number){
-    return await this.Get("deleteCategory");
+    const params = [
+      {
+        name: 'id',
+        value: id
+      }
+    ]
+    return await this.Get("deleteCategory" , params);
   }
 }
