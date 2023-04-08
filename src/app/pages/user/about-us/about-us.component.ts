@@ -20,11 +20,11 @@ export class AboutUsComponent {
     {text : 'Complaint Timing : 24/7'}
   ];
 
-  clientsData: any[] = [
-    { src: 'wipes.jpg' },
-    { src: 'pads.jpg' },
-    { src: 'bike-gloves.png' }
-  ];
+  // clientsData: any[] = [
+  //   { src: 'wipes.jpg' },
+  //   { src: 'pads.jpg' },
+  //   { src: 'bike-gloves.png' }
+  // ];
   
   trustedData: any[] = [
     { icon: 'local_shipping' , text :'Fast Service'},

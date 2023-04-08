@@ -1,8 +1,17 @@
 .main-banner{
-    background: url(../../../../assets/imgs/bannar.jpg);
+    background: url(../../../../assets/imgs/shopping-girl.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+    filter: brightness(50%);
+}
+.main-banner2{
+    background: url(../../../../assets/imgs/pretty.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    filter: brightness(70%);
+
 }
 
 .heading{

@@ -1,10 +1,23 @@
 ::ng-deep app-faqs {
 .faqbanner{
-    background: url(../../../../assets/imgs/PLATE.jpg);
+    background: url(../../../../assets/imgs/special-trolly.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
-    filter: brightness(40%);
+    filter: brightness(40%); 
+}
+.faqformimg{
+    background: url(../../../../assets/imgs/family-shopping.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+}
+.faq-width{
+    width: auto;
+    min-width: 777px;
+    max-width: 330px;
+    background-color: #fff;
 }
 .head{
     font-size: 48px;
