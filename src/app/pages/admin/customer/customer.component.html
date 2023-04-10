@@ -6,7 +6,7 @@
         <div>
             <mat-form-field appearance="outline" class="matForm">
                 <mat-label>Search ...</mat-label>
-                <input matInput [(ngModel)]="model.searchVal" class="text-dark">
+                <input matInput [(ngModel)]="model.searchVal" class="text-dark" (keydown.enter)="search(model.searchVal)">
                 <mat-spinner matSuffix diameter="20" color="warn" *ngIf="loader"></mat-spinner>
                 <mat-icon matSuffix class="cursorPointer" (click)="search(model.searchVal)" *ngIf="!loader">search</mat-icon>
             </mat-form-field>

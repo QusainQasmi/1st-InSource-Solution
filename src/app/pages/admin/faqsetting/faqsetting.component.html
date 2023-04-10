@@ -10,9 +10,9 @@
         <div>
             <mat-form-field appearance="outline" class="matForm">
                 <mat-label>Search ...</mat-label>
-                <input matInput [(ngModel)]="model.searchVal" class="text-white">
+                <input matInput [(ngModel)]="model.searchVal" class="text-dark" (keydown.enter)="search(model.searchVal)">
                 <mat-spinner matSuffix diameter="20" color="warn" *ngIf="loader"></mat-spinner>
-                <mat-icon matSuffix class="cursorPointer" (click)="search($event)" *ngIf="!loader">search</mat-icon>
+                <mat-icon matSuffix class="cursorPointer" (click)="search(model.searchVal)" *ngIf="!loader">search</mat-icon>
             </mat-form-field>
         </div>
     </div>
@@ -81,7 +81,7 @@
  
                 <div class="col-md-12 d-flex justify-content-end">
                     <button mat-raised-button class="saveBtn"
-                        [matTooltip]=" model.id ? 'Edit Category' : 'Save Category'" [loading]="saveLoader"
+                        [matTooltip]=" model.id ? 'Edit FAQs' : 'Save FAQs'" [loading]="saveLoader"
                         (click)="model.id ? editData(this.model) : saveData()">Save</button>
                 </div>
             </div>

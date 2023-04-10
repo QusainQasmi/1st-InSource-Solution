@@ -3,6 +3,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { CategoryService } from '../category/category.service';
+import { FaqSettingService } from './faq-setting.service';
 
 @Component({
   selector: 'app-faqsetting',
@@ -16,17 +17,21 @@ export class FaqsettingComponent {
   listData: any = [{}];
   saveLoader: boolean = false;
   displayedColumns: string[] = ['actions' , 'qus', 'ans' ];
-  dataSource = new MatTableDataSource<faqElements>(data);
+  dataSource = new MatTableDataSource<any>();
   tableLoader: boolean = false;
   @ViewChild('form') form!: TemplateRef<any>;
 
-  constructor(public dialog: MatDialog , public service: CategoryService ,public snackbar: MatSnackBar) {}
+  constructor(public dialog: MatDialog , public service: FaqSettingService ,public snackbar: MatSnackBar) {}
 
-  search(ev: any){
+  search(searchVal: any){
     this.loader = true;
-    setTimeout( ()=> {
-      this.loader = false;
-    }, 2000 )
+    if(searchVal){
+      this.getTableData(searchVal)
+    }
+    else{
+      this.getTableData();
+    }
+    this.loader = false;
   }
 
   onEdit(obj?: any){
@@ -43,13 +48,27 @@ export class FaqsettingComponent {
     }
   }
 
-  async onRemove(obj: any){
-    const res = await (await this.service.deleteCategory(obj.id)).toPromise();
+  async getTableData(search?: any){
+    this.tableLoader = true;
+    const res = await (await this.service.getConfig(search)).toPromise();
     if(res.isSuccessFul){
-      this.snackbar.open('Category Delete SuccessFully...!' , 'OK' , {
+      this.listData = res.Data && res.Data.length > 0 ? [...res.Data] : [{}];
+      this.dataSource = this.listData;
+      this.tableLoader = false;
+    }
+    else{
+      this.tableLoader = false;
+      console.log(res.Data.message);
+    }
+  }
+
+  async onRemove(obj: any){
+    const res = await (await this.service.delete(obj.id)).toPromise();
+    if(res.isSuccessFul){
+      this.snackbar.open('FAQs Delete SuccessFully...!' , 'OK' , {
         duration: 3000
       });
-      // this.getTableData();
+      this.getTableData();
     }
     else{
       this.snackbar.open(res.Error , 'OK' , {
@@ -61,16 +80,17 @@ export class FaqsettingComponent {
   async saveData(){
     this.saveLoader = true;
     const obj = {
-      categoryName: this.model.categoryName
+      question: this.model.question,
+      answer: this.model.answer
     }
-    const res = await (await this.service.saveCategory(obj)).toPromise();
+    const res = await (await this.service.save(obj)).toPromise();
     if(res.isSuccessFul){
       this.saveLoader = false;
-      this.snackbar.open('Category Add SuccessFully...!' , 'OK' , {
+      this.snackbar.open('FAQs Add SuccessFully...!' , 'OK' , {
         duration: 3000
       });
       this.dialog.closeAll();
-      // this.getTableData();
+      this.getTableData();
     }
     else{
       this.saveLoader = false;
@@ -84,16 +104,17 @@ export class FaqsettingComponent {
     this.saveLoader = true;
     const obj = {
       id: data.id,
-      categoryName: data.categoryName
+      question: this.model.question,
+      answer: this.model.answer
     }
-    const res = await (await this.service.editCategory(obj)).toPromise();
+    const res = await (await this.service.save(obj)).toPromise();
     if(res.isSuccessFul){
       this.saveLoader = false;
-      this.snackbar.open('Category Edit SuccessFully...!' , 'OK' , {
+      this.snackbar.open('FAQs Edit SuccessFully...!' , 'OK' , {
         duration: 3000
       });
+      this.getTableData();
       this.dialog.closeAll();
-      // this.getTableData();
     }
     else{
       this.saveLoader = false;
@@ -104,23 +125,10 @@ export class FaqsettingComponent {
   }
 
   ngAfterViewInit() {
-    // this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit(){
-    // this.getTableData();
+    this.getTableData();
   }
 
 }
-
-export interface faqElements {
-  id: number;
-  question: string;
-  answer: string;
-}
-
-const data: faqElements[] = [
-  {id: 1, question: 'How are you', answer: "i'm Fine"},
-  {id: 2, question: 'Hey Whatsapp', answer: " Nothing"},
-  {id: 3, question: 'Really Good', answer: "Thanks"}
-]
