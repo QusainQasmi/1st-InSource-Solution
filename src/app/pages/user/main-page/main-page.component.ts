@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DetailsComponent } from '../details/details.component';
+import { NgImageSliderComponent } from 'ng-image-slider';
 
 @Component({
   selector: 'app-main-page',
@@ -10,7 +11,7 @@ import { DetailsComponent } from '../details/details.component';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent {
-
+  @ViewChild('nav') slider!: NgImageSliderComponent;
   constructor(public dialog: MatDialog, public snackbar: MatSnackBar) { }
 
   model: any = {};
@@ -64,6 +65,31 @@ export class MainPageComponent {
     this.snackbar.open('Products Add To Cart Successfully...!', 'Ok', {
       duration: 4000,
     });
+  }
+
+  imgsData: Array<object> = [
+    { image: '../../../../assets/imgs/bike-gloves.png', thumbImage: '../../../../assets/imgs/bike-gloves.png', alt: 'alt of Gloves', title: 'Gloves' },
+    { image: '../../../../assets/imgs/handfree.png', thumbImage: '../../../../assets/imgs/handfree.png', alt: 'alt of Handsfree', title: 'Handsfree' },
+    { image: '../../../../assets/imgs/wipes.jpg', thumbImage: '../../../../assets/imgs/wipes.jpg', alt: 'alt of Wipes', title: 'Wipes' },
+    { image: '../../../../assets/imgs/pads.jpg', thumbImage: '../../../../assets/imgs/pads.jpg', alt: 'alt of Pads', title: 'Pads' },
+    { image: '../../../../assets/imgs/oil-cane.png', thumbImage: '../../../../assets/imgs/oil-cane.png', alt: 'alt of Oil-Cane', title: 'Oil-Cane' },
+    { image: '../../../../assets/imgs/mouthfresh.jpg', thumbImage: '../../../../assets/imgs/mouthfresh.jpg', alt: 'alt of Mouthfresh', title: 'Mouthfresh' },
+    { image: '../../../../assets/imgs/booster cabel.png', thumbImage: '../../../../assets/imgs/booster cabel.png', alt: 'alt of Booster Cabel', title: 'Booster Cabel' },
+    { image: '../../../../assets/imgs/atm roll.jpg', thumbImage: '../../../../assets/imgs/atm roll.jpg', alt: 'alt of Atm Roll', title: 'Atm Roll' },
+    { image: '../../../../assets/imgs/bike-gloves.png', thumbImage: '../../../../assets/imgs/bike-gloves.png', alt: 'alt of Gloves', title: 'Gloves' },
+    { image: '../../../../assets/imgs/handfree.png', thumbImage: '../../../../assets/imgs/handfree.png', alt: 'alt of Handsfree', title: 'Handsfree' },
+    { image: '../../../../assets/imgs/wipes.jpg', thumbImage: '../../../../assets/imgs/wipes.jpg', alt: 'alt of Wipes', title: 'Wipes' },
+    { image: '../../../../assets/imgs/pads.jpg', thumbImage: '../../../../assets/imgs/pads.jpg', alt: 'alt of Pads', title: 'Pads' },
+    { image: '../../../../assets/imgs/oil-cane.png', thumbImage: '../../../../assets/imgs/oil-cane.png', alt: 'alt of Oil-Cane', title: 'Oil-Cane' },
+
+  ];
+
+  prevImg(){
+    this.slider.prev();
+  }
+
+  nextImg(){
+    this.slider.next();
   }
 
 }

@@ -29,34 +29,6 @@
     </div>
 </section>
 
-<div class="container mb-5 mt-4">
-    <div class="row mt-4">
-        <h1 class="srvcProvider text-center mt-4 pb-3">Our Top Products</h1>
-        <ng-image-slider [images]="imgsData" [showArrow]="false" [infinite]="false" [autoSlide]="1"
-            [imageSize]="{width: '25%', height: 200}" slideImage="1" #nav>
-        </ng-image-slider>
-        <div class="text-center">
-            <button class="mx-2 Clr" mat-mini-fab (click)="prevImg()"><mat-icon>arrow_back</mat-icon></button>
-            <button class="Clr" mat-mini-fab (click)="nextImg()"><mat-icon>arrow_forward</mat-icon></button>
-        </div>
-    </div>
-</div>
-<!-- <section>
-    <div class="container mb-5 mt-4">
-        <div class="row mt-4">
-            <h1 class="srvcProvider text-center mt-4 pb-3">Our Trusted Services</h1>
-            <div class="col-md-3 d-flex justify-content-center trustedHover" *ngFor="let data of trustedData">
-                <mat-card class="trustedCard mt-3 text-center">
-                    <mat-card-content class="">
-                        <mat-icon class="trustedIcons">{{ data.icon }}</mat-icon>
-                        <p class="f-w-b">{{ data.text }}</p>
-                    </mat-card-content>
-                </mat-card>
-            </div>
-        </div>
-    </div>
-</section> -->
-
 <div class="container containerAlign">
     <h1 class="srvcProvider mt-4 mb-4">Delivery Information</h1>
     <mat-card class="deliverySec text-center w-75" style="height: 100%;">

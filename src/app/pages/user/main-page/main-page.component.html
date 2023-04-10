@@ -1,6 +1,12 @@
 <div class="main-banner">
 </div>
 
+<div class="text-center maintextcenter">
+  <h1 class=" mt-5 mainHeading">
+    WellCome To Join US
+  </h1>
+  <p class="mt-3 mainpara">Visit & See their Products To Top Class Brands</p>
+</div>
 <div class="container textDisplay mt-5">
   <h1 class="heading pt-5 pb-4 mb-0">We Are Leading To Our Agency Of 5 Years</h1>
   <p class="w-75 text-center paraTxt mb-0">What indication best sick be project proposal in attempt, train of the showed
@@ -15,14 +21,25 @@
 <div class="main-banner2 mt-3">
 
 </div>
-
-<div class="container mt-3">
+<div class="container mb-5 mt-4">
+  <div class="row mt-4">
+      <h1 class="heading text-center mt-4 pb-3">Our Top Products</h1>
+      <ng-image-slider [images]="imgsData" [showArrow]="false" [infinite]="false" [autoSlide]="1"
+          [imageSize]="{width: '23%', height: 200}" slideImage="1" #nav>
+      </ng-image-slider>
+      <div class="text-center">
+          <button class="mx-2 Clr" mat-mini-fab (click)="prevImg()"><mat-icon>arrow_back</mat-icon></button>
+          <button class="Clr" mat-mini-fab (click)="nextImg()"><mat-icon>arrow_forward</mat-icon></button>
+      </div>
+  </div>
+</div>
+<!-- <div class="container mt-3">
   <h1 class="heading text-center font-bold p-5 mb-0">Products</h1>
   <div class="row">
     <div *ngFor="let card of cardsArry" class="col-md-3 p-3">
       <div class="card w-100 b-r-8px box-shabow mx-2">
         <div class="card-img p-2">
-          <img  [src]="'../../../assets/imgs/' + card.src" width="100%" class="img-fluid" />
+          <img [src]="'../../../assets/imgs/' + card.src" width="100%" class="img-fluid" />
         </div>
         <div class="card-body">
           <hr>
@@ -32,9 +49,10 @@
               <p class="mb-0 cardPrice mt-2">{{card.price}}</p>
             </div>
             <div class="d-flex justify-content-end">
-              <button mat-mini-fab class="cardbtn mx-2"
-                matTooltip="Add To Cart" (click)="saveCart(card)"><mat-icon>shopping_cart_checkout</mat-icon></button>
-              <button mat-mini-fab class="cardbtn" (click)="openDetail(card)" matTooltip="See Details"><mat-icon>priority_high</mat-icon></button>
+              <button mat-mini-fab class="cardbtn mx-2" matTooltip="Add To Cart"
+                (click)="saveCart(card)"><mat-icon>shopping_cart_checkout</mat-icon></button>
+              <button mat-mini-fab class="cardbtn" (click)="openDetail(card)"
+                matTooltip="See Details"><mat-icon>priority_high</mat-icon></button>
             </div>
           </div>
           <hr class="mb-0">
@@ -48,7 +66,7 @@
       <mat-icon>arrow_forward</mat-icon>More
     </button>
   </div>
-</div>
+</div> -->
 
 <div class="container mt-5 pt-3">
   <div class="row d-flex align-items-center">
@@ -67,30 +85,17 @@
   </div>
 </div>
 
-<div class="container mt-5 pt-4 mb-5">
-  <div class="row d-flex align-items-center">
-    <div class="col-md-6 txt mt-3">
-      <h1 class="heading txtUpperCase mb-0">24/7 Service Provide</h1>
-      <p class="text-center mt-4 txtLIDesc mb-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea ab
-        exercitationem aspernatur nam tempora molestias
-        quasi placeat ratione saepe aperiam!<br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et, omnis!
-        Lorem ipsum dolor sit amet consectetur,
-        adipisicing elit. Ea ab exercitationem aspernatur nam tempora molestias quasi placeat ratione saepe aperiam!</p>
-      <button mat-raised-button class="mt-3 btnEffects">See More</button>
-    </div>
-    <div class="col-md-6">
-      <img src="../../../../assets/imgs/trolly.jpg" width="100%" class="b-r-8px box-shabow">
-    </div>
-  </div>
+<div class="serviceimg mt-5"></div>
+<div class="text-center mainservicetextcenter">
+  <p class="mb-0 serviceHeading">Service</p>
+  <h1 class=" mt-3 mainHeading">
+    Shahak Traders Provide Good Quality Products
+  </h1>
+ <p class="mainpara w-50 p-3">What indication best sick be project proposal in attempt, train of the showed some a forth. That
+    homeless, won't many of goals thoughts volumes felt.</p>
 </div>
 
-<div class="container w-75 text-center mt-5 pt-3 mb-5">
-  <p class="mb-2 serviceHeading">Service</p>
-  <p class="mb-2 infoHeading">Shahak Traders Provide Good Quality Products</p>
-  <p class="paraTxt">What indication best sick be project proposal in attempt, train of the showed some a forth. That homeless, won't many of goals thoughts volumes felt.</p>
-</div>
-
-<div class="container mt-5 newsLetter box-shadow">
+<div class="container mt-5 newsLetter box-shadow mb-4">
   <div class="row text-center mt-5">
     <div class="col-md-12">
       <p class="newsLetterHeading mb-4">Subscribe Our NewsLetter</p>

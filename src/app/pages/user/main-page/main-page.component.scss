@@ -13,7 +13,46 @@
     filter: brightness(70%);
 
 }
+.serviceimg{
+    background: url(../../../../assets/imgs/trolly.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    filter: brightness(30%);
 
+}
+.mainHeading{
+    font-size: 50px;
+    font-family: italic , sans-serif ;
+    font-weight: bold;
+}
+.mainpara{
+    line-height: 32px;
+    font-size: 20px;
+    color: #fff;
+}
+.maintextcenter{
+    position: absolute;
+        top: 200px;
+        color: white;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 75vh;
+}
+.mainservicetextcenter{
+    position: absolute;
+        margin-top: -442px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      
+}
 .heading{
     font-size: 48px;
     font-weight: 600;
@@ -154,7 +193,7 @@
 }
 
 .serviceHeading{
-    font-size: 16px;
+    font-size: 26px;
     font-weight: 600;
     text-transform: uppercase;
     color: red;
@@ -168,3 +207,7 @@
     letter-spacing: 2px;
 }
 
+.Clr{
+    background-color: #1f3d62 !important;
+    color: #fff !important;
+}
