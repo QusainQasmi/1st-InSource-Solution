@@ -51,6 +51,16 @@
         color: #fff !important;
     }
 
+    .containerHeigth {
+        height: auto !important;
+        max-height: calc(100vh - 150px) !important;
+        overflow: auto !important;
+    }
+
+    .borderColor{
+        border: 2px solid lightgray !important;
+    }
+
     .formSpan{
         font-weight: 700;
         letter-spacing: 2px;

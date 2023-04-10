@@ -10,8 +10,14 @@ export class SubCategoryService extends BaseService<any> {
     super("products", inject)
   }
 
-  async getConfig(){
-    return await this.Get("getSubCategory");
+  async getConfig(searchValue?: any){
+    const params = [
+      {
+        name: "searchValue",
+        value: searchValue
+      },
+    ]
+    return await this.Get("getSubCategory" , params);
   }
  
   async saveSubCategory(body: any){

@@ -13,7 +13,7 @@
                 <button class="iconSet" matTooltip="Delete Image" *ngIf="item.imgBorder">
                     <mat-icon class="icon">close</mat-icon>
                 </button>
-                <img [src]="'../../../../assets/imgs/' + item.src" (click)="setImg(item , true)" (dblclick)="setImg(item , false)"
+                <img [src]="'../../../../assets/imgs/' + item.src" (click)="setImg(item)"
                 width="100%">
             </div>
         </div>

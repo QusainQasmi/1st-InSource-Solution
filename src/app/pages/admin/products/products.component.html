@@ -10,9 +10,9 @@
         <div>
             <mat-form-field appearance="outline" class="matForm">
                 <mat-label>Search ...</mat-label>
-                <input matInput [(ngModel)]="model.searchVal" class="text-white">
-                <mat-spinner matSuffix diameter="20" color="warn" *ngIf="loader"></mat-spinner>
-                <mat-icon matSuffix class="cursorPointer" (click)="search($event)" *ngIf="!loader">search</mat-icon>
+                <input matInput [(ngModel)]="model.searchVal" class="text-dark">
+                <mat-spinner matSuffix diameter="20" color="warn" *ngIf="loader"></mat-spinner> 
+                <mat-icon matSuffix class="cursorPointer" (click)="search(model.searchVal)" *ngIf="!loader">search</mat-icon>
             </mat-form-field>
         </div>
     </div>
@@ -37,12 +37,32 @@
                 <td mat-cell *matCellDef="let element"> {{element.name}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="des">
+            <ng-container matColumnDef="description">
                 <th mat-header-cell *matHeaderCellDef class="tableHead"> Description </th>
-                <td mat-cell *matCellDef="let element"> {{element.des}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
             </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <ng-container matColumnDef="categoryName">
+                <th mat-header-cell *matHeaderCellDef class="tableHead"> Category </th>
+                <td mat-cell *matCellDef="let element"> {{element.categoryName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="subcategoryName">
+                <th mat-header-cell *matHeaderCellDef class="tableHead"> Sub Category </th>
+                <td mat-cell *matCellDef="let element"> {{element.subcategoryName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef class="tableHead"> Price </th>
+                <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="stock">
+                <th mat-header-cell *matHeaderCellDef class="tableHead"> Stock </th>
+                <td mat-cell *matCellDef="let element"> {{element.stock}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
         <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
@@ -64,25 +84,75 @@
             </div>
         </div>
         <ng-container class="container-fluid p-0">
-            <div class="row pt-4 d-flex align-items-center">
-                <div class="col-md-12">
+            <div class="row pt-4 d-flex align-items-center containerHeigth">
+                <div class="col-md-6">
                     <mat-form-field class="w-100" appearance="fill">
                         <mat-label>Product Name</mat-label>
                         <input type="text" matInput [(ngModel)]="model.name">
                     </mat-form-field>
                 </div>
  
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <mat-form-field class="w-100" appearance="fill">
                         <mat-label>Description</mat-label>
-                        <input type="text" matInput [(ngModel)]="model.des">
+                        <input type="text" matInput [(ngModel)]="model.description">
                     </mat-form-field>
+                </div>
+
+                <div class="col-md-6">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Category</mat-label>
+                        <mat-select [(ngModel)]="model.category" (selectionChange)="updateData()">
+                          <mat-option>--</mat-option>
+                          <mat-option *ngFor="let data of categoryData" [value]="data.id">
+                            {{data.categoryName}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-6">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Sub Category</mat-label>
+                        <mat-select [(ngModel)]="model.subCategory">
+                          <mat-option>--</mat-option>
+                          <mat-option *ngFor="let data of subCategoryData" [value]="data.id">
+                            {{data.subCategoryName}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-6">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Price</mat-label>
+                        <input type="text" matInput [(ngModel)]="model.price">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-6">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Stock</mat-label>
+                        <input type="text" matInput [(ngModel)]="model.stock">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-6">
+                    <input type="file" class="form-control" [multiple]="true" (change)="onFileSelect($event)">
+                </div>
+
+                <div class="col-md-12 mt-2" *ngIf="this.model.image_url">
+                    <div class="d-flex">
+                        <div *ngFor="let imgSrc of this.model.image_url">
+                            <img [src]="imgSrc" class="borderColor p-3 mx-1" alt="Images" width="150px" height="150px">
+                        </div>
+                    </div>
                 </div>
  
                 <div class="col-md-12 d-flex justify-content-end">
                     <button mat-raised-button class="saveBtn"
-                        [matTooltip]=" model.id ? 'Edit Category' : 'Save Category'" [loading]="saveLoader"
-                        (click)="model.id ? editData(this.model) : saveData()">Save</button>
+                        [matTooltip]=" model.id ? 'Edit Products' : 'Save Products'" [loading]="saveLoader"
+                        (click)="model.id ? saveData(this.model) : saveData(null)">Save</button>
                 </div>
             </div>
         </ng-container>

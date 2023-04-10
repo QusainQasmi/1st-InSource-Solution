@@ -9,35 +9,33 @@ export class ImageGalleryComponent {
   
   imgBorder: boolean = false;
   imgsData: any =[
-    {src : 'card1.png'},
-    {src : 'card2.png'},
-    {src : 'card3.png'},
-    {src : 'card2.png'},
-    {src : 'card1.png'},
-    {src : 'card1.png'},
-    {src : 'card1.png'},
-    {src : 'card1.png'},
-    {src : 'card1.png'},
-    {src : 'card1.png'},
-    {src : 'card1.png'},
-    {src : 'card1.png'},
-    {src : 'card1.png'},
-    {src : 'card1.png'},
-    {src : 'card1.png'},
-    {src : 'card1.png'},
-    {src : 'card1.png'},
-    {src : 'card1.png'},
-    {src : 'card1.png'},
-    {src : 'card1.png'}
+    {src : 'atm roll.jpg'},
+    {src : 'booster cabel.png'},
+    {src : 'bike-gloves.png'},
+    {src : 'booster cabel.png'},
+    {src : 'bike-gloves.png'},
+    {src : 'booster cabel.png'},
+    {src : 'bike-gloves.png'},
+    {src : 'atm roll.jpg'},
+    {src : 'bike-gloves.png'},
+    {src : 'atm roll.jpg'},
+    {src : 'booster cabel.png'},
+    {src : 'atm roll.jpg'},
+    {src : 'bike-gloves.png'},
+    {src : 'atm roll.jpg'},
+    {src : 'booster cabel.png'},
+    {src : 'atm roll.jpg'},
+    {src : 'booster cabel.png'},
+    {src : 'bike-gloves.png'},
   ];
 
-  setImg(obj?: any , isMove?: boolean){
+  setImg(obj?: any){
     event?.stopImmediatePropagation();
-    if(isMove){
-      obj.imgBorder = true;
+    if(obj.imgBorder){
+      obj.imgBorder = false;
     }
     else{
-      obj.imgBorder = false;
+      obj.imgBorder = true;
     }
   }
 

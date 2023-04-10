@@ -29,11 +29,15 @@ export class SubCategoryComponent {
 
   constructor(public dialog: MatDialog , public service: SubCategoryService ,public snackbar: MatSnackBar , public categoryService: CategoryService) {}
 
-  search(ev: any){
+  search(val: any){
     this.loader = true;
-    setTimeout( ()=> {
-      this.loader = false;
-    }, 2000 )
+    if(val){
+      this.getTableData(val);
+    }
+    else{
+      this.getTableData();
+    }
+    this.loader = false;
   }
 
   onEdit(obj?: any){
@@ -42,7 +46,8 @@ export class SubCategoryComponent {
     dialogConfig.disableClose = true;
     if(obj && obj.id){
      this.model = obj;
-     this.dialog.open(this.form , dialogConfig)
+     this.dialog.open(this.form , dialogConfig);
+     this.getCategory();
     }
     else{
       this.dialog.open(this.form , dialogConfig);
@@ -65,9 +70,9 @@ export class SubCategoryComponent {
     }
   }
 
-  async getTableData(){
+  async getTableData(serachVal?: any){
     this.tableLoader = true;
-    const res = await (await this.service.getConfig()).toPromise();
+    const res = await (await this.service.getConfig(serachVal)).toPromise();
     if(res.isSuccessFul){
       this.listData = res.Data && res.Data.length > 0 ? [...res.Data] : [{}];
       this.dataSource = this.listData;
@@ -87,7 +92,7 @@ export class SubCategoryComponent {
     }
     else{
       this.tableLoader = false;
-      // console.log(res.Error);
+      console.log(res.Data.message);
     }
   }
 

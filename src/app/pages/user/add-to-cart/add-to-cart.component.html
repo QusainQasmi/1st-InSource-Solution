@@ -7,17 +7,19 @@
   <p class="f-s-20"> We Value All The Products You Have Selected And We Hope You Will Be Happy By Choosing This.</p>
 </div>
 
-<div class="container mt-5 pt-3 mb-5">
+<div class="container mt-5 pt-3 mb-4">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <div class="d-flex align-items-center">
-      <p class="heading">See Your Product's</p>
-      <span class="mb-2 mx-2 cartsCount" matTooltip="Products Count's">( {{ dataSource.length }} )</span>
-    </div>
-    <div>
-      <button mat-raised-button class="checkOut" matTooltip="Order Now" (click)="routeToCheckout()">Checkout</button>
+      <p class="heading">Shopping Cart</p>
+      <span class="mb-2 mx-2 cartsCount" matTooltip="Products Count's" *ngIf="dataSource && dataSource.length > 0">( {{ dataSource.length }} )</span>
     </div>
   </div>
-  <div class="row">
+  <div class="row text-center mb-3" *ngIf="noRecordMsg">
+    <div>
+      <img src="../../../../assets/imgs/error.jpg" width="400px" height="350px">
+    </div>
+  </div>
+  <div class="row" *ngIf="!noRecordMsg">
     <div class="col-md-8 colHeight">
       <mat-card class="cardShadow mb-4 mt-2 w-100" *ngFor="let card of dataSource">
         <div class="row p-2">
@@ -109,6 +111,9 @@
         </div>
       </mat-card>
       <div class="row mt-3 px-3">
+        <div class="col-md-12 text-end">
+            <button mat-raised-button class="checkOut" matTooltip="Order Now" (click)="routeToCheckout()">Checkout</button>
+        </div>
         <div class="col-md-6 p-0">
           <img src="../../../../assets/imgs/PayPalLogo" class="paymentImgs">
         </div>
@@ -117,7 +122,7 @@
   </div>
 </div>
 
-<div class="container mt-5 newsLetter cardShadow mb-5">
+<div class="container mt-5 newsLetter cardShadow mb-5 pt-2">
   <div class="row text-center mt-3">
     <div class="col-md-12">
       <p class="newsLetterHeading mb-4">Subscribe Our NewsLetter</p>
