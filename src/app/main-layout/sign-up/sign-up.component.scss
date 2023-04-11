@@ -9,9 +9,11 @@
     background: rgb( 0 0 0 / 78%);
 }
 
-.font-bold{
-    font-weight: 600;
+.txtSignUp{
+    font-size: 29px;
     letter-spacing: 2px;
+    color: #193557;
+    font-weight: 600
 }
 
 .w-80{
@@ -30,7 +32,14 @@
 
 .signUpBtn{
     color: white !important;
-    background-color: black !important;
+    background-color: #193557 !important;
+}
+
+.signUpBtn:hover{
+    color: #193557 !important;
+    background-color: white !important;
+    border: 2px solid #193557;
+    font-weight: 600;
 }
 
 .box{

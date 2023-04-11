@@ -1,8 +1,8 @@
 <div class="signupimg">
     <div class="w-100 box backImgColor">
-        <div class="d-flex align-items-center box-shabow p-4 b-r-8px bg-white" [ngClass]="isMobile ? 'w-80' : 'w-30'">
+        <div class="d-flex align-items-center box-shabow pt-5 pb-5 px-4 b-r-8px bg-white" [ngClass]="isMobile ? 'w-80' : 'w-30'">
             <div class="col-md-12 p-0">
-                <h1 class="text-center font-bold">Sign Up</h1>
+                <h1 class="text-center txtSignUp mb-4">Sign Up</h1>
                 <div class="">
                     <mat-form-field class="col-12" appearance="outline">
                         <mat-icon matSuffix class="text-dark">person</mat-icon>
@@ -49,12 +49,12 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
-                <div class="col-12 text-center mb-3">
+                <div class="col-12 text-center mt-3 ">
                     <button mat-raised-button class="signUpBtn" [loading]="signupLoader" (click)="signUp()">SIGN UP
                     </button>
                 </div>
-                <div class="col-12 mb-3 text-center" *ngIf="sendMailMessage">
-                    <p class="mb-0 resendMsg"> {{sendMailMessage}} </p>
+                <div class="col-12 text-center" *ngIf="sendMailMessage">
+                    <p class="mb-0 resendMsg mt-3"> {{sendMailMessage}} </p>
                     <button mat-raised-button class="signUpBtn" [loading]="resendLoader"
                         (click)="resend()">RESEND</button>
                 </div>
