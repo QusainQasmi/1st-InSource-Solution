@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     }
     else{
       this.loginLoader = false;
-      this.snackbar.open(res.Error , 'OK' , {
+      this.snackbar.open(res.Data.message , 'OK' , {
         duration: 3000
        });
     }
@@ -59,11 +59,13 @@ export class LoginComponent implements OnInit {
    let res = await (await this.service.verifyUser(key)).toPromise();
    if(res.isSuccessFul){
     this.snackbar.open(res.Data.message , 'OK' , {
-      duration: 3000
+      duration: 5000
     });
    }
    else{
-    
+    this.snackbar.open(res.Data.message , 'OK' , {
+      duration: 5000
+    });
    }
   }
 
