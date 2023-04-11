@@ -14,4 +14,8 @@ export class ProductsService extends BaseService<any> {
     return await this.Get("getCategoryWithSubCategory");
   }
 
+  async getAllProducts() {
+    return await this.Get("getProducts");
+  }
+
 }

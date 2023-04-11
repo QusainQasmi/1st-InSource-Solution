@@ -61,6 +61,7 @@ export class ProductsComponent {
     }
     else{
       this.dialog.open(this.form , dialogConfig);
+      this.images = [];
       this.model = {};
     }
   }

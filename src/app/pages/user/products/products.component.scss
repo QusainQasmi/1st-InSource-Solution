@@ -67,9 +67,13 @@
   }
 
   .containerHeight{
-    height: auto;
-    max-height: calc(100vh - 50px);
+    height: 92vh;
+    // max-height: calc(100vh - 50px);
     overflow: auto;
+  }
+
+  .pageLoaderHeight{
+    height: 92vh;
   }
 
   .nameHeading{

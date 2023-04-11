@@ -1,9 +1,9 @@
 <section class="w-100">
-  <div class="container-fluid">
+  <div class="container-fluid mb-2">
     <div class="pb-0 p-4 pt-3 d-flex align-items-center justify-content-between">
       <div>
-        <h2 class="mb-0 nameHeading"> {{ categoryName ? categoryName : 'Dinner Set' }} </h2>
-        <span class="mb-0 text-center subNameHeading"> ( {{ subCategoryName ? subCategoryName : 'Dinner Set ABCD' }} )</span>
+        <h2 class="mb-0 nameHeading"> {{ categoryName ? categoryName : '' }} </h2>
+        <span class="mb-0 text-center subNameHeading"> {{ subCategoryName ? subCategoryName : '' }}</span>
       </div>
       <div>
         <div class="h-60px">
@@ -29,7 +29,7 @@
             <div class="d-flex align-items-center justify-content-between" *ngIf="!productsLoader">
              
               <div>
-                <p class="productsText mb-1 cursorPointer">{{ parentItem.categoryName }}</p>
+                <p class="productsText mb-1 cursorPointer" (click)="selectedProduct(parentItem)">{{ parentItem.categoryName }}</p>
               </div>
               <div [hidden]="parentItem.subCategory && parentItem.subCategory.length<1">
                 
@@ -76,17 +76,23 @@
       </div>
 
       <div class="w-100 px-2">
-        <div class="container-fluid p-4 pb-0 pt-0 mb-2 mt-3">
-          <div class="row containerHeight">
+        <div class="container-fluid p-4 pb-0 pt-0 mb-4 mt-3">
+          <div class="d-flex w-100 pageLoaderHeight justify-content-center align-items-center" *ngIf="pageLoader">
+            <mat-spinner diameter="75" color="accent" class="spinnerColor"></mat-spinner>
+          </div>
+          <div class="row containerHeight" *ngIf="!pageLoader">
             <div class="col-md-4 mt-2 mb-2" *ngFor="let items of productsData">
               <mat-card class="cardShadow">
                 <div class="d-flex">
                   <div>
-                    <mat-card-title class="p-4 pb-0"> {{ items.productName }} </mat-card-title>
-                    <mat-card-subtitle class="p-4 pt-1 pb-0 ellipsis" [matTooltip]="items.desc">{{ items.desc }}</mat-card-subtitle>
+                    <mat-card-title class="p-4 pb-0"> {{ items.name }} </mat-card-title>
+                    <mat-card-subtitle class="p-4 pt-1 pb-0 ellipsis" [matTooltip]="items.description">{{ items.description }}</mat-card-subtitle>
                   </div>
-                  <div class="px-3 pt-2">
-                    <img mat-card-sm-image [src]="'../../../../assets/imgs/' + items.src" >
+                  <div class="px-3 pt-2" *ngIf="items.image_url && items.image_url[0]">
+                    <img mat-card-sm-image [src]="items.image_url[0]" >
+                  </div>
+                  <div class="px-3 pt-2" *ngIf="items.image_url && !items.image_url[0]">
+                    <img mat-card-sm-image src="../../../../assets/imgs/noImages.jpg" >
                   </div>
                 </div>
                 <mat-card-content class="w-100 pt-2 d-flex align-items-center justify-content-between">
