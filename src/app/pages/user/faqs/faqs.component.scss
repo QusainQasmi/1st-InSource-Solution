@@ -11,7 +11,16 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
-
+    filter: brightness(30%);
+}
+.formCenter{
+    position: absolute;
+        margin-top: -617px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      
 }
 .faq-width{
     width: auto;

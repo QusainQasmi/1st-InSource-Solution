@@ -28,7 +28,9 @@ export class FooterComponent {
     { name: '28/A Street, New York, USA', icon: 'home' }
 
   ]
-
+  route(path: string) {
+    window.open(path);
+  }
 
 }
 
