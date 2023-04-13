@@ -22,35 +22,28 @@ export class AddToCartComponent implements OnInit {
   }
 
   setQty(obj?: any , addBool?: boolean){
-    let rowAmount = Number(obj.price.split(' ' , 1)[0]);
-    let amount = Number(obj.amount) || rowAmount;
+    let duplicateData = this.dataSource;
+    let amount = Number(obj.price);
     let count = 1;
-    let addNum = 1;
-    if(addBool){
-      count += Number(addNum);
-      rowAmount += amount;
-      rowAmount = Number(rowAmount.toFixed(2));
-    }
-    else{
-      if(count == 0){
-        this.snackbar.open('Quantity Must Be Greater Than 0' , 'OK' , {
-          duration: 3000
-        });
-         rowAmount = 0;
-         rowAmount.toFixed(2)
+    duplicateData.forEach(x => {
+      if(addBool){
+        x.price =+ amount;
+        count = count + 1;
+        x['qty'] = count; 
       }
       else{
-        count = count - addNum;
-        rowAmount = rowAmount - amount;
-        rowAmount = Number(rowAmount.toFixed(2))
-      }
-    }
-    this.dataSource.forEach((x ,i) => {
-      if(x.id == obj.id){
-        x['qty'] = count
-        x.price = `${rowAmount} $`
+        if(count == 1){
+          this.snackbar.open('Quantity Must Be Equal To 1...!' , 'Ok' , {
+            duration: 3000
+          }) 
+        }
+        else{
+          x.price - amount;
+          count = count - 1;
+        }
       }
     })
+    this.dataSource = duplicateData;
   }
 
   openDetail(obj?: any) {
@@ -73,7 +66,7 @@ export class AddToCartComponent implements OnInit {
   }
 
   ngOnInit() {
-   const data = JSON.parse(JSON.stringify(localStorage.getItem('products')||''));
+   const data = JSON.parse(localStorage.getItem('products')||'');
    if(data){
      this.dataSource = data ? [...data] : [];
      if(this.dataSource && this.dataSource.length < 1){
@@ -86,6 +79,10 @@ export class AddToCartComponent implements OnInit {
     else{
       this.noRecordMsg = true;
     }
+    this.dataSource.forEach(x => {
+      x['qty'] = 1;
+    })
+    console.log(this.dataSource)
   }
 
 }

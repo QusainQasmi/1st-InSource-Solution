@@ -3,6 +3,7 @@ import { ProductsService } from './products.service';
 import { Renderer2 } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DetailsComponent } from '../details/details.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-products',
@@ -26,8 +27,9 @@ export class ProductsComponent implements OnInit , AfterViewInit {
     { name: 'Sort By Average Rating', id: 2 },
     { name: 'Sort By Latest', id: 3 },
   ];
+  saveProducts: any[] = [];
 
-  constructor(public service: ProductsService, private render: Renderer2 , public dialog: MatDialog) {
+  constructor(public service: ProductsService, private render: Renderer2 , public dialog: MatDialog,public snackbar: MatSnackBar) {
 
   }
 
@@ -36,12 +38,6 @@ export class ProductsComponent implements OnInit , AfterViewInit {
     let res = await (await this.service.getCategorys()).toPromise();
     if (res.isSuccessFul) {
       this.categoryData = res.Data && res.Data.length > 0 ? [...res.Data] : [];
-      if(this.categoryData && this.categoryData.length > 0){
-        this.categoryName = this.categoryData[0].categoryName ?? '';
-        if(this.categoryData && this.categoryData[0] && this.categoryData[0].subCategory && this.categoryData[0].subCategory[0]){
-          this.subCategoryName = this.categoryData[0].subCategory[0].subCategoryName ?? '';
-        }
-      }
       this.productsLoader = false;
     }
     else {
@@ -102,9 +98,41 @@ export class ProductsComponent implements OnInit , AfterViewInit {
     console.log(ev);
   }
 
+  addCart(data: any){
+    if(localStorage.getItem('products')){
+      this.saveProducts = JSON.parse(localStorage.getItem('products') || '');
+    }
+    else{
+      this.saveProducts = [];
+    }
+    if(this.saveProducts && this.saveProducts.length > 0){
+      const Index = this.saveProducts.findIndex( x => x.id == data.id );
+      if(Index > -1){
+        this.snackbar.open('Products Already Add Your Cart...!' , 'Ok' , {
+          duration: 4000
+        });
+      }
+      else{
+        this.saveProducts.push(data);
+        this.snackbar.open('Products Add Your Cart...!' , 'Ok' , {
+          duration: 4000
+        })
+      }
+    }
+    else{
+      this.snackbar.open('Products Add Your Cart...!' , 'Ok' , {
+        duration: 4000
+      })
+      this.saveProducts.push(data);
+    }
+    localStorage.setItem('products' , JSON.stringify(this.saveProducts));
+  }
+
   ngOnInit() {
     this.getProductsCardsData();
     this.getCategorysData();
+    this.categoryName = 'All Categories';
+    this.subCategoryName = 'All Sub Categories';
   }
 
   ngAfterViewInit(){

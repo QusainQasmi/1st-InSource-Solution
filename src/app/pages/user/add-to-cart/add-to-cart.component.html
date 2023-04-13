@@ -9,9 +9,14 @@
 
 <div class="container mt-5 pt-3 mb-4">
   <div class="d-flex align-items-center justify-content-between mb-3">
-    <div class="d-flex align-items-center">
-      <p class="heading">Shopping Cart</p>
-      <span class="mb-2 mx-2 cartsCount" matTooltip="Products Count's" *ngIf="dataSource && dataSource.length > 0">( {{ dataSource.length }} )</span>
+    <div class="d-flex align-items-center justify-content-between w-100">
+      <div class="d-flex">
+        <p class="heading">Shopping Cart</p>
+        <span class="mb-2 mx-2 cartsCount" matTooltip="Products Count's" *ngIf="dataSource && dataSource.length > 0">( {{ dataSource.length }} )</span>
+      </div>
+      <div class="">
+        <button mat-raised-button class="checkOut" matTooltip="Order Now" (click)="routeToCheckout()">Checkout</button>
+    </div>
     </div>
   </div>
   <div class="row text-center mb-3" *ngIf="noRecordMsg">
@@ -24,16 +29,16 @@
       <mat-card class="cardShadow mb-4 mt-2 w-100" *ngFor="let card of dataSource">
         <div class="row p-2">
           <div class="col-md-3 px-2 d-flex align-items-center">
-            <img [src]="'../../../assets/imgs/' + card.src" class="mb-2" width="80px" height="80px">
+            <img [src]="card.image_url[0]" class="mb-2 mx-2" width="80px" height="80px">
             <div class="txtAlign mx-2">
               <span class="mb-0 pb-0 titleName"> Name </span>
-              <span class="mb-0 pb-0 txtHeading w-100"> {{card.productName}} </span>
+              <span class="mb-0 pb-0 txtHeading w-100"> {{card.name}} </span>
             </div>
           </div>
           <div class="col-md-4 d-flex align-items-center">
             <div class="txtAlign">
               <span class="mb-0 pb-0 titleName"> Description </span>
-              <span class="mb-0 pb-0 txtHeading w-75" [matTooltip]="card.desc"> {{ card.desc }}</span>
+              <span class="mb-0 pb-0 txtHeading w-100" [matTooltip]="card.description"> {{ card.description }}</span>
             </div>
           </div>
           <div class="col-md-3 d-flex align-items-center justify-content-center">
@@ -111,9 +116,6 @@
         </div>
       </mat-card>
       <div class="row mt-3 px-3">
-        <div class="col-md-12 text-end">
-            <button mat-raised-button class="checkOut" matTooltip="Order Now" (click)="routeToCheckout()">Checkout</button>
-        </div>
         <div class="col-md-6 p-0">
           <img src="../../../../assets/imgs/PayPalLogo" class="paymentImgs">
         </div>
