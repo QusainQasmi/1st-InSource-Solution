@@ -33,6 +33,11 @@
                 <div class="pt-1">
                     <p class="mb-3">Please Sign Up Your Account <a href="" [routerLink]="'/signUp'"> Sign Up </a></p>
                     <button mat-raised-button class="loginBtn mb-1" (click)="login()" [loading]="loginLoader">LOGIN</button>
+                    <div class="col-12 text-center mt-2" *ngIf="resendMailBtn">
+                        <p class="mb-0 resendMsg mt-3" *ngIf="sendMailMessage"> {{sendMailMessage}} </p>
+                        <button mat-raised-button class="loginBtn" [loading]="resendLoader"
+                            (click)="resend()">RESEND</button>
+                    </div>
                 </div>
             </div>
     </div>

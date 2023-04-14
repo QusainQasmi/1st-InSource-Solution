@@ -2,7 +2,7 @@ import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
-import { CategoryService } from '../category/category.service';
+import { NotificationSettingService } from './notification-setting.service';
 
 @Component({
   selector: 'app-notification-setting',
@@ -15,18 +15,22 @@ export class NotificationSettingComponent {
   loader: boolean = false;
   listData: any = [{}];
   saveLoader: boolean = false;
-  displayedColumns: string[] = ['actions' , 'noti'];
-  dataSource = new MatTableDataSource<notificationElements>(data);
+  displayedColumns: string[] = ['actions' , 'notification'];
+  dataSource = new MatTableDataSource<any>();
   tableLoader: boolean = false;
   @ViewChild('form') form!: TemplateRef<any>;
 
-  constructor(public dialog: MatDialog , public service: CategoryService ,public snackbar: MatSnackBar) {}
+  constructor(public dialog: MatDialog , public service: NotificationSettingService ,public snackbar: MatSnackBar) {}
 
-  search(ev: any){
+  search(searchVal: any){
     this.loader = true;
-    setTimeout( ()=> {
-      this.loader = false;
-    }, 2000 )
+    if(searchVal){
+      this.getTableData(searchVal);
+    }
+    else{
+      this.getTableData();
+    }
+    this.loader = false;
   }
 
   onEdit(obj?: any){
@@ -44,15 +48,15 @@ export class NotificationSettingComponent {
   }
 
   async onRemove(obj: any){
-    const res = await (await this.service.deleteCategory(obj.id)).toPromise();
+    const res = await (await this.service.delete(obj.id)).toPromise();
     if(res.isSuccessFul){
       this.snackbar.open('Notifications Delete SuccessFully...!' , 'OK' , {
         duration: 3000
       });
-      // this.getTableData();
+      this.getTableData();
     }
     else{
-      this.snackbar.open(res.Error , 'OK' , {
+      this.snackbar.open(res.Data.message , 'OK' , {
         duration: 3000
       });
     }
@@ -61,20 +65,20 @@ export class NotificationSettingComponent {
   async saveData(){
     this.saveLoader = true;
     const obj = {
-      categoryName: this.model.categoryName
+      notification: this.model.notification
     }
-    const res = await (await this.service.saveCategory(obj)).toPromise();
+    const res = await (await this.service.save(obj)).toPromise();
     if(res.isSuccessFul){
       this.saveLoader = false;
       this.snackbar.open('Notifications Add SuccessFully...!' , 'OK' , {
         duration: 3000
       });
       this.dialog.closeAll();
-      // this.getTableData();
+      this.getTableData();
     }
     else{
       this.saveLoader = false;
-      this.snackbar.open(res.Error , 'OK' , {
+      this.snackbar.open(res.Data.message , 'OK' , {
         duration: 3000
       });
     }
@@ -84,22 +88,37 @@ export class NotificationSettingComponent {
     this.saveLoader = true;
     const obj = {
       id: data.id,
-      categoryName: data.categoryName
+      notification: data.notification
     }
-    const res = await (await this.service.editCategory(obj)).toPromise();
+    const res = await (await this.service.edit(obj)).toPromise();
     if(res.isSuccessFul){
       this.saveLoader = false;
       this.snackbar.open('Notifications Edit SuccessFully...!' , 'OK' , {
         duration: 3000
       });
       this.dialog.closeAll();
-      // this.getTableData();
+      this.getTableData();
     }
     else{
       this.saveLoader = false;
-      this.snackbar.open(res.Error , 'OK' , {
+      this.snackbar.open(res.Data.message , 'OK' , {
         duration: 3000
       });
+    }
+  }
+
+  async getTableData(search?: any){
+    this.tableLoader = true;
+    const res = await (await this.service.getConfig(search)).toPromise();
+    if(res.isSuccessFul){
+      // this.recordCount = res.Headers.get('recordcount');
+      this.listData = res.Data && res.Data.length > 0 ? [...res.Data] : [{}];
+      this.dataSource = this.listData;
+      this.tableLoader = false;
+    }
+    else{
+      this.tableLoader = false;
+      // console.log(res.Error);
     }
   }
 
@@ -108,18 +127,7 @@ export class NotificationSettingComponent {
   }
 
   ngOnInit(){
-    // this.getTableData();
+    this.getTableData();
   }
 
 }
-
-export interface notificationElements {
-  id: number;
-  notification: string;
-}
-
-const data: notificationElements[] = [
-  {id: 1, notification: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, voluptatibus.', },
-  {id: 2, notification: 'Lorem  adipisicing elit. Officia, voluptatibus.',},
-  {id: 3, notification: ' sit amet consectetur adipisicing elit. Officia, voluptatibus.', }
-]

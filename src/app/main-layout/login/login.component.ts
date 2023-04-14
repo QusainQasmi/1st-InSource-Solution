@@ -3,6 +3,7 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { SignUpService } from '../sign-up/sign-up.service';
 import { LoginService } from './login.service';
 
 @Component({
@@ -18,8 +19,11 @@ export class LoginComponent implements OnInit {
   emailValid = new FormControl('', [Validators.required , Validators.email]);
   passValid = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
+  sendMailMessage: boolean = false;
+  resendLoader: boolean = false;
+  resendMailBtn: boolean = false;
 
-  constructor(private router: Router , private service: LoginService , public snackbar: MatSnackBar , public activatedRouter: ActivatedRoute){
+  constructor(private router: Router , private service: LoginService , public signUpService: SignUpService, public snackbar: MatSnackBar , public activatedRouter: ActivatedRoute){
 
   }
 
@@ -49,9 +53,28 @@ export class LoginComponent implements OnInit {
     }
     else{
       this.loginLoader = false;
-      this.snackbar.open(res.Data.message , 'OK' , {
+      this.resendMailBtn = true;
+      console.log(res);
+      this.snackbar.open(res.Error , 'OK' , {
         duration: 3000
        });
+    }
+  }
+
+  async resend() {
+    this.resendLoader = true;
+    const obj = {
+      email: this.model.emailVal
+    }
+    let res = await (await this.signUpService.resendMail(obj)).toPromise();
+    if (res.isSuccessFul) {
+      this.snackbar.open(res.Data.message, 'Ok', {
+        duration: 3000,
+      });
+     this.resendLoader = false;
+    }
+    else {
+      this.resendLoader = false;
     }
   }
 
