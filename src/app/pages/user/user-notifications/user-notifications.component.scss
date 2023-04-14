@@ -1,0 +1,48 @@
+.notification-banner{
+    background: url(../../../../assets/imgs/notifi.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    filter: brightness(30%);
+}
+.mainheading{
+    font-size: 50px;
+    font-family: italic , sans-serif ;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+.para{
+    line-height: 32px;
+    font-size: 20px;
+    color: #fff;
+}
+.center{
+    position: absolute;
+        top: 200px;
+        color: white;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 75vh;
+}
+.cardShadow {
+    box-shadow: 1px 2px 8px 0px rgb(63, 62, 62) !important;
+}
+.box{
+    width: 717px;
+    height: 77px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.head{
+    font-size: 37px;
+    font-weight: 600;
+    color: #1f3d62;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}

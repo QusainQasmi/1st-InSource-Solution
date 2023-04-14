@@ -14,7 +14,7 @@
         <p class="heading">Shopping Cart</p>
         <span class="mb-2 mx-2 cartsCount" matTooltip="Products Count's" *ngIf="dataSource && dataSource.length > 0">( {{ dataSource.length }} )</span>
       </div>
-      <div class="">
+      <div class="" *ngIf="!noRecordMsg">
         <button mat-raised-button class="checkOut" matTooltip="Order Now" (click)="routeToCheckout()">Checkout</button>
     </div>
     </div>
