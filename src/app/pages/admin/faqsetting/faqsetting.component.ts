@@ -107,7 +107,7 @@ export class FaqsettingComponent {
       question: this.model.question,
       answer: this.model.answer
     }
-    const res = await (await this.service.save(obj)).toPromise();
+    const res = await (await this.service.edit(obj)).toPromise();
     if(res.isSuccessFul){
       this.saveLoader = false;
       this.snackbar.open('FAQs Edit SuccessFully...!' , 'OK' , {
