@@ -9,6 +9,9 @@ body { margin: 0; font-family: "Poppins", sans-serif; }
 .box-shabow{
     box-shadow: 2px 2px 40px -5px rgb(63, 62, 62) !important;
 }
+.lightBoxShadow{
+    box-shadow: 1px 2px 8px 0px rgb(63, 62, 62) !important;
+}
 .paraTxt{
     line-height: 32px;
     font-size: 20px;
@@ -55,6 +58,9 @@ body { margin: 0; font-family: "Poppins", sans-serif; }
 }
 .f-w-b{
     font-weight: bold;
+}
+.f-w-500{
+    font-weight: 500;
 }
 .mat-loading .mat-button-wrapper{
     visibility: hidden;
