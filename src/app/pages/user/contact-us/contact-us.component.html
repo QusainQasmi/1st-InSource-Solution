@@ -46,16 +46,17 @@
 
             <mat-form-field class="col-12" appearance="outline">
                 <mat-label>Phone Number</mat-label>
-                <input type="tel" matInput placeholder="555-555-1234">
+                <input type="tel" matInput placeholder="555-555-1234" [(ngModel)]="model.number">
                 <mat-icon matSuffix>call</mat-icon>
             </mat-form-field>
 
             <mat-form-field class="col-12 " appearance="outline">
                 <mat-label>Leave a Comment</mat-label>
-                <textarea matInput placeholder="Ex. It makes me feel..." rows="4"></textarea>
+                <textarea matInput placeholder="Ex. It makes me feel..." rows="4" [(ngModel)]="model.message"></textarea>
             </mat-form-field>
 
-            <button matTooltip="Send" mat-raised-button class="btncontact mt-3">
+            <button matTooltip="Send" mat-raised-button class="btncontact mt-3" 
+             (click)="sendMessage()" [loading]="sendLoader">
                 <mat-icon>arrow_forward</mat-icon>Send Message
             </button>
         </div>

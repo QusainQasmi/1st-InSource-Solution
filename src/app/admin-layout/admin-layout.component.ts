@@ -50,6 +50,11 @@ export class AdminLayoutComponent {
       route:'admin/notificationSetting' 
     },
     {
+      pagesName:'Contact Persons',
+      icon: 'contact_support',
+      route:'admin/contact' 
+    },
+    {
       pagesName:'Media Source',
       icon: 'photo_library',
       route:'admin/imageGallery' 

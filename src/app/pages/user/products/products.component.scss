@@ -92,6 +92,13 @@
     color: #175097;
   }
 
+  .productsTitleEllipsis{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 215px;
+  }
+
   .productsText{
     font-size: 16px;
     letter-spacing: 1px;

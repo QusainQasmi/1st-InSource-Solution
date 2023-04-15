@@ -11,6 +11,11 @@
     font-weight: 900;
     letter-spacing: 1px;
 }
+.heigthNotifications{
+    height: auto;
+    max-height: calc(100vh - 300px);
+    overflow: auto;
+}
 .para{
     line-height: 32px;
     font-size: 20px;

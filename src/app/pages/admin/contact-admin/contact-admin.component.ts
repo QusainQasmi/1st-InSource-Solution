@@ -2,25 +2,25 @@ import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
-import { CategoryService } from '../category/category.service';
-import { CustomerService } from './customer.service';
+import { ContactAdminService } from './contact-admin.service';
 
 @Component({
-  selector: 'app-customer',
-  templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.scss']
+  selector: 'app-contact-admin',
+  templateUrl: './contact-admin.component.html',
+  styleUrls: ['./contact-admin.component.scss']
 })
-export class CustomerComponent {
+export class ContactAdminComponent {
+
   model: any = {};
   loader: boolean = false;
   listData: any = [{}];
   saveLoader: boolean = false;
-  displayedColumns: string[] = ['actions' , 'name', 'email' , 'verify'];
+  displayedColumns: string[] = ['actions' , 'name', 'email' , 'message' , 'phoneNo'];
   dataSource = new MatTableDataSource<any>();
   tableLoader: boolean = false;
   @ViewChild('form') form!: TemplateRef<any>;
 
-  constructor(public dialog: MatDialog , public service: CustomerService ,public snackbar: MatSnackBar) {}
+  constructor(public dialog: MatDialog , public service: ContactAdminService ,public snackbar: MatSnackBar) {}
 
   search(val: any){
     this.loader = true;
@@ -43,6 +43,21 @@ export class CustomerComponent {
     }
   }
 
+  async onRemove(obj: any){
+    const res = await (await this.service.delete(obj.id)).toPromise();
+    if(res.isSuccessFul){
+      this.snackbar.open('Contact Person Delete SuccessFully...!' , 'OK' , {
+        duration: 3000
+      });
+      this.getTableData();
+    }
+    else{
+      this.snackbar.open(res.Error , 'OK' , {
+        duration: 3000
+      });
+    }
+  }
+
   async getTableData(serachVal?: any){
     this.tableLoader = true;
     const res = await (await this.service.getConfig(serachVal)).toPromise();
@@ -62,5 +77,6 @@ export class CustomerComponent {
   ngOnInit(){
     this.getTableData();
   }
+
 
 }

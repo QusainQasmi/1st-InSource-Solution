@@ -66,7 +66,7 @@ export class AddToCartComponent implements OnInit {
   }
 
   ngOnInit() {
-   const data = JSON.parse(JSON.stringify(localStorage.getItem('products'))) || '';
+   const data = JSON.parse(localStorage.getItem('products') ?? '') ?? '';
    if(data){
      this.dataSource = data ? [...data] : [];
      if(this.dataSource && this.dataSource.length < 1){

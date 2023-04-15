@@ -77,6 +77,11 @@ body { margin: 0; font-family: "Poppins", sans-serif; }
     overflow: hidden;
     text-overflow: ellipsis; 
 }
+.simpleEllipsis{
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
 .span-ellipsis{
     text-overflow: ellipsis;
     white-space: nowrap;

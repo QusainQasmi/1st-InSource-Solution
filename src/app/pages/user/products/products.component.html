@@ -85,7 +85,7 @@
               <mat-card class="cardShadow">
                 <div class="d-flex">
                   <div>
-                    <mat-card-title class="p-4 pb-0"> {{ items.name }} </mat-card-title>
+                    <mat-card-title class="p-4 pb-0 productsTitleEllipsis" [matTooltip]="items.name"> {{ items.name }} </mat-card-title>
                     <mat-card-subtitle class="p-4 pt-1 pb-0 ellipsis" [matTooltip]="items.description">{{ items.description }}</mat-card-subtitle>
                   </div>
                   <div class="px-3 pt-2" *ngIf="items.image_url && items.image_url[0]">
