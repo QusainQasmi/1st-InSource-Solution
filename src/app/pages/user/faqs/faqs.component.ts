@@ -26,4 +26,11 @@ export class FaqsComponent implements OnInit {
     this.getTableData();
   }
 
+cardArry: any =[
+  {src: 'chat.png' , name : 'Popular Comment'},
+  {src: 'fast-delivery.png' , name : 'Deliery'},
+  {src: 'return-box.png' , name : 'Return'}
+]
+
+
 }

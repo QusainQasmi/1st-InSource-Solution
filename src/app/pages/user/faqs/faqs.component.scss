@@ -13,15 +13,7 @@
     height: 100vh;
     filter: brightness(30%);
 }
-.formCenter{
-    position: absolute;
-        margin-top: -617px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      
-}
+
 .faq-width{
     width: auto;
     min-width: 777px;
@@ -66,24 +58,35 @@
 mat-form-field{
     width: 100%;
 }
-.btncontact{
-    width: 169px;
-    height: 40px;
-    font-size: 15px;
-    font-weight: 400;
-    color: white !important;
-    background: linear-gradient(to right, #536274 , #122338);
-}
+
 .miniFab{
     background: linear-gradient(to right, #536274 , #122338) !important;
     color: #fff !important;
 }
-.btncontact:hover{
-    background: white !important;
-    color: #1f3d62 !important;
-    border: 2px solid #1f3d62 !important;
-    transition: 0.7 all;
-    font-weight: 600;
-    width: 175px;
+.mainservicetextcenter{
+    position: absolute;
+        margin-top: -442px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;     
 }
+
+.mainHeading{
+    font-size: 50px;
+    font-family: italic , sans-serif ;
+    font-weight: bold;
+}
+.mainpara{
+    line-height: 32px;
+    font-size: 20px;
+    color: #fff;
+}
+.boxPara{
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
 }
