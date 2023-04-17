@@ -1,25 +1,91 @@
+.orderBanner{
+    background: url(../../../../assets/imgs/order.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    filter: brightness(40%);
+}
+.ordercenter{
+    position: absolute;
+        top: 200px;
+        color: white;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 75vh;
+}
+.orderHead{
+    font-size: 50px;
+    font-family: italic , sans-serif ;
+    font-weight: bold;
+}
+.orderpara{
+    line-height: 32px;
+    font-size: 20px;
+    color: #fff;
+}
+.heading{
+    font-size: 37px;
+    font-weight: 600;
+    color: #1f3d62;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
 .cardShadow {
     box-shadow: 1px 2px 8px 0px rgb(63, 62, 62) !important;
 }
+.btnorder{
+    // width: 130px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 400;
+    color: white !important;
+    background: linear-gradient(to right, #536274 , #122338);
+}
 
-.txtAlign {
+.btnorder:hover{
+    background: white !important;
+    color: #1c3758 !important;
+    border: 2px solid #1c3758;
+    // width: 130px;
+    font-weight: 600;
+}
+.orderDisc{
     display: flex;
     flex-direction: column;
-    align-items: start;
+    line-height: 1.8;
 }
-
-.titleName {
-    font-size: 16px;
-    color: gray;
-    font-weight: 600;
+.discrption{
+    font-size: 17px;
+    font-weight: 500;
 }
-
-.name {
-    font-size: 16px;
+.orderName{
+    font-weight: 200;
+    font-size: 17px;
+}
+.orderPrice{
     font-weight: 600;
-    color: #1f3d62;
-    white-space: nowrap;
-    width: 75px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 16px;
+}
+.containerHeigth{
+    height: auto;
+    max-height: calc(100vh - 230px);
+    overflow: auto;
+}
+.alignCenter{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.cardInfo{
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.Clr{
+    background-color: #1f3d62 !important;
+    color: #fff !important;
 }

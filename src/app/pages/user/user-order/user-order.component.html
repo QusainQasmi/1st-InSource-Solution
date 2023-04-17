@@ -1,36 +1,68 @@
-<div class="container mt-5 pt-3">
-    <p class="heading pb-3">See Your Products</p>
-    <div class="row">
-      <div class="col-md-8">
-        <mat-card class="cardShadow">
-          <div class="row p-2">
-            <div class="col-md-3 px-2 d-flex align-items-center">
-              <img src="../../../assets/imgs/card2.png" class="mb-2" width="80px" height="80px">
-              <div class="txtAlign mx-2">
-                <span class="mb-0 pb-0 titleName"> Name </span>
-                <span class="mb-0 pb-0 name"> Mugs </span>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="txtAlign mx-2">
-                <span class="mb-0 pb-0 titleName"> Discriptoin </span>
-                <span class="mb-0 pb-0"> 6-Pcs glass set </span>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="txtAlign mx-2">
-                <span class="mb-0 pb-0 titleName"> Quantity</span>
-                <span class="mb-0 pb-0"> 2-Pcs </span>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="txtAlign mx-2 ">
-                <span class="mb-0 pb-0 titleName"> Duration </span>
-                <span class="mb-0 pb-0"> 1 Day Left </span>
-              </div>
-            </div>
+<div class="orderBanner"></div>
+
+
+<div class="text-center ordercenter">
+  <h1 class=" mt-5 orderHead">
+    Orders
+  </h1>
+  <p class="mt-3 orderpara w-75"> The seller usually expects immediate payment by cash, check or credit card for these
+    purchases, and the seller provides the buyer with a receipt for the payment. In legal terms, this form of business
+    order is an "implied in fact contract".</p>
+</div>
+
+<h1 class="heading text-center my-5">See Yours Orders</h1>
+
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-md-8 containerHeigth">
+      <div class="box cardShadow p-3 orderName b-r-8px mt-2" *ngFor="let card of cardArry">
+        <div class=" d-flex justify-content-between align-items-center my-2">
+          <span>Shakak Traders WholeSale Merchandiser</span>
+          <span class="">{{card.id}}</span>
+        </div>
+        <div class="row d-flex justify-content-center align-items-center">
+          <div class="col-md-2 text-center">
+            <img [src]="'../../../../assets/imgs/' + card.src " width="100px" height="100px">
           </div>
-        </mat-card>
+          <div class="col-md-8 orderDisc">
+            <span class="discrption simpleEllipsis">{{card.disc}}</span>
+            <span class="orderName">{{card.name}}</span>
+            <span class="orderPrice">{{card.price}}</span>
+          </div>
+          <div class="col-md-2">
+            <button matTooltip="Delete Order" mat-raised-button class="btnorder mt-3">
+              <mat-icon>delete</mat-icon>Delete
+            </button>
+
+          </div>
+        </div>
       </div>
     </div>
+
+    <div class="col-md-4">
+      <div class="b-r-8px cardShadow p-4 orderName">
+        <span class="cardInfo ">Customer Info</span>
+        <span class="alignCenter mt-3"> <mat-icon class="mx-2">person_pin_circle</mat-icon> Qusain Qasmi</span>
+        <span class="alignCenter "><mat-icon class="mx-2">phone</mat-icon> 0349-5257821</span>
+        <span class="alignCenter"><mat-icon class="mx-2">home</mat-icon> House-13 Street-67 Block-7</span>
+        <span class="alignCenter"><mat-icon class="mx-2">mail</mat-icon> Shakaktraders123@gmail.com</span>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container mb-5 mt-4">
+  <div class="row mt-4">
+      <h1 class="heading text-center mt-4 pb-3">Most Related Products</h1>
+      <ng-image-slider [images]="imgsData" [showArrow]="false" [infinite]="false" [autoSlide]="1"
+          [imageSize]="{width: '23%', height: 200}" slideImage="1" #nav>
+      </ng-image-slider>
+      <div class="text-center">
+          <button class="mx-2 Clr" mat-mini-fab (click)="prevImg()"><mat-icon>arrow_back</mat-icon></button>
+          <button class="Clr" mat-mini-fab (click)="nextImg()"><mat-icon>arrow_forward</mat-icon></button>
+      </div>
+  </div>
 </div>
